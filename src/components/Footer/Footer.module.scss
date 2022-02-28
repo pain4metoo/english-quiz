@@ -1,0 +1,30 @@
+@import "../../styles/variables.scss";
+
+.footer {
+  flex: 0 0 auto;
+  background: $color-bg;
+  &_inner {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+  }
+}
+
+.authors {
+  margin-right: 3rem;
+}
+
+.names {
+  font-weight: 100;
+  font-size: 1.5rem;
+  color: $color-progress;
+  margin: 0;
+}
+
+.year {
+  font-weight: 100;
+  font-size: 1.5rem;
+  color: $color-progress;
+  margin: 0;
+  margin-left: 3rem;
+}

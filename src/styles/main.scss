@@ -1,0 +1,28 @@
+@import "./variables.scss";
+@import "./fonts.scss";
+@import "../../node_modules/normalize.css/normalize.css";
+
+*,
+*::after,
+*::before {
+  box-sizing: inherit;
+}
+
+html {
+  box-sizing: border-box;
+  font-size: 10px;
+  height: 100%;
+}
+
+body {
+  font-family: $font-main;
+  @extend %font-default;
+  height: 100%;
+  background: grey;
+}
+
+.wrapper {
+  display: flex;
+  flex-direction: column;
+  height: 100vh;
+}

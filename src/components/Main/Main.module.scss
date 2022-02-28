@@ -1,0 +1,11 @@
+@import "../../styles/variables.scss";
+
+.main {
+  flex: 1 0 auto;
+}
+
+.container {
+  max-width: 120rem;
+  margin: 0 auto;
+  padding: 0;
+}
