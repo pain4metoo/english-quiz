@@ -7,12 +7,20 @@ const Footer = () => {
       <div className={styles.footer_inner}>
         <p className={styles.year}>2022</p>
         <div className={styles.authors}>
-          <p className={`${styles.design} ${styles.names}`}>
-            design by Yana Solovoyava
-          </p>
-          <p className={`${styles.developer} ${styles.names}`}>
+          <a
+            className={`${styles.design} ${styles.names}`}
+            href="https://www.behance.net/yanasolovyfac9/moodboards"
+            target="blank"
+          >
+            design by Yana Solovyova
+          </a>
+          <a
+            className={`${styles.developer} ${styles.names}`}
+            href="https://github.com/pain4metoo"
+            target="blank"
+          >
             made by pain4metoo
-          </p>
+          </a>
         </div>
       </div>
     </footer>
