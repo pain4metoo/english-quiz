@@ -9,12 +9,9 @@
     justify-content: space-between;
     align-items: center;
   }
-}
-
-.logo {
-  width: 5rem;
-  height: 5rem;
-  margin-left: 3rem;
+  &_logo {
+    margin-left: 3rem;
+  }
 }
 
 .menu {

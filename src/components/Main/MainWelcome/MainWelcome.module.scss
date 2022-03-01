@@ -16,7 +16,7 @@
     margin: 0;
     height: 85vh;
     font-weight: 100;
-    background: radial-gradient(#a23982, #1f1013);
+    background: white;
     -webkit-overflow-y: hidden;
     -moz-overflow-y: hidden;
     -o-overflow-y: hidden;
@@ -49,6 +49,7 @@
     border: 2px solid white;
     background: transparent;
     color: $color-text;
+    border: 1px solid black;
     width: 25rem;
     font-size: 4rem;
     height: 6rem;

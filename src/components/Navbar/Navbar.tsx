@@ -5,12 +5,12 @@ import styles from "./Navbar.module.scss";
 const Navbar = () => {
   return (
     <ul className={styles.items}>
-      <li className={styles.item}>
+      {/* <li className={styles.item}>
         <NavLink
           className={styles.link}
           to="/welcome"
           style={({ isActive }) => ({
-            color: isActive ? "#539bf5" : "white",
+            color: isActive ? "#539bf5" : "black",
           })}
         >
           Главная
@@ -21,7 +21,7 @@ const Navbar = () => {
           className={styles.link}
           to="/score"
           style={({ isActive }) => ({
-            color: isActive ? "#539bf5" : "white",
+            color: isActive ? "#539bf5" : "black",
           })}
         >
           Очки
@@ -32,18 +32,18 @@ const Navbar = () => {
           className={styles.link}
           to="/instruction"
           style={({ isActive }) => ({
-            color: isActive ? "#539bf5" : "white",
+            color: isActive ? "#539bf5" : "black",
           })}
         >
           Инструкция
         </NavLink>
-      </li>
+      </li> */}
       <li className={styles.item}>
         <NavLink
           className={styles.link}
           to="/settings"
           style={({ isActive }) => ({
-            color: isActive ? "#539bf5" : "white",
+            color: isActive ? "#539bf5" : "black",
           })}
         >
           Настройки
