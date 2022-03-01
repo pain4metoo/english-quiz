@@ -7,8 +7,8 @@ import MainEnglishLevel from "./MainEnglishLevel/MainEnglishLevel";
 const Main = () => {
   return (
     <main className={styles.main}>
-      <MainWelcome />
-      {/* <MainEnglishLevel /> */}
+      {/* <MainWelcome /> */}
+      <MainEnglishLevel />
     </main>
   );
 };
