@@ -1,7 +1,7 @@
 {
   "files": {
-    "main.css": "/english-quiz/static/css/main.c79f0428.css",
-    "main.js": "/english-quiz/static/js/main.ed9d8220.js",
+    "main.css": "/english-quiz/static/css/main.f6a76a0b.css",
+    "main.js": "/english-quiz/static/js/main.180e5b6c.js",
     "static/media/welcome.gif": "/english-quiz/static/media/welcome.4e69735b05321fe4184b.gif",
     "static/media/Gilroy-Thin.eot": "/english-quiz/static/media/Gilroy-Thin.a479c0c1f98e90a6d9f5.eot",
     "static/media/Gilroy-Thin.ttf": "/english-quiz/static/media/Gilroy-Thin.fc813b757bc09eb509dc.ttf",
@@ -12,13 +12,12 @@
     "static/media/Gilroy-Semibold.woff": "/english-quiz/static/media/Gilroy-Semibold.5b042906a8b58ec4633e.woff",
     "static/media/Gilroy-Thin.woff": "/english-quiz/static/media/Gilroy-Thin.4b118de09ea43bdca930.woff",
     "static/media/Gilroy-Regular.woff": "/english-quiz/static/media/Gilroy-Regular.ebe86c0337572553acea.woff",
-    "static/media/logo.png": "/english-quiz/static/media/logo.d2fb720204262a52c148.png",
     "index.html": "/english-quiz/index.html",
-    "main.c79f0428.css.map": "/english-quiz/static/css/main.c79f0428.css.map",
-    "main.ed9d8220.js.map": "/english-quiz/static/js/main.ed9d8220.js.map"
+    "main.f6a76a0b.css.map": "/english-quiz/static/css/main.f6a76a0b.css.map",
+    "main.180e5b6c.js.map": "/english-quiz/static/js/main.180e5b6c.js.map"
   },
   "entrypoints": [
-    "static/css/main.c79f0428.css",
-    "static/js/main.ed9d8220.js"
+    "static/css/main.f6a76a0b.css",
+    "static/js/main.180e5b6c.js"
   ]
 }
