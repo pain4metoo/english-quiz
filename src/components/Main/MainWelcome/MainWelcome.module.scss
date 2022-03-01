@@ -1,10 +1,69 @@
 @import "../../../styles/variables.scss";
 
 .welcome {
-  &_window {
+  &_figure {
     width: 100%;
-    height: 50rem;
-    background: $color-bg1;
     margin: 5rem 0;
+    background: url("../../../assets/gif/welcome.gif");
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    margin: 0 auto;
+    width: 40rem;
+    height: 40rem;
+  }
+  &_bg {
+    margin: 0;
+    height: 85vh;
+    font-weight: 100;
+    background: radial-gradient(#a23982, #1f1013);
+    -webkit-overflow-y: hidden;
+    -moz-overflow-y: hidden;
+    -o-overflow-y: hidden;
+    overflow-y: hidden;
+    -webkit-animation: fadeIn 1 1s ease-out;
+    -moz-animation: fadeIn 1 1s ease-out;
+    -o-animation: fadeIn 1 1s ease-out;
+    animation: fadeIn 1 1s ease-out;
+  }
+  &_inner {
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+  }
+  &_text {
+    @extend %font-title;
+    color: $color-text;
+    max-width: 60rem;
+    width: 100%;
+    border: none;
+    outline: none;
+    background-color: rgba($color-hover, 0);
+    opacity: 0.5;
+    text-align: center;
+    &::placeholder {
+      color: $color-text;
+    }
+  }
+  &_btn {
+    border: 2px solid white;
+    background: transparent;
+    color: $color-text;
+    width: 25rem;
+    font-size: 4rem;
+    height: 6rem;
+    border-radius: 5px;
+    opacity: 0.5;
+    transition: 0.3s;
+    margin-top: 4rem;
+    &:hover {
+      border: 2px solid pink;
+      background-color: rgba(365, 365, 365, 0.5);
+      cursor: pointer;
+      color: $color-hover;
+      opacity: 0.8;
+      transition: 0.3s;
+      box-shadow: 0 8px 16px 0 rgba(0, 0, 0, 0.2);
+    }
   }
 }

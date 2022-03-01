@@ -3,6 +3,7 @@
 .footer {
   flex: 0 0 auto;
   background: $color-bg;
+  height: 7.5vh;
   &_inner {
     display: flex;
     justify-content: space-between;
@@ -11,7 +12,7 @@
 }
 
 .authors {
-  margin: 1rem 3rem 1rem 0;
+  margin: 2rem 3rem 1rem 0;
 }
 
 .names {
@@ -19,6 +20,7 @@
   font-size: 1.3rem;
   color: $color-text;
   margin: 0;
+  opacity: 0.7;
   display: block;
   text-decoration: none;
   transition: all 0.5s;
@@ -32,6 +34,6 @@
   font-weight: 100;
   font-size: 1.4rem;
   color: $color-text;
-  margin: 0;
-  margin-left: 3rem;
+  opacity: 0.7;
+  margin: 2rem 0 0 3rem;
 }

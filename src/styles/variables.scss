@@ -1,9 +1,9 @@
 $font-main: "Gilroy", sans-serif;
 
-$color-bg: #22272e;
+$color-bg: radial-gradient(#a23982, #1f1013);
 $color-bg1: #539bf5;
 $color-hover: #539bf5;
-$color-text: #08fdd8;
+$color-text: white;
 
 %font-default {
   font-size: 2rem;
@@ -19,7 +19,7 @@ $color-text: #08fdd8;
 }
 
 %font-title {
-  font-size: 3rem;
-  line-height: 4.2rem;
+  font-size: 5rem;
+  line-height: 6.2rem;
   font-weight: 600;
 }

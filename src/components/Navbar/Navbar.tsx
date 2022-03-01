@@ -10,7 +10,7 @@ const Navbar = () => {
           className={styles.link}
           to="/welcome"
           style={({ isActive }) => ({
-            color: isActive ? "#539bf5" : "#08fdd8",
+            color: isActive ? "#539bf5" : "white",
           })}
         >
           Главная
@@ -21,7 +21,7 @@ const Navbar = () => {
           className={styles.link}
           to="/score"
           style={({ isActive }) => ({
-            color: isActive ? "#539bf5" : "#08fdd8",
+            color: isActive ? "#539bf5" : "white",
           })}
         >
           Очки
@@ -32,7 +32,7 @@ const Navbar = () => {
           className={styles.link}
           to="/instruction"
           style={({ isActive }) => ({
-            color: isActive ? "#539bf5" : "#08fdd8",
+            color: isActive ? "#539bf5" : "white",
           })}
         >
           Инструкция
@@ -43,7 +43,7 @@ const Navbar = () => {
           className={styles.link}
           to="/settings"
           style={({ isActive }) => ({
-            color: isActive ? "#539bf5" : "#08fdd8",
+            color: isActive ? "#539bf5" : "white",
           })}
         >
           Настройки

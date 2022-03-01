@@ -3,6 +3,7 @@
 .header {
   flex: 0 0 auto;
   background: $color-bg;
+  height: 7.5vh;
   &_inner {
     display: flex;
     justify-content: space-between;
