@@ -15,15 +15,22 @@
     cursor: pointer;
     margin-right: 5rem;
     transition: all 0.5s;
+    animation-direction: alternate-reverse;
+    animation-timing-function: linear;
+    animation-iteration-count: infinite;
+    animation-duration: 5s;
   }
   &_card_1 {
     background: linear-gradient(90deg, #e2ddff, #f3e1f7 50%, #ece8fe);
+    animation-name: up;
   }
   &_card_2 {
     background: linear-gradient(45deg, #f8dfdc, #fbede2 50%, #f8dfdc);
+    animation-name: down;
   }
   &_card_3 {
     background: linear-gradient(45deg, #e4f8eb, #e1f6ef 50%, #dcebed);
+    animation-name: up;
   }
   &_img {
     width: 6rem;
@@ -45,7 +52,6 @@
   &_btn {
     background: transparent;
     border: 1px solid #000;
-    border-radius: 5px;
     color: #000;
     font-size: 4rem;
     height: 6rem;
@@ -53,6 +59,7 @@
     opacity: 0.5;
     transition: 0.5s;
     width: 25rem;
+    border-radius: 4rem;
     cursor: pointer;
     &:hover {
       border: 2px solid pink;
@@ -61,5 +68,39 @@
       opacity: 0.8;
       transition: 0.3s;
     }
+  }
+}
+
+@keyframes up {
+  0% {
+    transform: translateY(-6px);
+  }
+  100% {
+    transform: translateY(6px);
+  }
+}
+@-webkit-keyframes up {
+  0% {
+    transform: translateY(-6px);
+  }
+  100% {
+    transform: translateY(6px);
+  }
+}
+
+@keyframes down {
+  0% {
+    transform: translateY(6px);
+  }
+  100% {
+    transform: translateY(-6px);
+  }
+}
+@-webkit-keyframes down {
+  0% {
+    transform: translateY(-6px);
+  }
+  100% {
+    transform: translateY(6px);
   }
 }
