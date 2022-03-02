@@ -1,8 +1,7 @@
 {
   "files": {
-    "main.css": "/english-quiz/static/css/main.f6a76a0b.css",
-    "main.js": "/english-quiz/static/js/main.180e5b6c.js",
-    "static/media/welcome.gif": "/english-quiz/static/media/welcome.4e69735b05321fe4184b.gif",
+    "main.css": "/english-quiz/static/css/main.38a00d04.css",
+    "main.js": "/english-quiz/static/js/main.c333068a.js",
     "static/media/Gilroy-Thin.eot": "/english-quiz/static/media/Gilroy-Thin.a479c0c1f98e90a6d9f5.eot",
     "static/media/Gilroy-Thin.ttf": "/english-quiz/static/media/Gilroy-Thin.fc813b757bc09eb509dc.ttf",
     "static/media/Gilroy-Regular.eot": "/english-quiz/static/media/Gilroy-Regular.19055ba082a9f78262f6.eot",
@@ -12,12 +11,15 @@
     "static/media/Gilroy-Semibold.woff": "/english-quiz/static/media/Gilroy-Semibold.5b042906a8b58ec4633e.woff",
     "static/media/Gilroy-Thin.woff": "/english-quiz/static/media/Gilroy-Thin.4b118de09ea43bdca930.woff",
     "static/media/Gilroy-Regular.woff": "/english-quiz/static/media/Gilroy-Regular.ebe86c0337572553acea.woff",
+    "static/media/level-2.svg": "/english-quiz/static/media/level-2.717a919d11f574fd97fd879abe2fd673.svg",
+    "static/media/level-1.svg": "/english-quiz/static/media/level-1.f3028019a7b2922a4bd060bcdb774221.svg",
+    "static/media/level-3.svg": "/english-quiz/static/media/level-3.50f3936252f828ea827fd6cf33c8df1a.svg",
     "index.html": "/english-quiz/index.html",
-    "main.f6a76a0b.css.map": "/english-quiz/static/css/main.f6a76a0b.css.map",
-    "main.180e5b6c.js.map": "/english-quiz/static/js/main.180e5b6c.js.map"
+    "main.38a00d04.css.map": "/english-quiz/static/css/main.38a00d04.css.map",
+    "main.c333068a.js.map": "/english-quiz/static/js/main.c333068a.js.map"
   },
   "entrypoints": [
-    "static/css/main.f6a76a0b.css",
-    "static/js/main.180e5b6c.js"
+    "static/css/main.38a00d04.css",
+    "static/js/main.c333068a.js"
   ]
 }
