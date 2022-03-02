@@ -3,17 +3,18 @@
 .header {
   flex: 0 0 auto;
   background: $color-bg;
-  height: 7.5vh;
+  height: 12vh;
+  padding-top: 4rem;
   &_inner {
     display: flex;
-    justify-content: space-between;
     align-items: center;
+    justify-content: space-between;
   }
   &_logo {
-    margin-left: 3rem;
+    margin-left: 15rem;
   }
 }
 
 .menu {
-  margin-right: 5rem;
+  margin-right: 15rem;
 }

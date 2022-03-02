@@ -46,7 +46,7 @@ const Navbar = () => {
             color: isActive ? "#539bf5" : "black",
           })}
         >
-          Настройки
+          настройки
         </NavLink>
       </li>
     </ul>

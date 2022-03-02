@@ -14,7 +14,7 @@ const MainWelcome = () => {
             type="text"
             placeholder="Введите ваше имя.."
           />
-          <button className={styles.welcome_btn}>Далее</button>
+          <button className={styles.welcome_btn}>далее</button>
         </div>
       </div>
     </section>

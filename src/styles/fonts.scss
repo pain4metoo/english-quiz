@@ -1,26 +1,35 @@
 @font-face {
-  font-family: "Gilroy";
-  src: url("../assets/fonts/Gilroy-Thin.eot");
-  src: local("☺"), url("../assets/fonts/Gilroy-Thin.woff") format("woff"),
-    url("../assets/fonts/Gilroy-Thin.ttf") format("truetype");
-  font-weight: 100;
-  font-style: normal;
-}
-
-@font-face {
-  font-family: "Gilroy";
-  src: url("../assets/fonts/Gilroy-Regular.eot");
-  src: local("☺"), url("../assets/fonts/Gilroy-Regular.woff") format("woff"),
-    url("../assets/fonts/Gilroy-Regular.ttf") format("truetype");
+  font-family: "TT-Norms-Pro";
+  src: url("../assets/fonts/TTNormsPro-Regular.eot"),
+    url("../assets/fonts/TTNormsPro-Regular.eot?#iefix")
+      format("embedded-opentype"),
+    url("../assets/fonts/TTNormsPro-Regular.woff2") format("woff2"),
+    url("../assets/fonts/TTNormsPro-Regular.woff") format("woff"),
+    url("../assets/fonts/TTNormsPro-Regular.ttf") format("truetype");
   font-weight: 400;
   font-style: normal;
 }
 
 @font-face {
-  font-family: "Gilroy";
-  src: url("../assets/fonts/Gilroy-Semibold.eot");
-  src: local("☺"), url("../assets/fonts/Gilroy-Semibold.woff") format("woff"),
-    url("../assets/fonts/Gilroy-Semibold.ttf") format("truetype");
-  font-weight: 600;
+  font-family: "TT-Norms-Pro";
+  src: url("../assets/fonts/TTNormsPro-Medium.eot"),
+    url("../assets/fonts/TTNormsPro-Medium.eot?#iefix")
+      format("embedded-opentype"),
+    url("../assets/fonts/TTNormsPro-Medium.woff2") format("woff2"),
+    url("../assets/fonts/TTNormsPro-Medium.woff") format("woff"),
+    url("../assets/fonts/TTNormsPro-Medium.ttf") format("truetype");
+  font-weight: 500;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: "TT-Norms-Pro";
+  src: url("../assets/fonts/TTNormsPro-Bold.eot"),
+    url("../assets/fonts/TTNormsPro-Bold.eot?#iefix")
+      format("embedded-opentype"),
+    url("../assets/fonts/TTNormsPro-Bold.woff2") format("woff2"),
+    url("../assets/fonts/TTNormsPro-Bold.woff") format("woff"),
+    url("../assets/fonts/TTNormsPro-Bold.ttf") format("truetype");
+  font-weight: bold;
   font-style: normal;
 }

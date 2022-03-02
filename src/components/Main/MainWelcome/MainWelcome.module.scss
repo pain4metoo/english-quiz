@@ -11,7 +11,7 @@
     background-position: center;
     background-repeat: no-repeat;
     animation: 10s linear 0s normal none infinite running rotate;
-  -webkit-animation: 10s linear 0s normal none infinite running rotate;
+    -webkit-animation: 10s linear 0s normal none infinite running rotate;
   }
   &_bg {
     margin: 0;
@@ -33,7 +33,9 @@
     flex-direction: column;
   }
   &_text {
-    @extend %font-title;
+    font-size: 6rem;
+    line-height: 8.4rem;
+    font-weight: 500;
     color: $color-text;
     max-width: 60rem;
     width: 100%;
@@ -47,25 +49,19 @@
     }
   }
   &_btn {
-    border: 2px solid white;
+    @extend %font-btn;
     background: transparent;
     color: $color-text;
     border: 1px solid black;
-    width: 25rem;
+    width: 34.5rem;
     font-size: 4rem;
-    height: 6rem;
-    opacity: 0.5;
-    transition: 0.3s;
+    height: 7.5rem;
+    cursor: pointer;
     margin-top: 4rem;
     border-radius: 4rem;
+    transition: ease-out 0.5s;
     &:hover {
-      border: 2px solid pink;
-      background-color: rgba(365, 365, 365, 0.5);
-      cursor: pointer;
-      color: $color-hover;
-      opacity: 0.8;
-      transition: 0.3s;
-      box-shadow: 0 8px 16px 0 rgba(0, 0, 0, 0.2);
+      @extend %btn-hover;
     }
   }
 }
