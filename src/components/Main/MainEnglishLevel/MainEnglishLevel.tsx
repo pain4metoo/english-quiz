@@ -1,12 +1,21 @@
-import React from "react";
+import React, { createRef } from "react";
 import styles from "./MainEnglishLevel.module.scss";
 // import { Routes, Route } from "react-router-dom";
 import MainWelcomeBg from "../MainWelcome/MainWelcomeBg/MainWelcomeBg";
 import levelImg1 from "../../../assets/svg/level-1.svg";
 import levelImg2 from "../../../assets/svg/level-2.svg";
 import levelImg3 from "../../../assets/svg/level-3.svg";
+import { NavLink } from "react-router-dom";
 
-const MainEnglishLevel = () => {
+const MainEnglishLevel = (props: any) => {
+  const updateLevel = (e: any) => {
+    const body = e.target.textContent;
+
+    console.log(body);
+
+    // props.addLevel(body.dataset.level);
+  };
+
   return (
     <section className={styles.english}>
       <MainWelcomeBg />
@@ -26,9 +35,14 @@ const MainEnglishLevel = () => {
               менее 1500 слов.Вы можете понимать и использовать повседневные
               выражения.
             </p>
-            <button className={styles.english_btn} type="button">
+            <NavLink
+              to="/profile"
+              className={styles.english_btn}
+              type="button"
+              onClick={updateLevel}
+            >
               выбрать
-            </button>
+            </NavLink>
           </div>
 
           <div className={`${styles.english_card} ${styles.english_card_2}`}>
@@ -41,9 +55,14 @@ const MainEnglishLevel = () => {
               слов. Вы можете правильно понимаеть суть высказываний на знакомые
               вам темы.
             </p>
-            <button className={styles.english_btn} type="button">
+            <NavLink
+              to="/profile"
+              className={styles.english_btn}
+              type="button"
+              onClick={updateLevel}
+            >
               выбрать
-            </button>
+            </NavLink>
           </div>
 
           <div className={`${styles.english_card} ${styles.english_card_3}`}>
@@ -56,9 +75,14 @@ const MainEnglishLevel = () => {
               Самый высокий уровень, вы: понимаете практически все услышанное и
               прочитанное.
             </p>
-            <button className={styles.english_btn} type="button">
+            <NavLink
+              to="/profile"
+              className={styles.english_btn}
+              type="button"
+              onClick={updateLevel}
+            >
               выбрать
-            </button>
+            </NavLink>
           </div>
         </div>
       </div>

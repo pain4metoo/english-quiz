@@ -17,8 +17,8 @@ let mapDispatchToProps = (dispatch: any) => {
     addName: () => {
       dispatch(addNameActionCreator());
     },
-    updateText: (text: string) => {
-      dispatch(updateNameTextActionCreator);
+    updateText: (body: string) => {
+      dispatch(updateNameTextActionCreator(body));
     },
   };
 };

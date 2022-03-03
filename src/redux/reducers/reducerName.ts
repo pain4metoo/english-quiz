@@ -12,14 +12,21 @@ const initialState: Name = {
 };
 
 const nameReducer = (state = initialState, action: any) => {
+  let stateCopy = JSON.parse(JSON.stringify(state));
   switch (action.type) {
     case "ADD_NAME":
-      return { ...state, name: action.name };
+      let name = {
+        name: state.name,
+        newNameText: state.newNameText,
+      };
+      stateCopy.name = name.newNameText;
+      stateCopy.newNameText = "";
+      return stateCopy;
     case "UPDATE_NAME":
-      return { ...state, name: (action.newNameText += action.newNameText) };
-
+      stateCopy.newNameText = action.newNameText;
+      return stateCopy;
     default:
-      return state;
+      return stateCopy;
   }
 };
 
@@ -27,7 +34,7 @@ export const addNameActionCreator = () => ({ type: ADD_NAME });
 
 export const updateNameTextActionCreator = (text: string) => ({
   type: UPDATE_NAME,
-  name: text,
+  newNameText: text,
 });
 
 export default nameReducer;

@@ -1,17 +1,21 @@
 import React from "react";
 import styles from "./Main.module.scss";
-import MainWelcome from "./MainWelcome/MainWelcome";
-import MainEnglishLevel from "./MainEnglishLevel/MainEnglishLevel";
-import MainProfile from "./MainProfile/MainProfile";
-// import { Routes, Route } from "react-router-dom";
+
+import MainWelcomeContainer from "./MainWelcome/MainWelcomeContainer";
+import MainEnglishLevelContainer from "./MainEnglishLevel/MainEnglishLevel";
+import MainProfileContainer from "./MainProfile/MainProfileContainer";
+
+import { Routes, Route } from "react-router-dom";
 
 const Main = () => {
   return (
     <main className={styles.main}>
       <div className={styles.container}>
-        <MainWelcome />
-        {/* <MainEnglishLevel /> */}
-        {/* <MainProfile /> */}
+        <Routes>
+          <Route path="/english-quiz" element={<MainWelcomeContainer />} />
+          <Route path="/level" element={<MainEnglishLevelContainer />} />
+          <Route path="/profile" element={<MainProfileContainer />} />
+        </Routes>
       </div>
     </main>
   );

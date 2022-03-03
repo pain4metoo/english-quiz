@@ -1,38 +1,39 @@
 import React from "react";
-import { useDispatch, useSelector } from "react-redux";
 import styles from "./MainWelcome.module.scss";
-import MainWelcomeContainer from "./MainWelcomeContainer";
+import MainWelcomeBg from "./MainWelcomeBg/MainWelcomeBg";
+import { NavLink } from "react-router-dom";
 
 const MainWelcome = (props: any) => {
-  const addName = (text: any) => {
+  const addNameStore = () => {
     props.addName();
   };
 
   const updateName = (e: any) => {
     let body = e.target.value;
 
-    props.updateNameTextActionCreator(body);
+    props.updateText(body);
   };
 
   return (
     <section className={styles.welcome}>
       <div className={styles.welcome_bg}>
         <div className={styles.welcome_figure}></div>
-        <MainWelcomeContainer />
+        <MainWelcomeBg />
         <div className={styles.welcome_inner}>
           <input
             className={styles.welcome_text}
             type="text"
             placeholder="Введите ваше имя.."
             value={props.newNameText}
+            onChange={updateName}
           />
-          <button
+          <NavLink
             className={styles.welcome_btn}
-            type="button"
-            onClick={addName}
+            to="/level"
+            onClick={addNameStore}
           >
             далее
-          </button>
+          </NavLink>
         </div>
       </div>
     </section>

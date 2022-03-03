@@ -1,7 +1,7 @@
 import React from "react";
 import styles from "./MainProfile.module.scss";
 
-const MainProfile = () => {
+const MainProfile = (props: any) => {
   return (
     <section className={styles.profile}>
       <div className={styles.profile_inner}>
@@ -10,7 +10,7 @@ const MainProfile = () => {
           <div className={styles.profile_info}>
             <div className={styles.profile_name_inner}>
               <p className={styles.profile_name}>Ваше имя:</p>
-              <p className={styles.profile_name_text}>Екатерина вторая</p>
+              <p className={styles.profile_name_text}>{props.name.name}</p>
             </div>
 
             <div className={styles.profile_level_inner}>

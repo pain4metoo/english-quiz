@@ -23,6 +23,7 @@
   &_card_1 {
     background: #e3ddfe;
     animation-name: up;
+    opacity: 1;
   }
   &_card_2 {
     background: #ffeecd;
@@ -51,7 +52,6 @@
       position: absolute;
       height: 0.4rem;
       width: 100%;
-
       left: 0;
       top: -2rem;
     }
@@ -90,6 +90,9 @@
   &_btn {
     @extend %font-btn;
     background: transparent;
+    text-decoration: none;
+    padding: 2rem;
+    text-align: center;
     border: 1px solid #000000;
     color: #000;
     height: 7.5rem;

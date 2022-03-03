@@ -50,11 +50,14 @@
   }
   &_btn {
     @extend %font-btn;
+    font-size: 3rem;
+    text-decoration: none;
+    text-align: center;
     background: transparent;
     color: $color-text;
     border: 1px solid black;
     width: 34.5rem;
-    font-size: 4rem;
+    padding-top: 2rem;
     height: 7.5rem;
     cursor: pointer;
     margin-top: 4rem;
