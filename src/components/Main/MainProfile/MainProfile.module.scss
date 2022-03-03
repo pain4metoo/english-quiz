@@ -1,0 +1,102 @@
+@import "../../../styles/variables.scss";
+
+.profile {
+  margin-top: 5rem;
+  &_inner {
+    width: 100%;
+    background: wheat;
+  }
+  &_info_inner {
+    padding: 2rem;
+    display: flex;
+  }
+  &_info {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    margin-left: 2rem;
+    width: 100%;
+  }
+  &_avatar {
+    background: url("../../../assets/image/avatar.jpg");
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    width: 20rem;
+    height: 23.5rem;
+  }
+  &_name_inner {
+    display: flex;
+    align-items: center;
+  }
+  &_name {
+    @extend %font-default;
+    margin: 0;
+  }
+  &_name_text {
+    @extend %font-default;
+    margin: 0;
+    margin-left: 1rem;
+  }
+  &_level_inner {
+    display: flex;
+    align-items: center;
+  }
+  &_level {
+    @extend %font-default;
+  }
+  &_level_text {
+    @extend %font-default;
+    margin-left: 1rem;
+  }
+  &_progress {
+    margin-top: 8.5rem;
+  }
+  &_progress_text {
+    display: inline;
+  }
+  &_progress_text_value {
+    display: inline;
+    margin-left: 1rem;
+  }
+  &_progress_line {
+    width: 100%;
+    background: #ffffff;
+    height: 0.5rem;
+    cursor: pointer;
+    transition: all 0.5s;
+    border-radius: 0.5rem;
+    margin-top: 2rem;
+  }
+  &_progress_line_inner {
+    background: #ff2253;
+    height: 0.5rem;
+    transition: all 0.5s;
+    width: 17%;
+    border-radius: 0.5rem;
+  }
+  &_btns {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-top: 15rem;
+    width: 100%;
+  }
+  &_btn {
+    @extend %font-btn;
+    background: transparent;
+    border: 1px solid #000000;
+    color: #000;
+    height: 7.5rem;
+    width: 32rem;
+    border-radius: 4rem;
+    cursor: pointer;
+    transition: ease 0.5s;
+    &:hover {
+      @extend %btn-hover;
+    }
+    &:active {
+      @extend %btn-hover;
+    }
+  }
+}
