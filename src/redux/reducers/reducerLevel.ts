@@ -1,30 +1,30 @@
+import { addLocalLevel, getLocalLevel } from "./../../services/auth.service";
+
 let CHANGE_LEVEL = "CHANGE_LEVEL";
 
 interface Level {
-  level: string;
+  stage: string | null;
 }
 
 const initialState: Level = {
-  level: "Начальный",
+  stage: getLocalLevel,
 };
 
 const levelReducer = (state = initialState, action: any) => {
   let stateCopy = JSON.parse(JSON.stringify(state));
   switch (action.type) {
     case "CHANGE_LEVEL":
-      let level = {
-        level: state.level,
-      };
-      stateCopy.level = level.level;
+      let level = (stateCopy.stage = action.stage);
+      addLocalLevel(level);
       return stateCopy;
     default:
       return stateCopy;
   }
 };
 
-export const updateLevelActionCreator = (text: string) => ({
+export const addLevelActionCreator = (text: string) => ({
   type: CHANGE_LEVEL,
-  level: text,
+  stage: text,
 });
 
 export default levelReducer;

@@ -4,6 +4,7 @@ import { connect } from "react-redux";
 let mapStatetoProps = (state: any) => {
   return {
     name: state.name,
+    stage: state.stage,
   };
 };
 

@@ -15,7 +15,7 @@ const MainProfile = (props: any) => {
 
             <div className={styles.profile_level_inner}>
               <p className={styles.profile_level}>Уровень английского:</p>
-              <p className={styles.profile_level_text}>Начинающий</p>
+              <p className={styles.profile_level_text}>{props.stage.stage}</p>
             </div>
 
             <div className={styles.profile_progress}>

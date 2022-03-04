@@ -4,7 +4,7 @@ import nameReducer from "../reducers/reducerName";
 
 let reducers = combineReducers({
   name: nameReducer,
-  level: levelReducer,
+  stage: levelReducer,
 });
 
 let store = createStore(reducers);

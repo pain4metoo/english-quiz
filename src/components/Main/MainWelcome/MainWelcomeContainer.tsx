@@ -2,6 +2,7 @@ import MainWelcome from "./MainWelcome";
 import {
   addNameActionCreator,
   updateNameTextActionCreator,
+  changeUrlActionCreator,
 } from "../../../redux/reducers/reducerName";
 import { connect } from "react-redux";
 
@@ -9,6 +10,7 @@ let mapStatetoProps = (state: any) => {
   return {
     name: state.name,
     newNameText: state.newNameText,
+    url: state.url,
   };
 };
 
@@ -19,6 +21,9 @@ let mapDispatchToProps = (dispatch: any) => {
     },
     updateText: (body: string) => {
       dispatch(updateNameTextActionCreator(body));
+    },
+    changeUrl: () => {
+      dispatch(changeUrlActionCreator());
     },
   };
 };

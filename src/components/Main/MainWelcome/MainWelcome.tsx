@@ -6,6 +6,7 @@ import { NavLink } from "react-router-dom";
 const MainWelcome = (props: any) => {
   const addNameStore = () => {
     props.addName();
+    props.changeUrl();
   };
 
   const updateName = (e: any) => {

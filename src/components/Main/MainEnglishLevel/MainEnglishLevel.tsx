@@ -1,4 +1,4 @@
-import React, { createRef } from "react";
+import React from "react";
 import styles from "./MainEnglishLevel.module.scss";
 // import { Routes, Route } from "react-router-dom";
 import MainWelcomeBg from "../MainWelcome/MainWelcomeBg/MainWelcomeBg";
@@ -8,12 +8,18 @@ import levelImg3 from "../../../assets/svg/level-3.svg";
 import { NavLink } from "react-router-dom";
 
 const MainEnglishLevel = (props: any) => {
-  const updateLevel = (e: any) => {
-    const body = e.target.textContent;
+  const handlerClickEasyLevel = () => {
+    let level = "начальный";
+    props.addLevel(level);
+  };
+  const handlerClickMediumLevel = () => {
+    let level = "средний";
+    props.addLevel(level);
+  };
 
-    console.log(body);
-
-    // props.addLevel(body.dataset.level);
+  const handlerClickExpertLevel = () => {
+    let level = "продвинутый";
+    props.addLevel(level);
   };
 
   return (
@@ -39,7 +45,7 @@ const MainEnglishLevel = (props: any) => {
               to="/profile"
               className={styles.english_btn}
               type="button"
-              onClick={updateLevel}
+              onClick={handlerClickEasyLevel}
             >
               выбрать
             </NavLink>
@@ -59,7 +65,7 @@ const MainEnglishLevel = (props: any) => {
               to="/profile"
               className={styles.english_btn}
               type="button"
-              onClick={updateLevel}
+              onClick={handlerClickMediumLevel}
             >
               выбрать
             </NavLink>
@@ -79,7 +85,7 @@ const MainEnglishLevel = (props: any) => {
               to="/profile"
               className={styles.english_btn}
               type="button"
-              onClick={updateLevel}
+              onClick={handlerClickExpertLevel}
             >
               выбрать
             </NavLink>

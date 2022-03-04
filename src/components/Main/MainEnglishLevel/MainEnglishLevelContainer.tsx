@@ -1,17 +1,17 @@
 import MainEnglishLevel from "./MainEnglishLevel";
-import { updateLevelActionCreator } from "../../../redux/reducers/reducerLevel";
+import { addLevelActionCreator } from "../../../redux/reducers/reducerLevel";
 import { connect } from "react-redux";
 
 let mapStatetoProps = (state: any) => {
   return {
-    level: state.level,
+    stage: state.stage,
   };
 };
 
 let mapDispatchToProps = (dispatch: any) => {
   return {
     addLevel: (body: string) => {
-      dispatch(updateLevelActionCreator(body));
+      dispatch(addLevelActionCreator(body));
     },
   };
 };
