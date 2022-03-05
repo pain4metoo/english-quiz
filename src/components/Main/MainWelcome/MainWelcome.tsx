@@ -6,13 +6,25 @@ import { NavLink } from "react-router-dom";
 const MainWelcome = (props: any) => {
   const addNameStore = () => {
     props.addName();
-    props.changeUrl();
+    validation();
   };
 
   const updateName = (e: any) => {
     let body = e.target.value;
-
+    props.validation(body.length);
     props.updateText(body);
+    validation();
+  };
+
+  const validation = () => {
+    let flag = props.validationName;
+    if (flag) {
+      return `${styles.welcome_text_true}`;
+    } else if (flag === null) {
+      return "";
+    } else if (!flag) {
+      return `${styles.welcome_text_error}`;
+    }
   };
 
   return (
@@ -22,7 +34,7 @@ const MainWelcome = (props: any) => {
         <MainWelcomeBg />
         <div className={styles.welcome_inner}>
           <input
-            className={styles.welcome_text}
+            className={`${styles.welcome_text} ${validation()}`}
             type="text"
             placeholder="Введите ваше имя.."
             value={props.newNameText}
@@ -30,7 +42,7 @@ const MainWelcome = (props: any) => {
           />
           <NavLink
             className={styles.welcome_btn}
-            to="/level"
+            to={props.url}
             onClick={addNameStore}
           >
             далее

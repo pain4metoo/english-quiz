@@ -31,7 +31,11 @@ const MainEnglishLevel = (props: any) => {
           Какой у вас уровень английского?
         </h2>
         <div className={styles.english_cards}>
-          <div className={`${styles.english_card} ${styles.english_card_1}`}>
+          <NavLink
+            to="/profile"
+            className={`${styles.english_card} ${styles.english_card_1}`}
+            onClick={handlerClickEasyLevel}
+          >
             <img className={styles.english_img} src={levelImg1} alt="card" />
             <p className={`${styles.english_level} ${styles.english_level_1}`}>
               Начальный
@@ -41,17 +45,16 @@ const MainEnglishLevel = (props: any) => {
               менее 1500 слов.Вы можете понимать и использовать повседневные
               выражения.
             </p>
-            <NavLink
-              to="/profile"
-              className={styles.english_btn}
-              type="button"
-              onClick={handlerClickEasyLevel}
-            >
+            <button className={styles.english_btn} type="button">
               выбрать
-            </NavLink>
-          </div>
+            </button>
+          </NavLink>
 
-          <div className={`${styles.english_card} ${styles.english_card_2}`}>
+          <NavLink
+            to="/profile"
+            className={`${styles.english_card} ${styles.english_card_2}`}
+            onClick={handlerClickMediumLevel}
+          >
             <img className={styles.english_img} src={levelImg2} alt="card" />
             <p className={`${styles.english_level} ${styles.english_level_2}`}>
               Средний
@@ -61,17 +64,16 @@ const MainEnglishLevel = (props: any) => {
               слов. Вы можете правильно понимаеть суть высказываний на знакомые
               вам темы.
             </p>
-            <NavLink
-              to="/profile"
-              className={styles.english_btn}
-              type="button"
-              onClick={handlerClickMediumLevel}
-            >
+            <button className={styles.english_btn} type="button">
               выбрать
-            </NavLink>
-          </div>
+            </button>
+          </NavLink>
 
-          <div className={`${styles.english_card} ${styles.english_card_3}`}>
+          <NavLink
+            to="/profile"
+            className={`${styles.english_card} ${styles.english_card_3}`}
+            onClick={handlerClickExpertLevel}
+          >
             <img className={styles.english_img} src={levelImg3} alt="card" />
             <p className={`${styles.english_level} ${styles.english_level_3}`}>
               Продвинутый
@@ -81,15 +83,10 @@ const MainEnglishLevel = (props: any) => {
               Самый высокий уровень, вы: понимаете практически все услышанное и
               прочитанное.
             </p>
-            <NavLink
-              to="/profile"
-              className={styles.english_btn}
-              type="button"
-              onClick={handlerClickExpertLevel}
-            >
+            <button className={styles.english_btn} type="button">
               выбрать
-            </NavLink>
-          </div>
+            </button>
+          </NavLink>
         </div>
       </div>
     </section>

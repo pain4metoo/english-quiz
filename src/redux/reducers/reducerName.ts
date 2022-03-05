@@ -2,20 +2,21 @@ import { getLocalName, addLocalUser } from "../../services/auth.service";
 
 let ADD_NAME = "ADD_NAME";
 let UPDATE_NAME = "UPDATE_NAME";
-let CHANGE_URL = "CHANGE_URL";
+let VALIDATION_NAME = "VALIDATION_NAME";
 
 interface Name {
   name: string | null;
   newNameText: string | null;
-  url: any;
+  url: string;
+  login: boolean | null;
 }
 
 const initialState: Name = {
   name: getLocalName,
   newNameText: getLocalName,
-  url: getLocalName ? "/level" : "/english-quiz",
+  url: "/english-quiz",
+  login: null,
 };
-
 
 const nameReducer = (state = initialState, action: any) => {
   let stateCopy = JSON.parse(JSON.stringify(state));
@@ -25,20 +26,24 @@ const nameReducer = (state = initialState, action: any) => {
         name: state.name,
         newNameText: state.newNameText,
       };
-      stateCopy.name = name.newNameText;
+      if (!action.length) {
+        stateCopy.login = false;
+        stateCopy.url = "/english-quiz";
+      }
 
+      stateCopy.name = name.newNameText;
       stateCopy.newNameText = "";
       return stateCopy;
     case "UPDATE_NAME":
       let user = (stateCopy.newNameText = action.newNameText);
       addLocalUser(user);
       return stateCopy;
-    case "CHANGE_URL":
-      let levelUrl = {
-        url: state.url,
-      };
-      console.log(state)
-      stateCopy.url = levelUrl.url;
+    case "VALIDATION_NAME":
+      if (action.length > 0) {
+        stateCopy.login = true;
+        stateCopy.url = "/level";
+      }
+
       return stateCopy;
 
     default:
@@ -53,8 +58,9 @@ export const updateNameTextActionCreator = (text: string) => ({
   newNameText: text,
 });
 
-export const changeUrlActionCreator = () => ({
-  type: CHANGE_URL,
+export const validationName = (length: number) => ({
+  type: VALIDATION_NAME,
+  length: length,
 });
 
 export default nameReducer;
