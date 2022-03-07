@@ -4,14 +4,14 @@ import ReactDOM from "react-dom";
 import Header from "./components/Header/Header";
 import Footer from "./components/Footer/Footer";
 import Main from "./components/Main/Main";
-import { BrowserRouter } from "react-router-dom";
+import { HashRouter } from "react-router-dom";
 import { Provider } from "react-redux";
 import store from "./redux/store/store";
 
 const AppContainer = () => {
   return (
     <StrictMode>
-      <BrowserRouter>
+      <HashRouter>
         <Provider store={store}>
           <div className="wrapper">
             <Header />
@@ -19,7 +19,7 @@ const AppContainer = () => {
             <Footer />
           </div>
         </Provider>
-      </BrowserRouter>
+      </HashRouter>
     </StrictMode>
   );
 };
