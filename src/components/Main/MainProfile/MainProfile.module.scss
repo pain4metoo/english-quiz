@@ -4,7 +4,9 @@
   margin-top: 5rem;
   &_inner {
     width: 100%;
-    background: wheat;
+    border: 1px solid black;
+    border-radius: 4rem;
+    min-height: 55vh;
   }
   &_info_inner {
     padding: 2rem;
@@ -22,31 +24,28 @@
     background-size: cover;
     background-position: center;
     background-repeat: no-repeat;
-    width: 20rem;
-    height: 23.5rem;
-  }
-  &_name_inner {
-    display: flex;
-    align-items: center;
+    width: 27rem;
+    height: 22rem;
+    border-radius: 50%;
   }
   &_name {
-    @extend %font-default;
-    margin: 0;
+    @extend %font-title;
+    margin-bottom: 2rem;
   }
   &_name_text {
-    @extend %font-default;
+    @extend %font-title;
     margin: 0;
     margin-left: 1rem;
   }
-  &_level_inner {
-    display: flex;
-    align-items: center;
-  }
   &_level {
-    @extend %font-default;
+    font-size: 3rem;
+    line-height: 5rem;
+    font-weight: bold;
   }
   &_level_text {
-    @extend %font-default;
+    font-size: 3rem;
+    line-height: 5rem;
+    font-weight: bold;
     margin-left: 1rem;
   }
   &_progress {
@@ -75,12 +74,10 @@
     width: 17%;
     border-radius: 0.5rem;
   }
-  &_btns {
+  &_btn_inner {
     display: flex;
-    justify-content: space-between;
-    align-items: center;
-    margin-top: 15rem;
-    width: 100%;
+    justify-content: center;
+    margin-top: 3rem;
   }
   &_btn {
     @extend %font-btn;

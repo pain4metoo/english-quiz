@@ -1,9 +1,9 @@
 import "./styles/main.scss";
 import React, { StrictMode } from "react";
 import ReactDOM from "react-dom";
-import Header from "./components/Header/Header";
 import Footer from "./components/Footer/Footer";
 import Main from "./components/Main/Main";
+import HeaderContainer from "./components/Header/HeaderContainer";
 import { HashRouter } from "react-router-dom";
 import { Provider } from "react-redux";
 import store from "./redux/store/store";
@@ -14,7 +14,7 @@ const AppContainer = () => {
       <HashRouter>
         <Provider store={store}>
           <div className="wrapper">
-            <Header />
+            <HeaderContainer />
             <Main />
             <Footer />
           </div>

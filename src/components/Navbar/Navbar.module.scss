@@ -13,3 +13,12 @@
   text-decoration: none;
   transition: all 0.5s;
 }
+
+.item{
+  margin-right: 3rem;
+}
+
+.item:last-of-type{
+  margin-right: 0;
+}
+

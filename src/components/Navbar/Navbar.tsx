@@ -5,15 +5,15 @@ import styles from "./Navbar.module.scss";
 const Navbar = () => {
   return (
     <ul className={styles.items}>
-      {/* <li className={styles.item}>
+      <li className={styles.item}>
         <NavLink
           className={styles.link}
-          to="/welcome"
+          to="/profile"
           style={({ isActive }) => ({
             color: isActive ? "#539bf5" : "black",
           })}
         >
-          Главная
+          главная
         </NavLink>
       </li>
       <li className={styles.item}>
@@ -24,7 +24,7 @@ const Navbar = () => {
             color: isActive ? "#539bf5" : "black",
           })}
         >
-          Очки
+          очки
         </NavLink>
       </li>
       <li className={styles.item}>
@@ -35,9 +35,9 @@ const Navbar = () => {
             color: isActive ? "#539bf5" : "black",
           })}
         >
-          Инструкция
+          инструкция
         </NavLink>
-      </li> */}
+      </li>
       <li className={styles.item}>
         <NavLink
           className={styles.link}

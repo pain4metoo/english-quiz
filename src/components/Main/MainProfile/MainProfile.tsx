@@ -13,14 +13,18 @@ const MainProfile = (props: any) => {
         <div className={styles.profile_info_inner}>
           <div className={styles.profile_avatar}></div>
           <div className={styles.profile_info}>
-            <div className={styles.profile_name_inner}>
-              <p className={styles.profile_name}>Ваше имя:</p>
-              <p className={styles.profile_name_text}>{props.name.name}</p>
+            <div className={styles.profile_name}>
+              Добро пожаловать,
+              <span className={styles.profile_name_text}>
+                {props.name.name}!
+              </span>
             </div>
 
-            <div className={styles.profile_level_inner}>
-              <p className={styles.profile_level}>Уровень английского:</p>
-              <p className={styles.profile_level_text}>{props.stage.stage}</p>
+            <div className={styles.profile_level}>
+              Ваш уровень английского:
+              <span className={styles.profile_level_text}>
+                {props.stage.stage}
+              </span>
             </div>
 
             <div className={styles.profile_progress}>
@@ -30,23 +34,13 @@ const MainProfile = (props: any) => {
                 <div className={styles.profile_progress_line_inner}></div>
               </div>
             </div>
-
-            <div className={styles.profile_btns}>
-              <button
-                className={`${styles.profile_btn_score} ${styles.profile_btn}`}
-                type="button"
-              >
-                очки
-              </button>
-              <button
-                className={`${styles.profile_btns_game} ${styles.profile_btn}`}
-                type="button"
-              >
-                начать игру
-              </button>
-            </div>
           </div>
         </div>
+      </div>
+      <div className={styles.profile_btn_inner}>
+        <button className={`${styles.profile_btn}`} type="button">
+          начать игру
+        </button>
       </div>
     </section>
   );

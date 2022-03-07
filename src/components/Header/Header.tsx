@@ -3,16 +3,22 @@ import styles from "./Header.module.scss";
 import Navbar from "../Navbar/Navbar";
 import { NavLink } from "react-router-dom";
 
-const Header = () => {
+const Header = (props: any) => {
+  const showHeader = () => {
+    if (props.isAuthName && props.isAuthLevel) {
+      return <Navbar />;
+    }
+  };
+
   return (
     <header className={styles.header}>
-      <div className={styles.header_inner}>
-        <NavLink to="/profile" className={styles.header_logo}>
-          EN.CL
-        </NavLink>
-        <nav className={styles.menu}>
-          <Navbar />
-        </nav>
+      <div className={styles.container}>
+        <div className={styles.header_inner}>
+          <NavLink to="/profile" className={styles.header_logo}>
+            EN.CL
+          </NavLink>
+          <nav className={styles.menu}>{showHeader()}</nav>
+        </div>
       </div>
     </header>
   );
