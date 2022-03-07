@@ -2,15 +2,16 @@ import MainWelcome from "./MainWelcome";
 import {
   addNameActionCreator,
   updateNameTextActionCreator,
-  validationName,
+  validNameActionCreator,
 } from "../../../redux/reducers/reducerName";
 import { connect } from "react-redux";
 
 let mapStatetoProps = (state: any) => {
   return {
     name: state.name,
-    validationName: state.name.login,
     url: state.name.url,
+    isAuthLevel: state.stage.isAuthLevel,
+    isAuthName: state.name.isAuthName,
   };
 };
 
@@ -22,8 +23,8 @@ let mapDispatchToProps = (dispatch: any) => {
     updateText: (body: string) => {
       dispatch(updateNameTextActionCreator(body));
     },
-    validation: (length: number) => {
-      dispatch(validationName(length));
+    validName: (length: number) => {
+      dispatch(validNameActionCreator(length));
     },
   };
 };

@@ -1,21 +1,26 @@
-import { getLocalName, addLocalUser } from "../../services/auth.service";
+import {
+  getLocalName,
+  addLocalUser,
+  getLocalAuthName,
+  isAuthName,
+} from "../../services/auth.service";
 
 let ADD_NAME = "ADD_NAME";
 let UPDATE_NAME = "UPDATE_NAME";
-let VALIDATION_NAME = "VALIDATION_NAME";
+let VALID_NAME = "VALID_NAME";
 
 interface Name {
   name: string | null;
   newNameText: string | null;
   url: string;
-  login: boolean | null;
+  isAuthName: any;
 }
 
 const initialState: Name = {
   name: getLocalName,
   newNameText: getLocalName,
   url: "/english-quiz",
-  login: null,
+  isAuthName: getLocalAuthName,
 };
 
 const nameReducer = (state = initialState, action: any) => {
@@ -26,25 +31,27 @@ const nameReducer = (state = initialState, action: any) => {
         name: state.name,
         newNameText: state.newNameText,
       };
-      if (!action.length) {
-        stateCopy.login = false;
+      if (!state.isAuthName) {
+        stateCopy.isAuthName = false;
         stateCopy.url = "/english-quiz";
       }
-
       stateCopy.name = name.newNameText;
-      stateCopy.newNameText = "";
       return stateCopy;
     case "UPDATE_NAME":
       let user = (stateCopy.newNameText = action.newNameText);
       addLocalUser(user);
+      isAuthName(true);
       return stateCopy;
-    case "VALIDATION_NAME":
+    case "VALID_NAME":
       if (action.length > 0) {
-        stateCopy.login = true;
         stateCopy.url = "/level";
+        stateCopy.isAuthName = true;
+        return stateCopy;
+      } else {
+        stateCopy.url = "/english-quiz";
+        stateCopy.isAuthName = false;
+        return stateCopy;
       }
-
-      return stateCopy;
 
     default:
       return stateCopy;
@@ -58,8 +65,8 @@ export const updateNameTextActionCreator = (text: string) => ({
   newNameText: text,
 });
 
-export const validationName = (length: number) => ({
-  type: VALIDATION_NAME,
+export const validNameActionCreator = (length: number) => ({
+  type: VALID_NAME,
   length: length,
 });
 

@@ -5,9 +5,10 @@ import MainWelcomeBg from "../MainWelcome/MainWelcomeBg/MainWelcomeBg";
 import levelImg1 from "../../../assets/svg/level-1.svg";
 import levelImg2 from "../../../assets/svg/level-2.svg";
 import levelImg3 from "../../../assets/svg/level-3.svg";
-import { NavLink } from "react-router-dom";
+import { NavLink, Navigate } from "react-router-dom";
 
 const MainEnglishLevel = (props: any) => {
+  console.log(props);
   const handlerClickEasyLevel = () => {
     let level = "начальный";
     props.addLevel(level);
@@ -21,6 +22,12 @@ const MainEnglishLevel = (props: any) => {
     let level = "продвинутый";
     props.addLevel(level);
   };
+
+  if (!props.isAuthName) {
+    return <Navigate to="/english-quiz" />;
+  } else if (props.isAuthLevel) {
+    return <Navigate to="/profile" />;
+  }
 
   return (
     <section className={styles.english}>

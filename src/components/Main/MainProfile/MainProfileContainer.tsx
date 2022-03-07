@@ -5,6 +5,8 @@ let mapStatetoProps = (state: any) => {
   return {
     name: state.name,
     stage: state.stage,
+    isAuthLevel: state.stage.isAuthLevel,
+    isAuthName: state.name.isAuthName,
   };
 };
 

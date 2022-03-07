@@ -1,7 +1,12 @@
 import React from "react";
 import styles from "./MainProfile.module.scss";
+import { Navigate } from "react-router-dom";
 
 const MainProfile = (props: any) => {
+  if (!props.isAuthLevel) {
+    return <Navigate to="/english-quiz" />;
+  }
+
   return (
     <section className={styles.profile}>
       <div className={styles.profile_inner}>

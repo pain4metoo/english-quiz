@@ -2,30 +2,33 @@ import React from "react";
 import styles from "./MainWelcome.module.scss";
 import MainWelcomeBg from "./MainWelcomeBg/MainWelcomeBg";
 import { NavLink } from "react-router-dom";
+import { Navigate } from "react-router-dom";
 
 const MainWelcome = (props: any) => {
   const addNameStore = () => {
     props.addName();
-    validation();
   };
 
   const updateName = (e: any) => {
     let body = e.target.value;
-    props.validation(body.length);
+    props.validName(body.length);
     props.updateText(body);
-    validation();
   };
 
   const validation = () => {
-    let flag = props.validationName;
-    if (flag) {
-      return `${styles.welcome_text_true}`;
-    } else if (flag === null) {
+    let flag = props.name.isAuthName;
+    if (flag === null) {
       return "";
-    } else if (!flag) {
+    } else if (flag) {
+      return `${styles.welcome_text_true}`;
+    } else {
       return `${styles.welcome_text_error}`;
     }
   };
+
+  if (props.isAuthName && props.isAuthLevel) {
+    return <Navigate to="/profile" />;
+  }
 
   return (
     <section className={styles.welcome}>
