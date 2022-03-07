@@ -11,7 +11,7 @@ const Main = (props: any) => {
     <main className={styles.main}>
       <div className={styles.container}>
         <Routes>
-          <Route path="/english-quiz" element={<MainWelcomeContainer />} />
+          <Route path="/" element={<MainWelcomeContainer />} />
           <Route path="/level" element={<MainEnglishLevelContainer />} />
           <Route path="/profile" element={<MainProfileContainer />} />
         </Routes>

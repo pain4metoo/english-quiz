@@ -24,7 +24,7 @@ const MainEnglishLevel = (props: any) => {
   };
 
   if (!props.isAuthName) {
-    return <Navigate to="/english-quiz" />;
+    return <Navigate to="/" />;
   } else if (props.isAuthLevel) {
     return <Navigate to="/profile" />;
   }
@@ -52,7 +52,7 @@ const MainEnglishLevel = (props: any) => {
               менее 1500 слов.Вы можете понимать и использовать повседневные
               выражения.
             </p>
-            <button className={styles.english_btn} type="button">
+            <button className={`${styles.english_btn} ${styles.english_btn_1}`} type="button">
               выбрать
             </button>
           </NavLink>
@@ -71,7 +71,7 @@ const MainEnglishLevel = (props: any) => {
               слов. Вы можете правильно понимаеть суть высказываний на знакомые
               вам темы.
             </p>
-            <button className={styles.english_btn} type="button">
+            <button className={`${styles.english_btn} ${styles.english_btn_2}`} type="button">
               выбрать
             </button>
           </NavLink>
@@ -90,7 +90,7 @@ const MainEnglishLevel = (props: any) => {
               Самый высокий уровень, вы: понимаете практически все услышанное и
               прочитанное.
             </p>
-            <button className={styles.english_btn} type="button">
+            <button className={`${styles.english_btn} ${styles.english_btn_3}`} type="button">
               выбрать
             </button>
           </NavLink>

@@ -4,7 +4,7 @@ import { Navigate } from "react-router-dom";
 
 const MainProfile = (props: any) => {
   if (!props.isAuthLevel) {
-    return <Navigate to="/english-quiz" />;
+    return <Navigate to="/" />;
   }
 
   return (

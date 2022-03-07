@@ -103,17 +103,43 @@
     border-radius: 4rem;
     cursor: pointer;
     transition: ease 0.5s;
+  }
+  &_btn_1 {
     &:hover {
-      @extend %btn-hover;
+      background: #8d79fd;
     }
     &:active {
-      @extend %btn-hover;
+      background: #8d79fd;
+    }
+  }
+  &_btn_2 {
+    &:hover {
+      background: #feb941;
+    }
+    &:active {
+      background: #feb941;
+    }
+  }
+  &_btn_3 {
+    &:hover {
+      background: #8de0ba;
+    }
+    &:active {
+      background: #8de0ba;
     }
   }
 }
 
-.english_card:hover .english_btn{
-  @extend %btn-hover;
+.english_card:hover .english_btn_1 {
+  background: #8d79fd;
+}
+
+.english_card:hover .english_btn_2 {
+  background: #feb941;
+}
+
+.english_card:hover .english_btn_3 {
+  background: #8de0ba;
 }
 
 @keyframes up {

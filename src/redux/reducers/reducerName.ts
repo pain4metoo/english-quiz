@@ -19,7 +19,7 @@ interface Name {
 const initialState: Name = {
   name: getLocalName,
   newNameText: getLocalName,
-  url: "/english-quiz",
+  url: "/",
   isAuthName: getLocalAuthName,
 };
 
@@ -33,7 +33,7 @@ const nameReducer = (state = initialState, action: any) => {
       };
       if (!state.isAuthName) {
         stateCopy.isAuthName = false;
-        stateCopy.url = "/english-quiz";
+        stateCopy.url = "/";
       }
       stateCopy.name = name.newNameText;
       return stateCopy;
@@ -48,7 +48,7 @@ const nameReducer = (state = initialState, action: any) => {
         stateCopy.isAuthName = true;
         return stateCopy;
       } else {
-        stateCopy.url = "/english-quiz";
+        stateCopy.url = "/";
         stateCopy.isAuthName = false;
         return stateCopy;
       }
