@@ -6,6 +6,7 @@ import MainWelcomeContainer from "./MainWelcome/MainWelcomeContainer";
 import MainEnglishLevelContainer from "./MainEnglishLevel/MainEnglishLevelContainer";
 import MainProfileContainer from "./MainProfile/MainProfileContainer";
 import MainInstructionContainer from "./MainInstruction/MainInstructionContainer";
+import MainSettingsContainer from "./MainSettings/MainSettingsContainer";
 import { Routes, Route } from "react-router-dom";
 
 const Main = (props: any) => {
@@ -18,6 +19,7 @@ const Main = (props: any) => {
           <Route path="/level" element={<MainEnglishLevelContainer />} />
           <Route path="/profile" element={<MainProfileContainer />} />
           <Route path="/instruction" element={<MainInstructionContainer />} />
+          <Route path="/settings" element={<MainSettingsContainer />} />
         </Routes>
       </div>
     </main>

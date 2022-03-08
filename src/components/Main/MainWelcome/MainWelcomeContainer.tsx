@@ -4,6 +4,7 @@ import {
   updateNameTextActionCreator,
   validNameActionCreator,
 } from "../../../redux/reducers/reducerName";
+import { addLevelActionCreator } from "../../../redux/reducers/reducerLevel";
 import { connect } from "react-redux";
 
 let mapStatetoProps = (state: any) => {
@@ -15,7 +16,7 @@ let mapStatetoProps = (state: any) => {
   };
 };
 
-let mapDispatchToProps = (dispatch: any) => {
+export let mapDispatchToProps = (dispatch: any) => {
   return {
     addName: () => {
       dispatch(addNameActionCreator());
@@ -25,6 +26,9 @@ let mapDispatchToProps = (dispatch: any) => {
     },
     validName: (length: number) => {
       dispatch(validNameActionCreator(length));
+    },
+    updateLevel: (level: string) => {
+      dispatch(addLevelActionCreator(level));
     },
   };
 };

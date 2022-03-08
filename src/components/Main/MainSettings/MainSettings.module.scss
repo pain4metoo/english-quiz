@@ -1,0 +1,107 @@
+@import "../../../styles/variables.scss";
+
+.settings {
+  margin-top: 5rem;
+  &_inner {
+    width: 100%;
+    border: 1px solid black;
+    border-radius: 4rem;
+    min-height: 55vh;
+    padding: 2rem;
+  }
+  &_block {
+    display: flex;
+
+    justify-content: space-between;
+  }
+  &_title {
+    text-align: center;
+  }
+  &_anim_description {
+    margin-left: 2rem;
+  }
+  &_theme_description {
+    margin-left: 2rem;
+  }
+  &_lang_description {
+    margin-left: 2rem;
+  }
+  &_range {
+    display: block;
+    width: 30rem;
+    height: 3px;
+    outline: none;
+    -webkit-appearance: none;
+    transition: ease-in-out 0.5s;
+    cursor: pointer;
+    background: $color-hover;
+    margin-bottom: 2rem;
+    transition: all 0.5s;
+  }
+  &_volume {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+  }
+  &_btns {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    margin-top: 5rem;
+  }
+  &_btn {
+    background: transparent;
+    border: 1px solid #000000;
+    color: #000;
+    height: 7.5rem;
+    width: 32rem;
+    border-radius: 4rem;
+    cursor: pointer;
+    transition: ease 0.5s;
+    &:hover {
+      border-color: black;
+      background: #000000;
+      color: #ffffff;
+    }
+  }
+}
+
+.center {
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+}
+
+input[type="checkbox"] {
+  width: 10rem;
+  height: 5rem;
+  -webkit-appearance: none;
+  -moz-appearance: none;
+  background: #c6c6c6;
+  outline: none;
+  border-radius: 50px;
+  box-shadow: inset 0 0 5px rgba(0, 0, 0, 0.2);
+  transition: 0.5s;
+  position: relative;
+  cursor: pointer;
+}
+input:checked[type="checkbox"] {
+  background: #02a9f4;
+}
+input[type="checkbox"]::before {
+  content: "";
+  position: absolute;
+  width: 5rem;
+  height: 5rem;
+  border-radius: 50%;
+  top: 0;
+  left: 0;
+  background: #fff;
+  transform: scale(1.1);
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
+  transition: 0.5s;
+  cursor: pointer;
+}
+input:checked[type="checkbox"]::before {
+  left: 5rem;
+}
