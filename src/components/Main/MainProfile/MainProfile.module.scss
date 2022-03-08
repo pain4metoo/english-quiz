@@ -82,6 +82,9 @@
   &_btn {
     @extend %font-btn;
     background: transparent;
+    text-decoration: none;
+    text-align: center;
+    padding-top: 2rem;
     border: 1px solid #000000;
     color: #000;
     height: 7.5rem;

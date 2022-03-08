@@ -7,17 +7,7 @@ import levelImg3 from "../../../assets/svg/level-3.svg";
 import { NavLink, Navigate } from "react-router-dom";
 
 const MainEnglishLevel = (props: any) => {
-  const handlerClickEasyLevel = () => {
-    let level = "начальный";
-    props.addLevel(level);
-  };
-  const handlerClickMediumLevel = () => {
-    let level = "средний";
-    props.addLevel(level);
-  };
-
-  const handlerClickExpertLevel = () => {
-    let level = "продвинутый";
+  const handlerClick = (level: string) => {
     props.addLevel(level);
   };
 
@@ -37,7 +27,7 @@ const MainEnglishLevel = (props: any) => {
           <NavLink
             to="/profile"
             className={`${styles.english_card} ${styles.english_card_1}`}
-            onClick={handlerClickEasyLevel}
+            onClick={() => handlerClick("начальный")}
           >
             <img className={styles.english_img} src={levelImg1} alt="card" />
             <p className={`${styles.english_level} ${styles.english_level_1}`}>
@@ -59,7 +49,7 @@ const MainEnglishLevel = (props: any) => {
           <NavLink
             to="/profile"
             className={`${styles.english_card} ${styles.english_card_2}`}
-            onClick={handlerClickMediumLevel}
+            onClick={() => handlerClick("средний")}
           >
             <img className={styles.english_img} src={levelImg2} alt="card" />
             <p className={`${styles.english_level} ${styles.english_level_2}`}>
@@ -81,7 +71,7 @@ const MainEnglishLevel = (props: any) => {
           <NavLink
             to="/profile"
             className={`${styles.english_card} ${styles.english_card_3}`}
-            onClick={handlerClickExpertLevel}
+            onClick={() => handlerClick("продвинутый")}
           >
             <img className={styles.english_img} src={levelImg3} alt="card" />
             <p className={`${styles.english_level} ${styles.english_level_3}`}>

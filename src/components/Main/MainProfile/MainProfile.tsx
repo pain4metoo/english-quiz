@@ -1,11 +1,13 @@
 import React from "react";
 import styles from "./MainProfile.module.scss";
-import { Navigate } from "react-router-dom";
+import { Navigate, NavLink } from "react-router-dom";
 
 const MainProfile = (props: any) => {
   if (!props.isAuthLevel) {
     return <Navigate to="/" />;
   }
+
+  const startGame = () => {};
 
   return (
     <section className={styles.profile}>
@@ -38,9 +40,13 @@ const MainProfile = (props: any) => {
         </div>
       </div>
       <div className={styles.profile_btn_inner}>
-        <button className={`${styles.profile_btn}`} type="button">
+        <NavLink
+          to="/category"
+          className={`${styles.profile_btn}`}
+          onClick={startGame}
+        >
           начать игру
-        </button>
+        </NavLink>
       </div>
     </section>
   );
