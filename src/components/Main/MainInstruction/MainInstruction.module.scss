@@ -1,0 +1,24 @@
+@import "../../../styles/variables.scss";
+
+.instruction {
+  margin-top: 5rem;
+  &_inner {
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-end;
+  }
+  &_block {
+    margin-bottom: 3rem;
+  }
+  &_answer {
+    @extend %font-default;
+    margin: 0;
+  }
+  &_question {
+    font-size: 2.6rem;
+    line-height: 4rem;
+    margin: 0;
+    font-weight: bold;
+    margin-bottom: 1rem;
+  }
+}

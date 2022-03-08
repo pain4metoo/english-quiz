@@ -1,5 +1,5 @@
 import React from "react";
-import styles from "./MainWelcomeBg.module.scss";
+import styles from "./MainBackground.module.scss";
 
 const MainWelcomeBg = () => {
   return (

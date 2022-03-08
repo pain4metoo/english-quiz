@@ -35,7 +35,7 @@ const Navbar = () => {
             color: isActive ? "#539bf5" : "black",
           })}
         >
-          инструкция
+          вопрос/ответ
         </NavLink>
       </li>
       <li className={styles.item}>

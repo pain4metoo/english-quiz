@@ -1,14 +1,12 @@
 import React from "react";
 import styles from "./MainEnglishLevel.module.scss";
 // import { Routes, Route } from "react-router-dom";
-import MainWelcomeBg from "../MainWelcome/MainWelcomeBg/MainWelcomeBg";
 import levelImg1 from "../../../assets/svg/level-1.svg";
 import levelImg2 from "../../../assets/svg/level-2.svg";
 import levelImg3 from "../../../assets/svg/level-3.svg";
 import { NavLink, Navigate } from "react-router-dom";
 
 const MainEnglishLevel = (props: any) => {
-  console.log(props);
   const handlerClickEasyLevel = () => {
     let level = "начальный";
     props.addLevel(level);
@@ -31,8 +29,6 @@ const MainEnglishLevel = (props: any) => {
 
   return (
     <section className={styles.english}>
-      <MainWelcomeBg />
-
       <div className={styles.english_inner}>
         <h2 className={styles.english_title}>
           Какой у вас уровень английского?
@@ -52,7 +48,10 @@ const MainEnglishLevel = (props: any) => {
               менее 1500 слов.Вы можете понимать и использовать повседневные
               выражения.
             </p>
-            <button className={`${styles.english_btn} ${styles.english_btn_1}`} type="button">
+            <button
+              className={`${styles.english_btn} ${styles.english_btn_1}`}
+              type="button"
+            >
               выбрать
             </button>
           </NavLink>
@@ -71,7 +70,10 @@ const MainEnglishLevel = (props: any) => {
               слов. Вы можете правильно понимаеть суть высказываний на знакомые
               вам темы.
             </p>
-            <button className={`${styles.english_btn} ${styles.english_btn_2}`} type="button">
+            <button
+              className={`${styles.english_btn} ${styles.english_btn_2}`}
+              type="button"
+            >
               выбрать
             </button>
           </NavLink>
@@ -90,7 +92,10 @@ const MainEnglishLevel = (props: any) => {
               Самый высокий уровень, вы: понимаете практически все услышанное и
               прочитанное.
             </p>
-            <button className={`${styles.english_btn} ${styles.english_btn_3}`} type="button">
+            <button
+              className={`${styles.english_btn} ${styles.english_btn_3}`}
+              type="button"
+            >
               выбрать
             </button>
           </NavLink>
