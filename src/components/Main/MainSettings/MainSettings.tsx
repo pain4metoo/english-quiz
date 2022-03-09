@@ -36,7 +36,7 @@ const MainSettings = (props: any) => {
               </p>
               <div className={styles.center}>
                 <input type="checkbox" />
-                <p className={styles.settings_anim_description}>
+                <p className={styles.settings_text_description}>
                   включение/отключение анимации
                 </p>
               </div>
@@ -48,21 +48,19 @@ const MainSettings = (props: any) => {
               </p>
               <div className={styles.center}>
                 <input type="checkbox" />
-                <p className={styles.settings_theme_description}>
+                <p className={styles.settings_text_description}>
                   белая/чёрная тема
                 </p>
               </div>
             </div>
 
             <div className={styles.settings_item}>
-              <p className={styles.settings_lang_text}>
-                Сменить язык приложения
+              <p className={styles.settings_bg_text}>
+                Сменить тип анимации фона
               </p>
               <div className={styles.center}>
                 <input type="checkbox" />
-                <p className={styles.settings_lang_description}>
-                  русский/английский
-                </p>
+                <p className={styles.settings_text_description}>лучи/шум</p>
               </div>
             </div>
           </div>
