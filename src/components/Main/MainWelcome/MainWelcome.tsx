@@ -37,7 +37,7 @@ const MainWelcome = (props: any) => {
             className={`${styles.welcome_text} ${validation()}`}
             type="text"
             placeholder="Введите ваше имя.."
-            value={props.newNameText}
+            value={props.name.newNameText}
             onChange={updateName}
           />
           <NavLink

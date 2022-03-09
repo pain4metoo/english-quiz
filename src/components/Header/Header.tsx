@@ -12,6 +12,14 @@ const Header = (props: any) => {
 
   const welcomeLogo = () => {
     if (props.isAuthName && props.isAuthLevel) {
+      return styles.container;
+    }
+
+    return "";
+  };
+
+  const changeLogo = () => {
+    if (props.isAuthName && props.isAuthLevel) {
       return "";
     }
 
@@ -20,12 +28,9 @@ const Header = (props: any) => {
 
   return (
     <header className={styles.header}>
-      <div className={styles.container}>
-        <div className={styles.header_inner}>
-          <NavLink
-            to="/profile"
-            className={`${styles.header_logo} ${welcomeLogo()}`}
-          >
+      <div className={welcomeLogo()}>
+        <div className={`${styles.header_inner} ${changeLogo()}`}>
+          <NavLink to="/profile" className={styles.header_logo}>
             EN.CL
           </NavLink>
           <nav className={styles.menu}>{showHeader()}</nav>
