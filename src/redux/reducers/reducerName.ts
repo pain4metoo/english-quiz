@@ -27,15 +27,11 @@ const nameReducer = (state = initialState, action: any) => {
   let stateCopy = JSON.parse(JSON.stringify(state));
   switch (action.type) {
     case "ADD_NAME":
-      let name = {
-        name: state.name,
-        newNameText: state.newNameText,
-      };
       if (!state.isAuthName) {
         stateCopy.isAuthName = false;
         stateCopy.url = "/";
       }
-      stateCopy.name = name.newNameText;
+      stateCopy.name = state.newNameText;
       return stateCopy;
     case "UPDATE_NAME":
       let user = (stateCopy.newNameText = action.newNameText);

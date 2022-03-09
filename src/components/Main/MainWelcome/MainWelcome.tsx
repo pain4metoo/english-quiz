@@ -1,7 +1,6 @@
 import React from "react";
 import styles from "./MainWelcome.module.scss";
-import { NavLink } from "react-router-dom";
-import { Navigate } from "react-router-dom";
+import { NavLink, Navigate } from "react-router-dom";
 
 const MainWelcome = (props: any) => {
   const addNameStore = () => {

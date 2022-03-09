@@ -41,26 +41,37 @@
     width: 100%;
     border: none;
     outline: none;
-    background-color: rgba($color-hover, 0);
     opacity: 0.5;
     text-align: center;
     &::placeholder {
       color: $color-text;
+      background: green;
+      opacity: 0.5;
+      border: none;
+      outline: none;
     }
     &:focus::-webkit-input-placeholder {
       color: transparent;
+      background: green;
+      opacity: 0.5;
     }
 
     &:focus::-moz-placeholder {
       color: transparent;
+      background: green;
+      opacity: 0.5;
     }
 
     &:focus:-moz-placeholder {
       color: transparent;
+      background: green;
+      opacity: 0.5;
     }
 
     &:focus:-ms-input-placeholder {
       color: transparent;
+      background: green;
+      opacity: 0.5;
     }
   }
   &_text_error {
@@ -85,6 +96,7 @@
     color: $color-text;
     border: 1px solid black;
     width: 34.5rem;
+    opacity: 0.5;
     padding-top: 2rem;
     height: 7.5rem;
     cursor: pointer;
