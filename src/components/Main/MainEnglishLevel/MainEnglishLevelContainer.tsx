@@ -2,7 +2,7 @@ import MainEnglishLevel from "./MainEnglishLevel";
 import { addLevelActionCreator } from "../../../redux/reducers/reducerLevel";
 import { connect } from "react-redux";
 
-let mapStatetoProps = (state: any) => {
+let mapStateToProps = (state: any) => {
   return {
     stage: state.stage,
     isAuthLevel: state.stage.isAuthLevel,
@@ -19,7 +19,7 @@ let mapDispatchToProps = (dispatch: any) => {
 };
 
 const MainEnglishLevelContainer = connect(
-  mapStatetoProps,
+  mapStateToProps,
   mapDispatchToProps
 )(MainEnglishLevel);
 

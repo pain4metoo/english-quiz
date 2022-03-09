@@ -5,9 +5,9 @@ import {
   isAuthName,
 } from "../../services/auth.service";
 
-let ADD_NAME = "ADD_NAME";
-let UPDATE_NAME = "UPDATE_NAME";
-let VALID_NAME = "VALID_NAME";
+const ADD_NAME = "ADD_NAME";
+const UPDATE_NAME = "UPDATE_NAME";
+const VALID_NAME = "VALID_NAME";
 
 interface Name {
   name: string | null;

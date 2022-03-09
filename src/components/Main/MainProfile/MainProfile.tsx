@@ -42,7 +42,7 @@ const MainProfile = (props: any) => {
       <div className={styles.profile_btn_inner}>
         <NavLink
           to="/category"
-          className={`${styles.profile_btn}`}
+          className={styles.profile_btn}
           onClick={startGame}
         >
           начать игру

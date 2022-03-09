@@ -5,7 +5,7 @@ import {
   isAuthLevel,
 } from "./../../services/auth.service";
 
-let CHANGE_LEVEL = "CHANGE_LEVEL";
+const CHANGE_LEVEL = "CHANGE_LEVEL";
 
 interface Level {
   stage: string | null;

@@ -17,12 +17,13 @@
     color: $color-text;
     text-decoration: none;
     transition: all 0.5s;
+    margin-left: 1rem;
     &:hover {
       color: $color-hover;
     }
   }
   &_logo_fix {
-    margin-left: -10rem;
+    margin-left: -9rem;
   }
 }
 

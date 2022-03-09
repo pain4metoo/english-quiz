@@ -3,7 +3,7 @@ import {
   isAuthCategory,
 } from "../../services/auth.service";
 
-let CHANGE_CATEGORY = "CHANGE_CATEGORY";
+const CHANGE_CATEGORY = "CHANGE_CATEGORY";
 
 interface Category {
   category: string | null;

@@ -22,5 +22,5 @@ export const isAuthLevel = (authLevel: any) => {
 };
 
 export const isAuthCategory = (authCategory: any) => {
-  localStorage.setItem("authCategory", JSON.stringify(authCategory));
+  localStorage.setItem("authCategory", authCategory);
 };
