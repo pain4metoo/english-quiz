@@ -20,6 +20,7 @@ const categoryReducer = (state = initialState, action: any) => {
     case "CHANGE_CATEGORY":
       stateCopy.category = action.category;
       isAuthCategory(action.category);
+
       return stateCopy;
 
     default:

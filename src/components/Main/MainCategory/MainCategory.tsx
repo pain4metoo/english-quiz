@@ -23,7 +23,7 @@ const MainCategory = (props: any) => {
           <NavLink
             to="/game"
             className={`${styles.category_card} ${styles.category_card_1}`}
-            onClick={() => handlerClick("Существительные")}
+            onClick={() => handlerClick("noun")}
           >
             <img className={styles.category_img} src={noun} alt="card" />
             <p
@@ -46,7 +46,7 @@ const MainCategory = (props: any) => {
           <NavLink
             to="/game"
             className={`${styles.category_card} ${styles.category_card_2}`}
-            onClick={() => handlerClick("Прилагательные")}
+            onClick={() => handlerClick("adjective")}
           >
             <img className={styles.category_img} src={adjective} alt="card" />
             <p
@@ -69,7 +69,7 @@ const MainCategory = (props: any) => {
           <NavLink
             to="/game"
             className={`${styles.category_card} ${styles.category_card_3}`}
-            onClick={() => handlerClick("Глаголы")}
+            onClick={() => handlerClick("verb")}
           >
             <img className={styles.category_img} src={verb} alt="card" />
             <p
@@ -92,7 +92,7 @@ const MainCategory = (props: any) => {
           <NavLink
             to="/game"
             className={`${styles.category_card} ${styles.category_card_4}`}
-            onClick={() => handlerClick("Другое")}
+            onClick={() => handlerClick("other")}
           >
             <img className={styles.category_img} src={other} alt="card" />
             <p
