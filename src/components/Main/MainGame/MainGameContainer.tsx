@@ -1,20 +1,30 @@
 import MainGame from "./MainGame";
 import { connect } from "react-redux";
-import { addSoundActionCreator } from "./../../../redux/reducers/reducerGame";
+import {
+  addAnswerTextActionCreator,
+  updateAnswerTextActionCreator,
+  addTrueAnswerActionCreator,
+} from "./../../../redux/reducers/reducerGame";
 
 let mapStateToProps = (state: any) => {
   return {
-    data: state.data,
+    data: state.game.data,
     category: state.category.category,
-    url: state.url,
-    previousAnswer: state.previousAnswer,
+    answersArr: state.game.answersArr,
+    isAnswer: state.game.isAnswer,
   };
 };
 
 let mapDispatchToProps = (dispatch: any) => {
   return {
-    addSound: (value: string) => {
-      dispatch(addSoundActionCreator(value));
+    addAnswer: () => {
+      dispatch(addAnswerTextActionCreator());
+    },
+    updateAnswer: (text: string) => {
+      dispatch(updateAnswerTextActionCreator(text));
+    },
+    addTrueAnswer: (text: string) => {
+      dispatch(addTrueAnswerActionCreator(text));
     },
   };
 };

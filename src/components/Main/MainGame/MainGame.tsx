@@ -4,24 +4,22 @@ import { Link } from "react-router-dom";
 
 const MainGame = (props: any) => {
   console.log(props);
-  // 1)При загрузке страницы в state передаётся рандомная ссылка на трек.
-  // 2)При нажатии на кнопку Play проигрывается этот трек.
-  // 3)При ответе в state передаётся ответ и сравнивается с правильным ответом.
-  // 4)Если ответ правильный, то показывается это визуально и формируется следующая рандомная ссылка, с учётом прошлого ответа.
-  // 5)Если ответ неправильный, то это визуально показывается и ссылка остаётся той же.
+  const getRandomUrl = () => {
+    let random = Math.ceil(Math.random() * 10);
 
-  const getData = async () => {
-    let sounds =
-      "https://raw.githubusercontent.com/pain4metoo/words-data/master/words-data.json";
+    let currentUrl = `https://raw.githubusercontent.com/pain4metoo/words-data/master/${props.category}/${random}.mp3`;
+    props.addTrueAnswer(String(random));
 
-    const fetchSounds = await fetch(sounds);
-    const data = await fetchSounds.json();
-
-    getValue(data);
+    return currentUrl;
   };
 
-  const getValue = (data: any) => {
-    data.then((value: any) => props.addSound(value));
+  const addAnswerStore = () => {
+    props.addAnswer();
+  };
+
+  const updateAnswerStore = (e: any) => {
+    let body = e.target.value;
+    props.updateAnswer(body);
   };
 
   return (
@@ -35,15 +33,22 @@ const MainGame = (props: any) => {
         <button
           className={styles.game_btn}
           type="button"
-          onClick={getValue}
+          // onClick={getValue}
         ></button>
-        <audio src={props.url}></audio>
+        <audio controls src={getRandomUrl()}></audio>
         <div className={styles.game_answer}>
           <textarea
             className={styles.game_field}
             placeholder="Введите, что услышали"
+            onChange={updateAnswerStore}
           ></textarea>
-
+          <button
+            className={styles.game_answer_btn}
+            type="button"
+            onClick={addAnswerStore}
+          >
+            Отправить
+          </button>
           <span className={styles.game_line} id="line"></span>
         </div>
       </div>

@@ -85,6 +85,11 @@
     border-radius: 1rem;
     transition: all 0.2s;
   }
+  &_answer_btn {
+    position: absolute;
+    right: 0;
+    bottom: 4rem;
+  }
 }
 
 .game_field:focus + .game_line {
