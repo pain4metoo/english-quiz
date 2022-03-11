@@ -1,7 +1,7 @@
 {
   "files": {
-    "main.css": "/english-quiz/static/css/main.253cad7d.css",
-    "main.js": "/english-quiz/static/js/main.457e521c.js",
+    "main.css": "/english-quiz/static/css/main.8ea8acf0.css",
+    "main.js": "/english-quiz/static/js/main.e21ac7f6.js",
     "static/media/TTNormsPro-Regular.eot": "/english-quiz/static/media/TTNormsPro-Regular.3463e845a90ada751882.eot",
     "static/media/TTNormsPro-Regular.ttf": "/english-quiz/static/media/TTNormsPro-Regular.286accc215acf65c8da8.ttf",
     "static/media/TTNormsPro-Bold.eot": "/english-quiz/static/media/TTNormsPro-Bold.57473609fa405827d418.eot",
@@ -20,20 +20,20 @@
     "static/media/noun.png": "/english-quiz/static/media/noun.64669e58c603bb7d9476.png",
     "static/media/verb.png": "/english-quiz/static/media/verb.e4eee2d4ebb67a52f28d.png",
     "static/media/other.png": "/english-quiz/static/media/other.55f304df5cb2430905c2.png",
-    "static/media/level-2.svg": "/english-quiz/static/media/level-2.baef5c5f502d864a4363d5c6d2ae9ea5.svg",
-    "static/media/level-1.svg": "/english-quiz/static/media/level-1.7b4191e3ca7c31791df03153cab57f0c.svg",
-    "static/media/play.svg": "/english-quiz/static/media/play.9ec39df184c995762a65.svg",
-    "static/media/level-3.svg": "/english-quiz/static/media/level-3.2f515bc39857287b5dac288221806337.svg",
+    "static/media/level-2.svg": "/english-quiz/static/media/level-2.717a919d11f574fd97fd879abe2fd673.svg",
+    "static/media/level-1.svg": "/english-quiz/static/media/level-1.f3028019a7b2922a4bd060bcdb774221.svg",
+    "static/media/play.svg": "/english-quiz/static/media/play.d594712614f2a712766e.svg",
+    "static/media/level-3.svg": "/english-quiz/static/media/level-3.50f3936252f828ea827fd6cf33c8df1a.svg",
     "static/media/on.svg": "/english-quiz/static/media/on.c34b27a71591ccf5fb3cac53a032cba3.svg",
     "static/media/mute.svg": "/english-quiz/static/media/mute.04e8945d2975b6de072a71f9d55282bf.svg",
     "index.html": "/english-quiz/index.html",
     "static/media/previous.svg": "/english-quiz/static/media/previous.d1b57575113f0971fe88.svg",
     "static/media/close.svg": "/english-quiz/static/media/close.2001e956d267bc9b1a23.svg",
-    "main.253cad7d.css.map": "/english-quiz/static/css/main.253cad7d.css.map",
-    "main.457e521c.js.map": "/english-quiz/static/js/main.457e521c.js.map"
+    "main.8ea8acf0.css.map": "/english-quiz/static/css/main.8ea8acf0.css.map",
+    "main.e21ac7f6.js.map": "/english-quiz/static/js/main.e21ac7f6.js.map"
   },
   "entrypoints": [
-    "static/css/main.253cad7d.css",
-    "static/js/main.457e521c.js"
+    "static/css/main.8ea8acf0.css",
+    "static/js/main.e21ac7f6.js"
   ]
 }
