@@ -2,14 +2,15 @@
 
 .welcome {
   &_figure {
-    width: 40rem;
-    height: 40rem;
+    width: 25rem;
+    height: 29rem;
     border: none;
     outline: none;
     margin: 0 auto;
     background: url(../../../assets/image/cub.png);
     background-position: center;
     background-repeat: no-repeat;
+    background-size: contain;
     animation: 10s linear 0s normal none infinite running rotate;
     -webkit-animation: 10s linear 0s normal none infinite running rotate;
   }

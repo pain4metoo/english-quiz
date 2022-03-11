@@ -37,7 +37,7 @@ const MainGame = (props: any) => {
           type="button"
           onClick={getValue}
         ></button>
-        <audio controls src={props.url}></audio>
+        <audio src={props.url}></audio>
         <div className={styles.game_answer}>
           <textarea
             className={styles.game_field}
