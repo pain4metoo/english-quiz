@@ -3,15 +3,19 @@ import { connect } from "react-redux";
 import {
   addAnswerTextActionCreator,
   updateAnswerTextActionCreator,
-  addTrueAnswerActionCreator,
+  addCurrentSrcActionCreator,
+  addCategoryActionCreator,
 } from "./../../../redux/reducers/reducerGame";
 
 let mapStateToProps = (state: any) => {
   return {
     data: state.game.data,
+    newAnswerText: state.game.newAnswerText,
     category: state.category.category,
-    answersArr: state.game.answersArr,
+    currentSrc: state.game.currentSrc,
     isAnswer: state.game.isAnswer,
+    trueAnswer: state.game.trueAnswer,
+    showAnswer: state.game.showAnswer,
   };
 };
 
@@ -23,8 +27,11 @@ let mapDispatchToProps = (dispatch: any) => {
     updateAnswer: (text: string) => {
       dispatch(updateAnswerTextActionCreator(text));
     },
-    addTrueAnswer: (text: string) => {
-      dispatch(addTrueAnswerActionCreator(text));
+    addCurrentSrc: () => {
+      dispatch(addCurrentSrcActionCreator());
+    },
+    addCategory: (category: string) => {
+      dispatch(addCategoryActionCreator(category));
     },
   };
 };

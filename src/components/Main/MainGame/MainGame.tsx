@@ -3,16 +3,6 @@ import styles from "./MainGame.module.scss";
 import { Link } from "react-router-dom";
 
 const MainGame = (props: any) => {
-  console.log(props);
-  const getRandomUrl = () => {
-    let random = Math.ceil(Math.random() * 10);
-
-    let currentUrl = `https://raw.githubusercontent.com/pain4metoo/words-data/master/${props.category}/${random}.mp3`;
-    props.addTrueAnswer(String(random));
-
-    return currentUrl;
-  };
-
   const addAnswerStore = () => {
     props.addAnswer();
   };
@@ -22,6 +12,27 @@ const MainGame = (props: any) => {
     props.updateAnswer(body);
   };
 
+  const category = () => {
+    if (props.category === "noun") {
+      return "Существительные";
+    } else if (props.category === "adjective") {
+      return "Прилагательные";
+    } else if (props.category === "verb") {
+      return "Глаголы";
+    } else if (props.category === "other") {
+      return "Другое";
+    }
+  };
+
+  if (props.trueAnswer === "") {
+    props.addCategory(props.category);
+    props.addCurrentSrc();
+  }
+
+  const getAnswer = () => {
+    return props.isAnswer ? <div>{props.showAnswer}</div> : <div></div>;
+  };
+
   return (
     <section className={styles.game}>
       <div className={styles.game_inner}>
@@ -29,18 +40,20 @@ const MainGame = (props: any) => {
           <Link to="/category" className={styles.game_previous}></Link>
           <Link to="/profile" className={styles.game_close}></Link>
         </div>
-        <h1 className={styles.game_title}>{props.category}</h1>
+        <h1 className={styles.game_title}>{category()}</h1>
         <button
           className={styles.game_btn}
           type="button"
           // onClick={getValue}
         ></button>
-        <audio controls src={getRandomUrl()}></audio>
+        <audio controls src={props.currentSrc}></audio>
+        {getAnswer()}
         <div className={styles.game_answer}>
           <textarea
             className={styles.game_field}
             placeholder="Введите, что услышали"
             onChange={updateAnswerStore}
+            value={props.newAnswerText}
           ></textarea>
           <button
             className={styles.game_answer_btn}
