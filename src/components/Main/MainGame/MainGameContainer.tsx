@@ -1,37 +1,52 @@
 import MainGame from "./MainGame";
 import { connect } from "react-redux";
 import {
-  addAnswerTextActionCreator,
-  updateAnswerTextActionCreator,
-  addCurrentSrcActionCreator,
   addCategoryActionCreator,
+  updateAnswerActionCreator,
+  addAnswerActionCreator,
+  addDataAnswersActionCreator,
+  fetchingActionCreator,
+  getSoundDataThunkActionCreator,
+  getNewSoundDataThunkActionCreator,
 } from "./../../../redux/reducers/reducerGame";
 
 let mapStateToProps = (state: any) => {
   return {
     data: state.game.data,
-    newAnswerText: state.game.newAnswerText,
     category: state.category.category,
-    currentSrc: state.game.currentSrc,
+    categoryTranslate: state.game.categoryTranslate,
+    newAnswerText: state.game.newAnswerText,
+    answer: state.game.answer,
+    isFetching: state.game.isFetching,
+    isPlay: state.game.isPlay,
+    src: state.game.src,
     isAnswer: state.game.isAnswer,
-    trueAnswer: state.game.trueAnswer,
     showAnswer: state.game.showAnswer,
   };
 };
 
 let mapDispatchToProps = (dispatch: any) => {
   return {
-    addAnswer: () => {
-      dispatch(addAnswerTextActionCreator());
-    },
-    updateAnswer: (text: string) => {
-      dispatch(updateAnswerTextActionCreator(text));
-    },
-    addCurrentSrc: () => {
-      dispatch(addCurrentSrcActionCreator());
-    },
     addCategory: (category: string) => {
       dispatch(addCategoryActionCreator(category));
+    },
+    addDataAnswers: (data: Object) => {
+      dispatch(addDataAnswersActionCreator(data));
+    },
+    updateAnswer: (text: string) => {
+      dispatch(updateAnswerActionCreator(text));
+    },
+    addAnswer: () => {
+      dispatch(addAnswerActionCreator());
+    },
+    fetch: (flag: boolean) => {
+      dispatch(fetchingActionCreator(flag));
+    },
+    getSoundDataThunk: () => {
+      getSoundDataThunkActionCreator(dispatch);
+    },
+    getNewSoundDataThunk: () => {
+      getNewSoundDataThunkActionCreator(dispatch);
     },
   };
 };

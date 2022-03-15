@@ -1,117 +1,157 @@
+import { getData } from "../../api/api";
+
+const ADD_CATEGORY = "ADD_CATEGORY";
+const ADD_DATA = "ADD_DATA";
 const ADD_ANSWER = "ADD_ANSWER";
 const UPDATE_ANSWER = "UPDATE_ANSWER";
-const ADD_CURRENT_SRC = "ADD_CURRENT_SRC";
-const ADD_CATEGORY = "ADD_CATEGORY";
+const FETCHING = "FETCHING";
+const ADD_TRACK = "ADD_TRACK";
 
 interface Game {
-  answerText: string;
-  newAnswerText: string;
-  trueAnswer: string;
-  currentSrc: string;
+  data: any;
   category: string;
-  isAnswer: boolean | null;
-  previousAnswer: [];
-  showAnswer: any;
+  categoryTranslate: string;
+  newAnswerText: string;
+  answer: string;
+  isFetching: boolean;
+  src: string;
+  isPlay: boolean;
+  previusNumber: number;
+  isAnswer: boolean;
+  showAnswer: boolean;
+  previousAnswers: Array<number>;
 }
 
 const initialState: Game = {
-  answerText: "",
-  newAnswerText: "",
-  trueAnswer: "",
-  currentSrc: "",
+  data: {},
   category: "",
-  isAnswer: null,
-  previousAnswer: [],
-  showAnswer: "",
-};
-
-const getRandomNumber = (arr: any) => {
-  let random = Math.ceil(Math.random() * 10);
-  let changeTypeNumber = String(random);
-  if (!arr.includes(changeTypeNumber)) {
-    return random;
-  } else {
-    let randomCount: number = getRandomNumber(arr);
-
-    return randomCount;
-  }
-};
-
-const getData = async () => {
-  let sounds =
-    "https://raw.githubusercontent.com/pain4metoo/words-data/master/words-data.json";
-
-  const fetchSounds = await fetch(sounds);
-  const data = await fetchSounds.json();
-
-  return data;
+  categoryTranslate: "",
+  newAnswerText: "",
+  answer: "",
+  isFetching: true,
+  src: "",
+  isPlay: false,
+  previusNumber: 0,
+  isAnswer: false,
+  showAnswer: false,
+  previousAnswers: [],
 };
 
 const gameReducer = (state = initialState, action: any) => {
-  let stateCopy = JSON.parse(JSON.stringify(state));
   switch (action.type) {
-    case "ADD_ANSWER":
-      stateCopy.answerText = stateCopy.newAnswerText;
-      if (stateCopy.showAnswer === stateCopy.answerText) {
-        getData().then((value) => {
-          stateCopy.showAnswer =
-            value[stateCopy.category][stateCopy.trueAnswer - 1].eng;
-        });
-
-        if (!stateCopy.previousAnswer.includes(stateCopy.trueAnswer)) {
-          stateCopy.previousAnswer.push(stateCopy.trueAnswer);
-        }
-        let previousAnswerArr = stateCopy.previousAnswer;
-        let random = getRandomNumber(previousAnswerArr);
-        stateCopy.trueAnswer = String(random);
-        let url = `https://raw.githubusercontent.com/pain4metoo/words-data/master/${stateCopy.category}/${random}.mp3`;
-        stateCopy.currentSrc = url;
-        stateCopy.isAnswer = true;
-      } else {
-        stateCopy.isAnswer = false;
+    case ADD_CATEGORY:
+      let categoryTranslate: string = "";
+      if (action.category === "noun") {
+        categoryTranslate = "Существительные";
+      } else if (action.category === "adjective") {
+        categoryTranslate = "Прилагательные";
+      } else if (action.category === "verb") {
+        categoryTranslate = "Глаголы";
+      } else if (action.category === "other") {
+        categoryTranslate = "Другое";
       }
-      return stateCopy;
+      return {
+        ...state,
+        category: action.category,
+        categoryTranslate: categoryTranslate,
+        showAnswer: false,
+      };
 
-    case "UPDATE_ANSWER":
-      stateCopy.newAnswerText = action.newAnswerText;
-      stateCopy.isAnswer = false;
-      return stateCopy;
+    case ADD_DATA:
+      return {
+        ...state,
+        data: action.data,
+      };
+    case UPDATE_ANSWER:
+      return {
+        ...state,
+        newAnswerText: action.newAnswerText,
+        showAnswer: false,
+      };
 
-    case "ADD_CURRENT_SRC":
-      let previousAnswerArr = stateCopy.previousAnswer;
-      let randomCount = getRandomNumber(previousAnswerArr);
-      let url = `https://raw.githubusercontent.com/pain4metoo/words-data/master/${stateCopy.category}/${randomCount}.mp3`;
-      stateCopy.trueAnswer = String(randomCount);
-      
-      getData().then((value) => {
-        stateCopy.showAnswer =
-          value[stateCopy.category][stateCopy.trueAnswer - 1].eng;
-      });
-      stateCopy.currentSrc = url;
-      return stateCopy;
+    case ADD_ANSWER:
+      let trueAnswer = state.data[state.category][state.previusNumber].eng;
+      let russianAnswer = state.data[state.category][state.previusNumber].rus;
+      let currentAnswer = state.newAnswerText;
+      if (trueAnswer === currentAnswer) {
+        let answer = `${trueAnswer} - ${russianAnswer}`;
+        return {
+          ...state,
+          isAnswer: true,
+          answer: answer,
+          newAnswerText: "",
+          showAnswer: true,
+        };
+      }
+      return {
+        ...state,
+        answer: state.newAnswerText,
+        isAnswer: false,
+        showAnswer: false,
+      };
+    case FETCHING:
+      return {
+        ...state,
+        isFetching: action.flag,
+      };
+    case ADD_TRACK:
+      let randomCount = Math.floor(Math.random() * 30);
 
-    case "ADD_CATEGORY":
-      stateCopy.category = action.category;
-      return stateCopy;
+      let url = state.data[state.category][randomCount].track;
+      state.previusNumber = randomCount;
+      let src = `https://raw.githubusercontent.com/pain4metoo/words-data/master/${state.category}/${url}.mp3`;
+      return {
+        ...state,
+        src: src,
+        isPlay: true,
+        isAnswer: false,
+      };
     default:
-      return stateCopy;
+      return state;
   }
 };
-
-export const addAnswerTextActionCreator = () => ({ type: ADD_ANSWER });
-
-export const updateAnswerTextActionCreator = (text: string) => ({
-  type: UPDATE_ANSWER,
-  newAnswerText: text,
-});
-
-export const addCurrentSrcActionCreator = () => ({
-  type: ADD_CURRENT_SRC,
-});
 
 export const addCategoryActionCreator = (category: string) => ({
   type: ADD_CATEGORY,
   category: category,
 });
+
+export const addDataAnswersActionCreator = (data: object) => ({
+  type: ADD_DATA,
+  data: data,
+});
+
+export const addAnswerActionCreator = () => ({
+  type: ADD_ANSWER,
+});
+
+export const updateAnswerActionCreator = (text: string) => ({
+  type: UPDATE_ANSWER,
+  newAnswerText: text,
+});
+
+export const fetchingActionCreator = (flag: boolean) => ({
+  type: FETCHING,
+  flag: flag,
+});
+
+export const addSoundActionCreator = () => ({
+  type: ADD_TRACK,
+});
+
+export const getSoundDataThunkActionCreator = (dispatch: any) => {
+  getData().then((response: any) => {
+    dispatch(fetchingActionCreator(false));
+    dispatch(addDataAnswersActionCreator(response));
+    dispatch(addSoundActionCreator());
+  });
+};
+
+export const getNewSoundDataThunkActionCreator = (dispatch: any) => {
+  getData().then((response: any) => {
+    dispatch(fetchingActionCreator(false));
+    dispatch(addSoundActionCreator());
+  });
+};
 
 export default gameReducer;
