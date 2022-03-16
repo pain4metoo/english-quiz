@@ -3,13 +3,16 @@ import levelReducer from "../reducers/reducerLevel";
 import nameReducer from "../reducers/reducerName";
 import categoryReducer from './../reducers/reducerCategory';
 import gameReducer from "./../reducers/reducerGame";
-import  thunkMiddleware  from 'redux-thunk';
+import scoreReducer from './../reducers/reducerScore';
+import thunkMiddleware from 'redux-thunk';
+
 
 let reducers = combineReducers({
   name: nameReducer,
   stage: levelReducer,
   category: categoryReducer,
   game: gameReducer,
+  score: scoreReducer,
 });
 
 let store = createStore(reducers, applyMiddleware(thunkMiddleware));

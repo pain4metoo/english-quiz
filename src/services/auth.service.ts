@@ -1,9 +1,17 @@
+export const store = require("store");
+
 export const getLocalLevel = localStorage.getItem("level") || null;
 export const getLocalName = localStorage.getItem("user") || null;
 export const getLocalAuthName: any = localStorage.getItem("authName") || null;
 export const getLocalAuthLevel: any = localStorage.getItem("authLevel") || null;
 export const getLocalAuthCategory: any =
   localStorage.getItem("authCategory") || null;
+export const getLocalPreviusAnswer: any = store.get("answers") || {
+  noun: [],
+  adjective: [],
+  verb: [],
+  other: [],
+};
 
 export const addLocalUser = (user: string) => {
   localStorage.setItem("user", user);
@@ -24,3 +32,4 @@ export const isAuthLevel = (authLevel: any) => {
 export const isAuthCategory = (authCategory: any) => {
   localStorage.setItem("authCategory", authCategory);
 };
+

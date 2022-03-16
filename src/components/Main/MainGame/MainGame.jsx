@@ -10,6 +10,12 @@ class MainGame extends React.Component {
     this.props.getSoundDataThunk();
   }
 
+  componentDidUpdate() {
+    if (this.props.isAnswer) {
+      this.props.getNewSoundDataThunk();
+    }
+  }
+
   updateAnswerText = (e) => {
     let text = e.target.value;
     this.props.updateAnswer(text);
@@ -29,9 +35,6 @@ class MainGame extends React.Component {
   };
 
   showAnswer = () => {
-    if (this.props.isAnswer) {
-      this.props.getNewSoundDataThunk();
-    }
     if (this.props.showAnswer) {
       return <div>{this.props.answer}</div>;
     }

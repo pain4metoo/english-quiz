@@ -1,4 +1,8 @@
 import { getData } from "../../api/api";
+import {
+  getLocalPreviusAnswer,
+  store,
+} from "../../services/auth.service";
 
 const ADD_CATEGORY = "ADD_CATEGORY";
 const ADD_DATA = "ADD_DATA";
@@ -19,7 +23,7 @@ interface Game {
   previusNumber: number;
   isAnswer: boolean;
   showAnswer: boolean;
-  previousAnswers: Array<number>;
+  previousAnswers: any;
 }
 
 const initialState: Game = {
@@ -34,7 +38,7 @@ const initialState: Game = {
   previusNumber: 0,
   isAnswer: false,
   showAnswer: false,
-  previousAnswers: [],
+  previousAnswers: getLocalPreviusAnswer,
 };
 
 const gameReducer = (state = initialState, action: any) => {
@@ -73,8 +77,12 @@ const gameReducer = (state = initialState, action: any) => {
       let trueAnswer = state.data[state.category][state.previusNumber].eng;
       let russianAnswer = state.data[state.category][state.previusNumber].rus;
       let currentAnswer = state.newAnswerText;
+
       if (trueAnswer === currentAnswer) {
-        let answer = `${trueAnswer} - ${russianAnswer}`;
+        state.previousAnswers[state.category].push(state.previusNumber);
+        store.set("answers", state.previousAnswers);
+        let answer = `${currentAnswer} - ${russianAnswer}`;
+
         return {
           ...state,
           isAnswer: true,
@@ -95,17 +103,29 @@ const gameReducer = (state = initialState, action: any) => {
         isFetching: action.flag,
       };
     case ADD_TRACK:
-      let randomCount = Math.floor(Math.random() * 30);
+      let randomCount: number = Math.floor(Math.random() * 30);
+      let category = state.category;
+      if (state.previousAnswers[category].includes(randomCount)) {
+        for (let i = 0; i <= 30; i++) {
+          if (!state.previousAnswers[category].includes(i)) {
+            randomCount = i;
+            break;
+          }
+        }
+      }
 
-      let url = state.data[state.category][randomCount].track;
       state.previusNumber = randomCount;
-      let src = `https://raw.githubusercontent.com/pain4metoo/words-data/master/${state.category}/${url}.mp3`;
+
+      let url = state.data[category][randomCount].track;
+      console.log(url);
+      let src = `https://raw.githubusercontent.com/pain4metoo/words-data/master/${category}/${url}.mp3`;
       return {
         ...state,
         src: src,
         isPlay: true,
         isAnswer: false,
       };
+
     default:
       return state;
   }
@@ -148,8 +168,7 @@ export const getSoundDataThunkActionCreator = (dispatch: any) => {
 };
 
 export const getNewSoundDataThunkActionCreator = (dispatch: any) => {
-  getData().then((response: any) => {
-    dispatch(fetchingActionCreator(false));
+  getData().then(() => {
     dispatch(addSoundActionCreator());
   });
 };

@@ -9,6 +9,7 @@ import MainInstructionContainer from "./MainInstruction/MainInstructionContainer
 import MainSettingsContainer from "./MainSettings/MainSettingsContainer";
 import MainCategoryContainer from "./MainCategory/MainCategoryContainer";
 import MainGameContainer from "./MainGame/MainGameContainer";
+import MainScoreContainer from "./MainScore/MainScoreContainer";
 import { Routes, Route } from "react-router-dom";
 
 const Main = (props: any) => {
@@ -24,6 +25,7 @@ const Main = (props: any) => {
           <Route path="/settings" element={<MainSettingsContainer />} />
           <Route path="/category" element={<MainCategoryContainer />} />
           <Route path="/game" element={<MainGameContainer />} />
+          <Route path="/score" element={<MainScoreContainer />} />
         </Routes>
       </div>
     </main>
