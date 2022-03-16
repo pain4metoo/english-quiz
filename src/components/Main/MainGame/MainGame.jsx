@@ -46,10 +46,28 @@ class MainGame extends React.Component {
     }
   };
 
+  showEndRoundPopup = () => {
+    let flag = this.props.isRoundEnd;
+
+    if (flag) {
+      return (
+        <div className={styles.game_round}>
+          <div className={styles.game_round_inner}>
+            <p className={styles.game_win_text}>Поздравляем!</p>
+            <p className={styles.game_win_category}>
+              {`Вы полностью прошли категорию ${this.props.categoryTranslate}`}
+            </p>
+          </div>
+        </div>
+      );
+    }
+  };
+
   render() {
     return (
       <section className={styles.game}>
         <div className={`${styles.game_inner} ${this.showWinAnimation()}`}>
+        {this.showEndRoundPopup()}
           <div className={styles.game_navigation}>
             <Link to="/category" className={styles.game_previous}></Link>
             <Link to="/profile" className={styles.game_close}></Link>

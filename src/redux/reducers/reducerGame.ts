@@ -1,8 +1,5 @@
 import { getData } from "../../api/api";
-import {
-  getLocalPreviusAnswer,
-  store,
-} from "../../services/auth.service";
+import { getLocalPreviusAnswer, store } from "../../services/auth.service";
 
 const ADD_CATEGORY = "ADD_CATEGORY";
 const ADD_DATA = "ADD_DATA";
@@ -24,6 +21,7 @@ interface Game {
   isAnswer: boolean;
   showAnswer: boolean;
   previousAnswers: any;
+  isRoundEnd: boolean;
 }
 
 const initialState: Game = {
@@ -39,6 +37,7 @@ const initialState: Game = {
   isAnswer: false,
   showAnswer: false,
   previousAnswers: getLocalPreviusAnswer,
+  isRoundEnd: false,
 };
 
 const gameReducer = (state = initialState, action: any) => {
@@ -106,7 +105,7 @@ const gameReducer = (state = initialState, action: any) => {
       let randomCount: number = Math.floor(Math.random() * 30);
       let category = state.category;
       if (state.previousAnswers[category].includes(randomCount)) {
-        for (let i = 0; i <= 30; i++) {
+        for (let i = 0; i <= 31; i++) {
           if (!state.previousAnswers[category].includes(i)) {
             randomCount = i;
             break;
@@ -116,14 +115,24 @@ const gameReducer = (state = initialState, action: any) => {
 
       state.previusNumber = randomCount;
 
+      if (randomCount === 30) {
+        return {
+          ...state,
+          isRoundEnd: true,
+          category: state.category,
+        };
+      }
       let url = state.data[category][randomCount].track;
+
       console.log(url);
+
       let src = `https://raw.githubusercontent.com/pain4metoo/words-data/master/${category}/${url}.mp3`;
       return {
         ...state,
         src: src,
         isPlay: true,
         isAnswer: false,
+        isRoundEnd: false,
       };
 
     default:

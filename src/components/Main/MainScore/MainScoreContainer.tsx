@@ -3,7 +3,7 @@ import { connect } from "react-redux";
 
 let mapStateToProps = (state: any) => {
   return {
-    data: state.game.data,
+    answers: state.score.answers,
   };
 };
 

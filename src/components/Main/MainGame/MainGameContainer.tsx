@@ -22,6 +22,7 @@ let mapStateToProps = (state: any) => {
     src: state.game.src,
     isAnswer: state.game.isAnswer,
     showAnswer: state.game.showAnswer,
+    isRoundEnd: state.game.isRoundEnd,
   };
 };
 

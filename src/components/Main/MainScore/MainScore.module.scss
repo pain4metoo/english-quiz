@@ -20,6 +20,7 @@
     display: flex;
     align-items: center;
     justify-content: space-between;
+    position: relative;
   }
   &_category {
     width: 20%;
@@ -70,5 +71,10 @@
   }
   &_result_4 {
     background: #ede3dc;
+  }
+  &_value {
+    position: absolute;
+    bottom: 0;
+    right: 0;
   }
 }
