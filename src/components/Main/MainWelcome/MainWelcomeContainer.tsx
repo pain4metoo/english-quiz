@@ -9,10 +9,11 @@ import { connect } from "react-redux";
 
 let mapStatetoProps = (state: any) => {
   return {
-    name: state.name,
+    name: state.name.name,
     url: state.name.url,
     isAuthLevel: state.stage.isAuthLevel,
     isAuthName: state.name.isAuthName,
+    newNameText: state.name.newNameText,
   };
 };
 

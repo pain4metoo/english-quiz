@@ -3,6 +3,9 @@ import styles from "./MainWelcome.module.scss";
 import { NavLink, Navigate } from "react-router-dom";
 
 const MainWelcome = (props: any) => {
+  if (props.isAuthName && props.isAuthLevel) {
+    return <Navigate to="/profile" />;
+  }
   const addNameStore = () => {
     props.addName();
   };
@@ -14,7 +17,7 @@ const MainWelcome = (props: any) => {
   };
 
   const validation = () => {
-    let flag = props.name.isAuthName;
+    let flag = props.isAuthName;
     if (flag === null) {
       return "";
     } else if (flag) {
@@ -24,10 +27,6 @@ const MainWelcome = (props: any) => {
     }
   };
 
-  if (props.isAuthName && props.isAuthLevel) {
-    return <Navigate to="/profile" />;
-  }
-
   return (
     <section className={styles.welcome}>
       <div className={styles.welcome_bg}>
@@ -36,9 +35,9 @@ const MainWelcome = (props: any) => {
           <input
             className={`${styles.welcome_text} ${validation()}`}
             type="text"
-            placeholder="Введите ваше имя.."
-            value={props.name.newNameText}
+            value={props.newNameText}
             onChange={updateName}
+            placeholder="Введите ваше имя..."
           />
           <NavLink
             className={styles.welcome_btn}

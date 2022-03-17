@@ -8,7 +8,7 @@ import {
 const CHANGE_LEVEL = "CHANGE_LEVEL";
 
 interface Level {
-  stage: string | null;
+  stage: string;
   isAuthLevel: boolean;
 }
 
@@ -18,16 +18,18 @@ const initialState: Level = {
 };
 
 const levelReducer = (state = initialState, action: any) => {
-  let stateCopy = JSON.parse(JSON.stringify(state));
   switch (action.type) {
     case "CHANGE_LEVEL":
-      let level = (stateCopy.stage = action.stage);
+      let level = action.stage;
       addLocalLevel(level);
-      stateCopy.isAuthLevel = true;
       isAuthLevel(true);
-      return stateCopy;
+      return {
+        ...state,
+        stage: level,
+        isAuthLevel: true,
+      };
     default:
-      return stateCopy;
+      return state;
   }
 };
 

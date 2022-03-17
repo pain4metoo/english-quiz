@@ -7,15 +7,15 @@ import levelImg3 from "../../../assets/svg/level-3.svg";
 import { NavLink, Navigate } from "react-router-dom";
 
 const MainEnglishLevel = (props: any) => {
-  const handlerClick = (level: string) => {
-    props.addLevel(level);
-  };
-
   if (!props.isAuthName) {
     return <Navigate to="/" />;
   } else if (props.isAuthLevel) {
     return <Navigate to="/profile" />;
   }
+
+  const handlerClick = (level: string) => {
+    props.addLevel(level);
+  };
 
   return (
     <section className={styles.english}>

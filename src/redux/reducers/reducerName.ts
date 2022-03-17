@@ -10,10 +10,10 @@ const UPDATE_NAME = "UPDATE_NAME";
 const VALID_NAME = "VALID_NAME";
 
 interface Name {
-  name: string | null;
-  newNameText: string | null;
+  name: string;
+  newNameText: string;
   url: string;
-  isAuthName: any;
+  isAuthName: boolean;
 }
 
 const initialState: Name = {
@@ -24,33 +24,46 @@ const initialState: Name = {
 };
 
 const nameReducer = (state = initialState, action: any) => {
-  let stateCopy = JSON.parse(JSON.stringify(state));
   switch (action.type) {
     case "ADD_NAME":
       if (!state.isAuthName) {
-        stateCopy.isAuthName = false;
-        stateCopy.url = "/";
+        return {
+          ...state,
+          isAuthName: false,
+          url: "/",
+        };
       }
-      stateCopy.name = state.newNameText;
-      return stateCopy;
+      return {
+        ...state,
+        name: state.newNameText,
+        isAuthName: true,
+      };
     case "UPDATE_NAME":
-      let user = (stateCopy.newNameText = action.newNameText);
+      let user = action.newNameText;
       addLocalUser(user);
       isAuthName(true);
-      return stateCopy;
+      return {
+        ...state,
+        name: user,
+        newNameText: user,
+      };
     case "VALID_NAME":
       if (action.length > 0) {
-        stateCopy.url = "/level";
-        stateCopy.isAuthName = true;
-        return stateCopy;
+        return {
+          ...state,
+          url: "/level",
+          isAuthName: true,
+        };
       } else {
-        stateCopy.url = "/";
-        stateCopy.isAuthName = false;
-        return stateCopy;
+        return {
+          ...state,
+          url: "/",
+          isAuthName: false,
+        };
       }
 
     default:
-      return stateCopy;
+      return state;
   }
 };
 

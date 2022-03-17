@@ -102,10 +102,12 @@ const gameReducer = (state = initialState, action: any) => {
         isFetching: action.flag,
       };
     case ADD_TRACK:
-      let randomCount: number = Math.floor(Math.random() * 30);
       let category = state.category;
+      let length = state.data[category].length;
+      let randomCount: number = Math.floor(Math.random() * length);
+
       if (state.previousAnswers[category].includes(randomCount)) {
-        for (let i = 0; i <= 31; i++) {
+        for (let i = 0; i <= length; i++) {
           if (!state.previousAnswers[category].includes(i)) {
             randomCount = i;
             break;
@@ -115,7 +117,7 @@ const gameReducer = (state = initialState, action: any) => {
 
       state.previusNumber = randomCount;
 
-      if (randomCount === 30) {
+      if (randomCount === length) {
         return {
           ...state,
           isRoundEnd: true,

@@ -1,11 +1,10 @@
 export const store = require("store");
 
-export const getLocalLevel = localStorage.getItem("level") || null;
-export const getLocalName = localStorage.getItem("user") || null;
-export const getLocalAuthName: any = localStorage.getItem("authName") || null;
-export const getLocalAuthLevel: any = localStorage.getItem("authLevel") || null;
-export const getLocalAuthCategory: any =
-  localStorage.getItem("authCategory") || null;
+export const getLocalLevel = store.get("level") || null;
+export const getLocalName = store.get("user") || "";
+export const getLocalAuthName: any = store.get("authName") || null;
+export const getLocalAuthLevel: any = store.get("authLevel") || null;
+export const getLocalAuthCategory: any = store.get("authCategory") || null;
 export const getLocalPreviusAnswer: any = store.get("answers") || {
   noun: [],
   adjective: [],
@@ -14,22 +13,21 @@ export const getLocalPreviusAnswer: any = store.get("answers") || {
 };
 
 export const addLocalUser = (user: string) => {
-  localStorage.setItem("user", user);
+  store.set("user", user);
 };
 
 export const addLocalLevel = (level: string) => {
-  localStorage.setItem("level", level);
+  store.set("level", level);
 };
 
 export const isAuthName = (authName: any) => {
-  localStorage.setItem("authName", JSON.stringify(authName));
+  store.set("authName", authName);
 };
 
 export const isAuthLevel = (authLevel: any) => {
-  localStorage.setItem("authLevel", JSON.stringify(authLevel));
+  store.set("authLevel", authLevel);
 };
 
 export const isAuthCategory = (authCategory: any) => {
-  localStorage.setItem("authCategory", authCategory);
+  store.set("authCategory", authCategory);
 };
-
