@@ -21,6 +21,8 @@
     align-items: center;
     justify-content: space-between;
     position: relative;
+    text-decoration: none;
+    color: black;
   }
   &_category {
     width: 20%;
@@ -32,15 +34,35 @@
   }
   &_category_1 {
     background: #e3ddfe;
+    transition: all 0.5s;
+    &:hover {
+      opacity: 0.5;
+      background: #8d79fd;
+    }
   }
   &_category_2 {
     background: #ffeecd;
+    transition: all 0.5s;
+    &:hover {
+      opacity: 0.5;
+      background: #feb941;
+    }
   }
   &_category_3 {
     background: #dceced;
+    transition: all 0.5s;
+    &:hover {
+      opacity: 0.5;
+      background: #8de0ba;
+    }
   }
   &_category_4 {
     background: #ede3dc;
+    transition: all 0.5s;
+    &:hover {
+      opacity: 0.5;
+      background: #756f6b;
+    }
   }
   &_result {
     background: yellow;

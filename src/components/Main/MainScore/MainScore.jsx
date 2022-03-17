@@ -74,9 +74,8 @@ class MainScore extends React.Component {
   render() {
     return (
       <section className={styles.score}>
-        {console.log(this.props)}
         <div className={styles.score_inner}>
-          <div className={styles.score_content}>
+          <Link to="/answers" className={styles.score_content}>
             <div
               className={`${styles.score_category} ${styles.score_category_1}`}
             >
@@ -91,9 +90,9 @@ class MainScore extends React.Component {
             <span className={styles.score_value}>
               {this.nounTextProgress()}
             </span>
-          </div>
+          </Link>
 
-          <div className={styles.score_content}>
+          <Link to="/answers" className={styles.score_content}>
             <div
               className={`${styles.score_category} ${styles.score_category_2}`}
             >
@@ -108,9 +107,9 @@ class MainScore extends React.Component {
             <span className={styles.score_value}>
               {this.adjectiveTextProgress()}
             </span>
-          </div>
+          </Link>
 
-          <div className={styles.score_content}>
+          <Link to="/answers" className={styles.score_content}>
             <div
               className={`${styles.score_category} ${styles.score_category_3}`}
             >
@@ -125,9 +124,9 @@ class MainScore extends React.Component {
             <span className={styles.score_value}>
               {this.verbTextProgress()}
             </span>
-          </div>
+          </Link>
 
-          <div className={styles.score_content}>
+          <Link to="/answers" className={styles.score_content}>
             <div
               className={`${styles.score_category} ${styles.score_category_4}`}
             >
@@ -142,7 +141,7 @@ class MainScore extends React.Component {
             <span className={styles.score_value}>
               {this.otherTextProgress()}
             </span>
-          </div>
+          </Link>
         </div>
       </section>
     );

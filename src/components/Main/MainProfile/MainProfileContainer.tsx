@@ -7,6 +7,8 @@ let mapStatetoProps = (state: any) => {
     stage: state.stage,
     isAuthLevel: state.stage.isAuthLevel,
     isAuthName: state.name.isAuthName,
+    score: state.game.previousAnswers,
+    data: state.score.data,
   };
 };
 
