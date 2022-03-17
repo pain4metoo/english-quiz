@@ -99,7 +99,8 @@
     border: 1px solid #000000;
     color: #000;
     height: 7.5rem;
-    width: 32rem;
+    max-width: 32rem;
+    width: 100%;
     border-radius: 4rem;
     cursor: pointer;
     transition: ease 0.5s;
@@ -149,5 +150,48 @@
   }
   100% {
     transform: translateY(6px);
+  }
+}
+
+@media (max-width: 1300px) {
+  .english {
+    &_card {
+      margin-right: 2rem;
+      padding: 1rem;
+    }
+    &_description {
+      font-size: 1.7rem;
+      line-height: 2.6rem;
+      font-weight: 400;
+      max-width: 30rem;
+    }
+  }
+}
+
+@media (max-width: 850px) {
+  .english {
+    &_cards {
+      flex-direction: column;
+    }
+    &_card {
+      margin: 1rem;
+      margin-bottom: 3rem;
+    }
+    &_title {
+      font-size: 3rem;
+      line-height: 4rem;
+    }
+    &_description {
+      font-size: 2rem;
+    }
+  }
+}
+
+@media (max-width: 500px) {
+  .english {
+    &_title {
+      font-size: 2.5rem;
+      line-height: 3rem;
+    }
   }
 }

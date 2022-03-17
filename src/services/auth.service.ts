@@ -5,6 +5,8 @@ export const getLocalName = store.get("user") || "";
 export const getLocalAuthName: any = store.get("authName") || null;
 export const getLocalAuthLevel: any = store.get("authLevel") || null;
 export const getLocalAuthCategory: any = store.get("authCategory") || null;
+export const getLocalAnswersCategory: any =
+  store.get("answersCategory") || null;
 export const getLocalPreviusAnswer: any = store.get("answers") || {
   noun: [],
   adjective: [],
@@ -30,4 +32,8 @@ export const isAuthLevel = (authLevel: any) => {
 
 export const isAuthCategory = (authCategory: any) => {
   store.set("authCategory", authCategory);
+};
+
+export const answersCategory = (answersCategory: any) => {
+  store.set("answersCategory", answersCategory);
 };

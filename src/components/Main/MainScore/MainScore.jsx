@@ -71,11 +71,19 @@ class MainScore extends React.Component {
     }
   }
 
+  addCategory(category) {
+    this.props.changeCategory(category);
+  }
+
   render() {
     return (
       <section className={styles.score}>
         <div className={styles.score_inner}>
-          <Link to="/answers" className={styles.score_content}>
+          <Link
+            to="/answers"
+            className={styles.score_content}
+            onClick={() => this.addCategory("noun")}
+          >
             <div
               className={`${styles.score_category} ${styles.score_category_1}`}
             >
@@ -92,7 +100,11 @@ class MainScore extends React.Component {
             </span>
           </Link>
 
-          <Link to="/answers" className={styles.score_content}>
+          <Link
+            to="/answers"
+            className={styles.score_content}
+            onClick={() => this.addCategory("adjective")}
+          >
             <div
               className={`${styles.score_category} ${styles.score_category_2}`}
             >
@@ -109,7 +121,11 @@ class MainScore extends React.Component {
             </span>
           </Link>
 
-          <Link to="/answers" className={styles.score_content}>
+          <Link
+            to="/answers"
+            className={styles.score_content}
+            onClick={() => this.addCategory("verb")}
+          >
             <div
               className={`${styles.score_category} ${styles.score_category_3}`}
             >
@@ -126,7 +142,11 @@ class MainScore extends React.Component {
             </span>
           </Link>
 
-          <Link to="/answers" className={styles.score_content}>
+          <Link
+            to="/answers"
+            className={styles.score_content}
+            onClick={() => this.addCategory("other")}
+          >
             <div
               className={`${styles.score_category} ${styles.score_category_4}`}
             >

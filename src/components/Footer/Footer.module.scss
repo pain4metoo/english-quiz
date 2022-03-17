@@ -37,3 +37,12 @@
   opacity: 0.7;
   margin: 2rem 0 0 3rem;
 }
+
+@media (max-width: 420px) {
+  .year {
+    margin-left: 1rem;
+  }
+  .authors {
+    margin-right: 1rem;
+  }
+}

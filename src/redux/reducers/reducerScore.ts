@@ -1,16 +1,22 @@
 import { getLocalPreviusAnswer } from "../../services/auth.service";
 import { getData } from "./../../api/api";
+import {
+  answersCategory,
+  getLocalAnswersCategory,
+} from "../../services/auth.service";
 
 const ADD_DATA = "ADD_DATA";
-
+const ADD_CATEGORY = "ADD_CATEGORY";
 interface Score {
   data: object;
   answers: object;
+  category: string;
 }
 
 const initialState: Score = {
   data: {},
   answers: getLocalPreviusAnswer,
+  category: getLocalAnswersCategory,
 };
 
 const scoreReducer = (state = initialState, action: any) => {
@@ -20,10 +26,21 @@ const scoreReducer = (state = initialState, action: any) => {
         ...state,
         data: action.data,
       };
+    case ADD_CATEGORY:
+      answersCategory(action.category);
+      return {
+        ...state,
+        category: action.category,
+      };
     default:
       return state;
   }
 };
+
+export const addCategoryActionCreator = (category: string) => ({
+  type: ADD_CATEGORY,
+  category: category,
+});
 
 export const addDataAnswersActionCreator = (data: object) => ({
   type: ADD_DATA,

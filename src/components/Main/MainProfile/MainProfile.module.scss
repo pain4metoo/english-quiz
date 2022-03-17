@@ -100,3 +100,20 @@
     }
   }
 }
+
+@media (max-width: 980px) {
+  .profile {
+    &_name {
+      font-size: 4rem;
+    }
+    &_name_text {
+      font-size: 3rem;
+    }
+    &_level {
+      font-size: 3rem;
+    }
+    &_level_text {
+      font-size: 3rem;
+    }
+  }
+}

@@ -4,6 +4,7 @@ import nameReducer from "../reducers/reducerName";
 import categoryReducer from './../reducers/reducerCategory';
 import gameReducer from "./../reducers/reducerGame";
 import scoreReducer from './../reducers/reducerScore';
+import answersReducer from './../reducers/reducerAnswers';
 import thunkMiddleware from 'redux-thunk';
 
 
@@ -13,6 +14,7 @@ let reducers = combineReducers({
   category: categoryReducer,
   game: gameReducer,
   score: scoreReducer,
+  answers: answersReducer,
 });
 
 let store = createStore(reducers, applyMiddleware(thunkMiddleware));

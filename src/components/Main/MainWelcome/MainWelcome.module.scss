@@ -13,6 +13,7 @@
     background-size: contain;
     animation: 10s linear 0s normal none infinite running rotate;
     -webkit-animation: 10s linear 0s normal none infinite running rotate;
+    overflow-x: hidden;
   }
   &_bg {
     margin: 0;
@@ -27,6 +28,7 @@
     -moz-animation: fadeIn 1 1s ease-out;
     -o-animation: fadeIn 1 1s ease-out;
     animation: fadeIn 1 1s ease-out;
+    overflow-x: hidden;
   }
   &_inner {
     display: flex;
@@ -85,7 +87,8 @@
     background: transparent;
     color: $color-text;
     border: 1px solid black;
-    width: 34.5rem;
+    max-width: 34.5rem;
+    width: 100%;
     opacity: 0.5;
     padding-top: 2rem;
     height: 7.5rem;
@@ -113,5 +116,31 @@
   }
   100% {
     transform: rotate(360deg);
+  }
+}
+
+@media (max-width: 660px) {
+  .welcome {
+    &_text {
+      font-size: 3rem;
+      line-height: 4rem;
+      font-weight: 500;
+      margin-top: 2rem;
+      max-width: 40rem;
+      &::placeholder {
+        font-size: 3rem;
+        line-height: 4rem;
+        height: 4rem;
+      }
+    }
+  }
+}
+
+@media (max-width: 350px) {
+  &_btn {
+    max-width: 25.5rem;
+    opacity: 0.5;
+    padding-top: 2rem;
+    height: 5.5rem;
   }
 }

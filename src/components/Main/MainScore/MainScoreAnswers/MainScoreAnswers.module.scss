@@ -8,16 +8,25 @@
     border: 1px solid black;
     border-radius: 4rem;
     min-height: 55vh;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
     padding: 2rem;
     position: relative;
     transition: all 0.5s;
+    display: flex;
+    align-items: center;
+    justify-content: space-around;
   }
   &_title {
     @extend %font-title;
     line-height: 4rem;
     text-align: center;
+    position: absolute;
+    top: 3rem;
+  }
+  &_item {
+    width: 100%;
+    margin-bottom: 1rem;
+  }
+  &_eng {
+    margin-right: 5rem;
   }
 }
