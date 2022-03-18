@@ -1,8 +1,9 @@
 import { getLocalPreviusAnswer } from "../../services/auth.service";
 import { getData } from "./../../api/api";
 import {
-  answersCategory,
+  answersCategoryTranslate,
   getLocalAnswersCategory,
+  answersCategory,
 } from "../../services/auth.service";
 
 const ADD_DATA = "ADD_DATA";
@@ -27,6 +28,7 @@ const scoreReducer = (state = initialState, action: any) => {
         data: action.data,
       };
     case ADD_CATEGORY:
+      answersCategoryTranslate(action.category);
       answersCategory(action.category);
       return {
         ...state,
