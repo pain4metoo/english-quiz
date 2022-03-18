@@ -7,6 +7,17 @@ class MainScoreAnswers extends React.Component {
     this.props.getPages();
   }
 
+  componentDidUpdate() {
+    let audio = new Audio(this.props.audioSrc);
+    if (this.props.audioPlay) {
+      audio.play();
+    } else {
+      audio.pause();
+    }
+
+    this.props.changeSound();
+  }
+
   showAnswers() {
     if (this.props.data) {
       let startNum = this.props.interval[0];
@@ -38,27 +49,40 @@ class MainScoreAnswers extends React.Component {
         }
       }
 
-      return (
-        <div className={styles.answers_items_list}>
-          {currentAnswers.map((item, i) => {
-            return (
-              <ul className={styles.answers_items_lists} key={i}>
-                {item.map((item, i) => {
-                  return item !== undefined ? (
-                    <li
-                      className={styles.answers_item_list}
-                      key={i}
-                      onClick={() => this.playSound()}
-                    >{`${item[0]} - ${item[1]}`}</li>
-                  ) : (
-                    ""
-                  );
-                })}
-              </ul>
-            );
-          })}
-        </div>
-      );
+      if (!currentAnswers[0][0]) {
+        return (
+          <p className={styles.answers_clear}>Список угаданных слов пуст :(</p>
+        );
+      } else {
+        return (
+          <div className={styles.answers_items_list}>
+            {currentAnswers.map((item, i) => {
+              return item[0] ? (
+                <ul
+                  className={`${styles.answers_items_lists} ${
+                    styles[`answers_items_lists_${i + 1}`]
+                  }`}
+                  key={i}
+                >
+                  {item.map((item, i) => {
+                    return item !== undefined ? (
+                      <li
+                        className={styles.answers_item_list}
+                        key={i}
+                        onClick={(e) => this.getSound(e.target.innerText)}
+                      >{`${item[0]} - ${item[1]}`}</li>
+                    ) : (
+                      ""
+                    );
+                  })}
+                </ul>
+              ) : (
+                <span className={styles.answers_hiden} key={i}></span>
+              );
+            })}
+          </div>
+        );
+      }
     }
   }
 
@@ -66,9 +90,12 @@ class MainScoreAnswers extends React.Component {
     this.props.getWordsAnswers(page);
   }
 
-  playSound(e) {
-    let body = e.target.innerText;
-    console.log(body);
+  getSound(e) {
+    let nameTrack = e;
+    let indexEnd = nameTrack.indexOf(" ");
+    nameTrack = nameTrack.split("").splice(0, indexEnd).join("");
+    let track = `${nameTrack}-us`;
+    this.props.newSound(track);
   }
 
   render() {
@@ -83,7 +110,12 @@ class MainScoreAnswers extends React.Component {
             {this.props.pages.map((p, i) => {
               return (
                 <span
-                  className={styles.answers_page}
+                  className={`${styles.answers_page} ${
+                    i + 1 === this.props.currentPage
+                      ? styles.answers_page_active
+                      : ""
+                  }
+                    `}
                   key={i}
                   onClick={() => this.getNumberPage(i)}
                 >

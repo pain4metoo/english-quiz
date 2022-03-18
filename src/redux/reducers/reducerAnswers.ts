@@ -12,6 +12,8 @@ const ADD_CATEGORY = "ADD_CATEGORY";
 const ADD_DATA = "ADD_DATA";
 const GET_ANSWERS = "GET_ANSWERS";
 const GET_PAGES = "GET_PAGES";
+const ADD_SOUND = "ADD_SOUND";
+const CHANGE_SOUND = "CHANGE_SOUND";
 
 interface Answers {
   data: any;
@@ -21,6 +23,9 @@ interface Answers {
   answers: any;
   pages: Array<number>;
   interval: Array<number>;
+  audioSrc: string;
+  audioPlay: boolean;
+  currentPage: number;
 }
 
 const initialState: Answers = {
@@ -31,6 +36,9 @@ const initialState: Answers = {
   answers: getLocalPreviusAnswer,
   pages: [],
   interval: [],
+  audioSrc: "",
+  audioPlay: false,
+  currentPage: 1,
 };
 
 const answersReducer = (state = initialState, action: any) => {
@@ -80,14 +88,27 @@ const answersReducer = (state = initialState, action: any) => {
         return {
           ...state,
           interval: [0, 18],
+          currentPage: 1,
         };
       }
       let intervalStart = action.page * 18;
       let intervalEnd = action.page * 18 + 18;
-
       return {
         ...state,
         interval: [intervalStart, intervalEnd],
+        currentPage: action.page + 1,
+      };
+    case ADD_SOUND:
+      let src = `https://raw.githubusercontent.com/pain4metoo/words-data/master/${state.currentCategory}/${action.track}.mp3`;
+      return {
+        ...state,
+        audioSrc: src,
+        audioPlay: true,
+      };
+    case CHANGE_SOUND:
+      return {
+        ...state,
+        audioPlay: false,
       };
     default:
       return state;
@@ -117,6 +138,15 @@ export const getAnswersDataActionCreator = (page: number) => ({
 
 export const getPagesActionCreator = () => ({
   type: GET_PAGES,
+});
+
+export const getNewSoundActionCreator = (name: string) => ({
+  type: ADD_SOUND,
+  track: name,
+});
+
+export const changeSoundActionCreator = () => ({
+  type: CHANGE_SOUND,
 });
 
 export default answersReducer;

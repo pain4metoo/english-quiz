@@ -5,6 +5,8 @@ import {
   addCategoryActionCreator,
   getAnswersDataActionCreator,
   getPagesActionCreator,
+  getNewSoundActionCreator,
+  changeSoundActionCreator,
 } from "./../../../../redux/reducers/reducerAnswers";
 
 let mapStatetoProps = (state: any) => {
@@ -16,6 +18,9 @@ let mapStatetoProps = (state: any) => {
     currentCategory: state.answers.currentCategory,
     pages: state.answers.pages,
     interval: state.answers.interval,
+    audioSrc: state.answers.audioSrc,
+    audioPlay: state.answers.audioPlay,
+    currentPage: state.answers.currentPage,
   };
 };
 
@@ -32,6 +37,12 @@ let mapDispatchToProps = (dispatch: any) => {
     },
     getWordsAnswers: (page: number) => {
       dispatch(getAnswersDataActionCreator(page));
+    },
+    newSound: (name: string) => {
+      dispatch(getNewSoundActionCreator(name));
+    },
+    changeSound: () => {
+      dispatch(changeSoundActionCreator());
     },
   };
 };
