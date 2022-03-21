@@ -9,18 +9,14 @@ const MainSettings = (props: any) => {
     return <Navigate to="/" />;
   }
 
-  const addNameStore = () => {
-    props.addName();
-  };
-
-  const updateName = (e: any) => {
-    let body = e.target.value;
-    props.updateText(body);
-  };
-
-  const changeLevel = (e: any) => {
-    let level = e.target.value;
-    props.updateLevel(level);
+  const applySettings = (type: string) => {
+    if (type === "isAnim") {
+      if (props.isAnim) {
+        props.isAnimFlag(false);
+      } else {
+        props.isAnimFlag(true);
+      }
+    }
   };
 
   return (
@@ -31,18 +27,6 @@ const MainSettings = (props: any) => {
         <div className={styles.settings_block}>
           <div className={styles.settings_left}>
             <div className={styles.settings_item}>
-              <p className={styles.settings_anim_text}>
-                Настройка анимации фона
-              </p>
-              <div className={styles.center}>
-                <input type="checkbox" />
-                <p className={styles.settings_text_description}>
-                  включение/отключение анимации
-                </p>
-              </div>
-            </div>
-
-            <div className={styles.settings_item}>
               <p className={styles.settings_theme_text}>
                 Сменить тему приложения
               </p>
@@ -50,6 +34,21 @@ const MainSettings = (props: any) => {
                 <input type="checkbox" />
                 <p className={styles.settings_text_description}>
                   белая/чёрная тема
+                </p>
+              </div>
+            </div>
+
+            <div className={styles.settings_item}>
+              <p className={styles.settings_anim_text}>
+                Настройка анимации фона
+              </p>
+              <div className={styles.center}>
+                <input
+                  type="checkbox"
+                  onChange={() => applySettings("isAnim")}
+                />
+                <p className={styles.settings_text_description}>
+                  включение/отключение анимации
                 </p>
               </div>
             </div>
@@ -94,13 +93,12 @@ const MainSettings = (props: any) => {
                 className={styles.settings_name_change}
                 type="text"
                 placeholder="Введите новое имя..."
-                onChange={updateName}
               />
             </div>
 
             <div className={styles.settings_item}>
               <p className={styles.settings_level_text}>Изменить уровень</p>
-              <select className={styles.settings_list} onClick={changeLevel}>
+              <select className={styles.settings_list}>
                 <option className={styles.settings_list_item} value="начальный">
                   Начальный
                 </option>
@@ -127,7 +125,6 @@ const MainSettings = (props: any) => {
           <button
             className={`${styles.settings_btn} ${styles.settings_btn_save}`}
             type="button"
-            onClick={addNameStore}
           >
             Сохранить
           </button>

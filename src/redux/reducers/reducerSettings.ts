@@ -1,38 +1,65 @@
-import {
-  addLocalLevel,
-  getLocalLevel,
-  getLocalAuthLevel,
-  isAuthLevel,
-} from "./../../services/auth.service";
-
-const CHANGE_LEVEL = "CHANGE_LEVEL";
+const ANIM_FLAG = "ANIM_FLAG";
+const THEME_FLAG = "THEME_FLAG";
+const TYPE_ANIM = "TYPE_ANIM";
+const SOUND_FLAG = "SOUND_FLAG";
+const NAME_FLAG = "NAME_FLAG";
+const LEVEL_FLAG = "LEVEL_FLAG";
 
 interface Settings {
-  level: string;
+  settings: any;
 }
 
 const initialState: Settings = {
-  level: "test",
+  settings: {
+    isAnim: false,
+    isTheme: false,
+    isTypeAnim: false,
+    isSound: false,
+    isName: false,
+    isLevel: false,
+  },
 };
 
-const nameReducer = (state = initialState, action: any) => {
-  let stateCopy = JSON.parse(JSON.stringify(state));
+const settingsReducer = (state = initialState, action: any) => {
   switch (action.type) {
+    case ANIM_FLAG:
+      return {
+        ...state,
+        isAnim: (state.settings.isAnim = action.flag),
+      };
     default:
-      return stateCopy;
+      return state;
   }
 };
 
-//   export const addNameActionCreator = () => ({ type: ADD_NAME });
+export const isAnimFlagActionCreator = (flag: boolean) => ({
+  type: ANIM_FLAG,
+  flag: flag,
+});
 
-//   export const updateNameTextActionCreator = (text: string) => ({
-//     type: UPDATE_NAME,
-//     newNameText: text,
-//   });
+export const isThemeFlagActionCreator = (flag: boolean) => ({
+  type: THEME_FLAG,
+  flag: flag,
+});
 
-//   export const validNameActionCreator = (length: number) => ({
-//     type: VALID_NAME,
-//     length: length,
-//   });
+export const isTypeAnimFlagActionCreator = (flag: boolean) => ({
+  type: TYPE_ANIM,
+  flag: flag,
+});
 
-export default nameReducer;
+export const isSoundFlagActionCreator = (flag: boolean) => ({
+  type: SOUND_FLAG,
+  flag: flag,
+});
+
+export const isNameFlagActionCreator = (flag: boolean) => ({
+  type: NAME_FLAG,
+  flag: flag,
+});
+
+export const isLevelFlagActionCreator = (flag: boolean) => ({
+  type: LEVEL_FLAG,
+  flag: flag,
+});
+
+export default settingsReducer;

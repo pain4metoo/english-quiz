@@ -9,17 +9,61 @@ const MainWelcomeBg = (props: any) => {
 
     return "";
   };
+
+  const isAnimation = () => {
+    if (props.isAnim) {
+      return styles.none;
+    }
+
+    return "";
+  };
   return (
     <div>
-      <div className={`${styles.light} ${animationWin()} ${styles.x1}`}></div>
-      <div className={`${styles.light} ${animationWin()} ${styles.x2}`}></div>
-      <div className={`${styles.light} ${animationWin()} ${styles.x3}`}></div>
-      <div className={`${styles.light} ${animationWin()} ${styles.x4}`}></div>
-      <div className={`${styles.light} ${animationWin()} ${styles.x5}`}></div>
-      <div className={`${styles.light} ${animationWin()} ${styles.x6}`}></div>
-      <div className={`${styles.light} ${animationWin()} ${styles.x7}`}></div>
-      <div className={`${styles.light} ${animationWin()} ${styles.x8}`}></div>
-      <div className={`${styles.light} ${animationWin()} ${styles.x9}`}></div>
+      <div
+        className={`${styles.light} ${animationWin()} ${isAnimation()} ${
+          styles.x1
+        }`}
+      ></div>
+      <div
+        className={`${styles.light} ${animationWin()} ${isAnimation()} ${
+          styles.x2
+        }`}
+      ></div>
+      <div
+        className={`${styles.light} ${animationWin()} ${isAnimation()} ${
+          styles.x3
+        }`}
+      ></div>
+      <div
+        className={`${styles.light} ${animationWin()} ${isAnimation()} ${
+          styles.x4
+        }`}
+      ></div>
+      <div
+        className={`${styles.light} ${animationWin()} ${isAnimation()} ${
+          styles.x5
+        }`}
+      ></div>
+      <div
+        className={`${styles.light} ${animationWin()} ${isAnimation()} ${
+          styles.x6
+        }`}
+      ></div>
+      <div
+        className={`${styles.light} ${animationWin()} ${isAnimation()} ${
+          styles.x7
+        }`}
+      ></div>
+      <div
+        className={`${styles.light} ${animationWin()} ${isAnimation()} ${
+          styles.x8
+        }`}
+      ></div>
+      <div
+        className={`${styles.light} ${animationWin()} ${isAnimation()} ${
+          styles.x9
+        }`}
+      ></div>
     </div>
   );
 };

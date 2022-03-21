@@ -17,6 +17,11 @@
   box-shadow: green 0px 0px 20px 2px;
 }
 
+.none {
+  opacity: 0;
+  visibility: hidden;
+}
+
 .x1 {
   -webkit-animation: floatUp 4s infinite linear;
   -moz-animation: floatUp 4s infinite linear;
