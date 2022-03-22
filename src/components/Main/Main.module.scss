@@ -3,6 +3,12 @@
 .main {
   flex: 1 0 auto;
   height: 71.5vh;
+  &_light {
+    background: $color-bg-light;
+  }
+  &_dark {
+    background: $color-bg-dark;
+  }
 }
 
 .container {
@@ -12,7 +18,7 @@
 }
 
 @media (max-width: 850px) {
-  .main{
+  .main {
     height: auto;
   }
 }

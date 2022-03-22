@@ -2,8 +2,16 @@
 
 .header {
   flex: 0 0 auto;
-  background: $color-bg;
   height: 12vh;
+  transition: all 0.5s;
+  &_light {
+    background: $color-bg-light;
+    color: $color-text-light;
+  }
+  &_dark {
+    background: $color-bg-dark;
+    color: $color-text-dark;
+  }
   &_inner {
     display: flex;
     align-items: center;
@@ -13,7 +21,6 @@
     font-size: 4.5rem;
     line-height: 5.5rem;
     font-weight: 700;
-    color: $color-text;
     text-decoration: none;
     transition: all 0.5s;
     margin-left: 1rem;
@@ -21,6 +28,12 @@
     &:hover {
       color: $color-hover;
     }
+  }
+  &_logo_light {
+    color: $color-text-light;
+  }
+  &_logo_dark {
+    color: $color-text-dark;
   }
   &_logo_fix {
     margin-left: 15rem;
@@ -34,10 +47,9 @@
 }
 
 @media (max-width: 1200px) {
-  .header{
-    &_inner{
+  .header {
+    &_inner {
       margin-left: 2rem;
     }
   }
 }
-

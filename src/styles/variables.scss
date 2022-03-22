@@ -1,14 +1,17 @@
 $font-main: "TT-Norms-Pro", sans-serif;
 
-$color-bg: #ffffff;
 $color-bg1: #539bf5;
 $color-hover: #539bf5;
-$color-text: #000000;
 
-$primary: #4F2EDC;
-$primary-light: #947ADA;
-$gray: #9A9999;
+$color-bg-dark: radial-gradient(ellipse at bottom, #1b2735 0%, #090a0f 100%);
+$color-text-dark: white;
 
+$color-bg-light: white;
+$color-text-light: black;
+
+$primary: #4f2edc;
+$primary-light: #947ada;
+$gray: #9a9999;
 
 %font-small {
   font-size: 1.8rem;
@@ -20,6 +23,7 @@ $gray: #9A9999;
   font-size: 2rem;
   line-height: 2.6rem;
   font-weight: 400;
+  color: white;
 }
 
 %font-btn {
@@ -34,8 +38,14 @@ $gray: #9A9999;
   font-weight: bold;
 }
 
-%btn-hover {
+%btn-hover-dark {
   border-color: black;
-  background: #000000;
-  color: #ffffff;
+  background: white;
+  color: black;
+}
+
+%btn-hover-light {
+  border-color: white;
+  background: black;
+  color: white;
 }

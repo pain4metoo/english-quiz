@@ -18,12 +18,11 @@ body {
   font-family: $font-main;
   @extend %font-default;
   height: 100%;
-  background: $color-bg;
 }
 
 .wrapper {
   display: flex;
   flex-direction: column;
   height: 100vh;
+  overflow: hidden;
 }
-

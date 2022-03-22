@@ -20,7 +20,12 @@
     animation-iteration-count: infinite;
     animation-duration: 5s;
     text-decoration: none;
-    color: $color-text;
+  }
+  &_card_light {
+    color: $color-text-light;
+  }
+  &_card_dark {
+    color: $color-text-dark;
   }
   &_card_1 {
     background: #e3ddfe;

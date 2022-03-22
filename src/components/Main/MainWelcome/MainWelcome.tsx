@@ -27,6 +27,16 @@ const MainWelcome = (props: any) => {
     }
   };
 
+  const theme = (tag: string) => {
+    if (tag === "btn") {
+      if (props.theme) {
+        return styles.welcome_btn_light;
+      } else {
+        return styles.welcome_btn_dark;
+      }
+    }
+  };
+
   return (
     <section className={styles.welcome}>
       <div className={styles.welcome_bg}>
@@ -40,7 +50,7 @@ const MainWelcome = (props: any) => {
             placeholder="Введите ваше имя..."
           />
           <NavLink
-            className={styles.welcome_btn}
+            className={`${styles.welcome_btn} ${theme("btn")}`}
             to={props.url}
             onClick={addNameStore}
           >

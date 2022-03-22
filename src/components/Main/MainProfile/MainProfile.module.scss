@@ -8,6 +8,12 @@
     border: 1px solid black;
     border-radius: 4rem;
     height: 55vh;
+    &_light {
+      border: 1px solid black;
+    }
+    &_dark {
+      border: 1px solid white;
+    }
   }
   &_info_inner {
     padding: 2rem;
@@ -61,15 +67,19 @@
   }
   &_progress_line {
     width: 100%;
-    background: #ffffff;
     height: 0.5rem;
     cursor: pointer;
     transition: all 0.5s;
     border-radius: 0.5rem;
     margin-top: 2rem;
+    &_light {
+      background: #5a5a5a;
+    }
+    &_dark {
+      background: #ffffff;
+    }
   }
   &_progress_line_inner {
-    background: #ff2253;
     height: 0.5rem;
     transition: all 0.5s;
     border-radius: 0.5rem;
@@ -85,19 +95,39 @@
     text-decoration: none;
     text-align: center;
     padding-top: 2rem;
-    border: 1px solid #000000;
-    color: #000;
     height: 7.5rem;
     width: 32rem;
     border-radius: 4rem;
     cursor: pointer;
     transition: ease 0.5s;
-    &:hover {
-      @extend %btn-hover;
+    &_light {
+      background: $color-bg-light;
+      color: $color-text-light;
+      border: 1px solid black;
     }
-    &:active {
-      @extend %btn-hover;
+    &_dark {
+      background: transparent;
+      color: $color-text-dark;
+      border: 1px solid white;
     }
+    &_light:hover {
+      @extend %btn-hover-light;
+    }
+    &_dark:hover {
+      @extend %btn-hover-dark;
+    }
+    &_light:active {
+      @extend %btn-hover-light;
+    }
+    &_dark:active {
+      @extend %btn-hover-dark;
+    }
+  }
+  &_text_light {
+    color: $color-text-light;
+  }
+  &_text_dark {
+    color: $color-text-dark;
   }
 }
 

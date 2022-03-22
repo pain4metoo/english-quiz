@@ -4,14 +4,18 @@
   margin-top: 5rem;
   &_inner {
     width: 100%;
-    border: 1px solid black;
     border-radius: 4rem;
     min-height: 55vh;
     padding: 2rem;
+    &_light {
+      border: 1px solid black;
+    }
+    &_dark {
+      border: 1px solid white;
+    }
   }
   &_block {
     display: flex;
-
     justify-content: space-between;
   }
   &_title {
@@ -44,19 +48,41 @@
     margin-top: 5rem;
   }
   &_btn {
-    background: transparent;
-    border: 1px solid #000000;
-    color: #000;
     height: 7.5rem;
     width: 32rem;
     border-radius: 4rem;
     cursor: pointer;
     transition: ease 0.5s;
-    &:hover {
-      border-color: black;
-      background: #000000;
-      color: #ffffff;
+    &_light {
+      background: transparent;
+      border: 1px solid #000000;
+      color: black;
     }
+    &_dark {
+      background: transparent;
+      border: 1px solid white;
+      color: white;
+    }
+    &_light:hover {
+      @extend %btn-hover-light;
+    }
+    &_dark:hover {
+      @extend %btn-hover-dark;
+    }
+    &_light:active {
+      @extend %btn-hover-light;
+    }
+    &_dark:active {
+      @extend %btn-hover-dark;
+    }
+  }
+  &_text_light {
+    transition: all 0.5s;
+    color: $color-text-light;
+  }
+  &_text_dark {
+    transition: all 0.5s;
+    color: $color-text-dark;
   }
 }
 
@@ -90,12 +116,20 @@ input[type="checkbox"]::before {
   border-radius: 50%;
   top: 0;
   left: 0;
-  background: #fff;
   transform: scale(1.1);
   box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
   transition: 0.5s;
   cursor: pointer;
 }
+
+.circle_light[type="checkbox"]::before {
+  background: #000;
+}
+
+.circle_dark[type="checkbox"]::before {
+  background: #fff;
+}
+
 input:checked[type="checkbox"]::before {
   left: 5rem;
 }

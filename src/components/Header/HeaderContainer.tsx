@@ -5,6 +5,7 @@ let mapStatetoProps = (state: any) => {
   return {
     isAuthLevel: state.stage.isAuthLevel,
     isAuthName: state.name.isAuthName,
+    theme: state.settings.settings.isTheme,
   };
 };
 

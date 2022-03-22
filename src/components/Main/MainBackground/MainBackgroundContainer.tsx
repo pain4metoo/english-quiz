@@ -3,9 +3,7 @@ import { connect } from "react-redux";
 
 let mapStateToProps = (state: any) => {
   return {
-    showAnswer: state.game.showAnswer,
-    isAnswer: state.game.isAnswer,
-    isAnim: state.settings.settings.isAnim,
+    theme: state.settings.settings.isTheme,
   };
 };
 

@@ -20,12 +20,17 @@ const initialState: Settings = {
   },
 };
 
-const settingsReducer = (state = initialState, action: any) => {
+export const settingsReducer = (state = initialState, action: any) => {
   switch (action.type) {
     case ANIM_FLAG:
       return {
         ...state,
         isAnim: (state.settings.isAnim = action.flag),
+      };
+    case THEME_FLAG:
+      return {
+        ...state,
+        isTheme: (state.settings.isTheme = action.flag),
       };
     default:
       return state;

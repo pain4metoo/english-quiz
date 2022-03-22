@@ -2,8 +2,14 @@
 
 .footer {
   flex: 0 0 auto;
-  background: $color-bg;
   height: 7.5vh;
+  transition: all 0.5s;
+  &_light {
+    background: $color-bg-light;
+  }
+  &_dark {
+    background: $color-bg-dark;
+  }
   &_inner {
     display: flex;
     justify-content: space-between;
@@ -18,13 +24,18 @@
 .names {
   font-weight: 400;
   font-size: 1.3rem;
-  color: $color-text;
   margin: 0;
   opacity: 0.7;
   display: block;
   text-decoration: none;
   transition: all 0.5s;
   line-height: 2rem;
+  &_light {
+    color: $color-text-light;
+  }
+  &_dark {
+    color: $color-text-dark;
+  }
   &:hover {
     color: $color-hover;
   }
@@ -33,9 +44,15 @@
 .year {
   font-weight: 400;
   font-size: 1.4rem;
-  color: $color-text;
   opacity: 0.7;
-  margin: 2rem 0 0 3rem;
+  margin: 1rem 0 0 3rem;
+  transition: all 0.5s;
+  &_light {
+    color: $color-text-light;
+  }
+  &_dark {
+    color: $color-text-dark;
+  }
 }
 
 @media (max-width: 420px) {

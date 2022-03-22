@@ -14,8 +14,18 @@ import MainScoreAnswersContainer from "./MainScore/MainScoreAnswers/MainScoreAns
 import { Routes, Route } from "react-router-dom";
 
 const Main = (props: any) => {
+  const theme = (tag: string) => {
+    if (tag === "main") {
+      if (props.theme) {
+        return styles.main_light;
+      } else {
+        return styles.main_dark;
+      }
+    }
+  };
+
   return (
-    <main className={styles.main}>
+    <main className={`${styles.main} ${theme("main")}`}>
       <MainBackgroundContainer />
       <div className={styles.container}>
         <Routes>
