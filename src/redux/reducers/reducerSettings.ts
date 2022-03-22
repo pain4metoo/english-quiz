@@ -1,9 +1,16 @@
+import { addLocalUser, addLocalLevel } from "../../services/auth.service";
+
 const ANIM_FLAG = "ANIM_FLAG";
 const THEME_FLAG = "THEME_FLAG";
 const TYPE_ANIM = "TYPE_ANIM";
 const SOUND_FLAG = "SOUND_FLAG";
 const NAME_FLAG = "NAME_FLAG";
 const LEVEL_FLAG = "LEVEL_FLAG";
+
+const UPDATE_TEXT = "UPDATE_TEXT";
+const ADD_NAME = "ADD_NAME";
+const ADD_LEVEL = "ADD_LEVEL";
+const SAVE_LEVEL = "SAVE_LEVEL";
 
 interface Settings {
   settings: any;
@@ -13,10 +20,6 @@ const initialState: Settings = {
   settings: {
     isAnim: false,
     isTheme: false,
-    isTypeAnim: false,
-    isSound: false,
-    isName: false,
-    isLevel: false,
   },
 };
 
@@ -44,26 +47,6 @@ export const isAnimFlagActionCreator = (flag: boolean) => ({
 
 export const isThemeFlagActionCreator = (flag: boolean) => ({
   type: THEME_FLAG,
-  flag: flag,
-});
-
-export const isTypeAnimFlagActionCreator = (flag: boolean) => ({
-  type: TYPE_ANIM,
-  flag: flag,
-});
-
-export const isSoundFlagActionCreator = (flag: boolean) => ({
-  type: SOUND_FLAG,
-  flag: flag,
-});
-
-export const isNameFlagActionCreator = (flag: boolean) => ({
-  type: NAME_FLAG,
-  flag: flag,
-});
-
-export const isLevelFlagActionCreator = (flag: boolean) => ({
-  type: LEVEL_FLAG,
   flag: flag,
 });
 

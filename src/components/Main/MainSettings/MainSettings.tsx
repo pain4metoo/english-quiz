@@ -4,6 +4,7 @@ import volumeOff from "../../../assets/svg/mute.svg";
 import volumeOn from "../../../assets/svg/on.svg";
 
 const MainSettings = (props: any) => {
+  console.log(props);
   if (!props.isAuthName && !props.isAuthLevel) {
     return <Navigate to="/" />;
   }
@@ -42,6 +43,12 @@ const MainSettings = (props: any) => {
         return styles.circle_light;
       } else {
         return styles.circle_dark;
+      }
+    } else if (tag === "input_name") {
+      if (props.isTheme) {
+        return styles.settings_name_change_light;
+      } else {
+        return styles.settings_name_change_dark;
       }
     }
   };
@@ -113,14 +120,43 @@ const MainSettings = (props: any) => {
           </div>
 
           <div className={styles.settings_right}>
+            <div className={`${styles.settings_item} ${styles.settings_sound}`}>
+              <p className={`${styles.settings_volume_text} ${theme("text")}`}>
+                Настройка звука
+              </p>
+              <div className={styles.settings_controls}>
+                <input
+                  className={styles.settings_range}
+                  type="range"
+                  min="1"
+                  max="100"
+                  step="1"
+                />
+                <div className={styles.settings_volume}>
+                  <img
+                    className={`${styles.settings_volume_img} ${styles.settings_volume_off}`}
+                    src={volumeOff}
+                    alt="volume_off"
+                  />
+                  <img
+                    className={`${styles.settings_volume_img} ${styles.settings_volum_on}`}
+                    src={volumeOn}
+                    alt="volume_on"
+                  />
+                </div>
+              </div>
+            </div>
             <div className={styles.settings_item}>
               <p className={`${styles.settings_name_text} ${theme("text")}`}>
                 Изменить имя
               </p>
               <input
-                className={styles.settings_name_change}
+                className={`${styles.settings_name_change} ${theme(
+                  "input_name"
+                )}`}
                 type="text"
                 placeholder="Введите новое имя..."
+                value={props.newNameText || props.newName}
               />
             </div>
 
@@ -142,31 +178,6 @@ const MainSettings = (props: any) => {
                   Продвинутый
                 </option>
               </select>
-            </div>
-
-            <div className={styles.settings_item}>
-              <p className={`${styles.settings_volume_text} ${theme("text")}`}>
-                Настройка звука
-              </p>
-              <input
-                className={styles.settings_range}
-                type="range"
-                min="1"
-                max="100"
-                step="1"
-              />
-              <div className={styles.settings_volume}>
-                <img
-                  className={`${styles.settings_volume_img} ${styles.settings_volume_off}`}
-                  src={volumeOff}
-                  alt="volume_off"
-                />
-                <img
-                  className={`${styles.settings_volume_img} ${styles.settings_volum_on}`}
-                  src={volumeOn}
-                  alt="volume_on"
-                />
-              </div>
             </div>
           </div>
         </div>

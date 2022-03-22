@@ -3,10 +3,6 @@ import { connect } from "react-redux";
 import {
   isAnimFlagActionCreator,
   isThemeFlagActionCreator,
-  isTypeAnimFlagActionCreator,
-  isSoundFlagActionCreator,
-  isNameFlagActionCreator,
-  isLevelFlagActionCreator,
 } from "./../../../redux/reducers/reducerSettings";
 
 let mapStatetoProps = (state: any) => {
@@ -15,10 +11,6 @@ let mapStatetoProps = (state: any) => {
     isAuthName: state.name.isAuthName,
     isAnim: state.settings.settings.isAnim,
     isTheme: state.settings.settings.isTheme,
-    isTypeAnim: state.settings.isTypeAnim,
-    isSound: state.settings.isSound,
-    isName: state.settings.isName,
-    isLevel: state.settings.isLevel,
   };
 };
 
@@ -29,18 +21,6 @@ let mapDispatchToProps = (dispatch: any) => {
     },
     isThemeFlag: (flag: boolean) => {
       dispatch(isThemeFlagActionCreator(flag));
-    },
-    isTypeAnimFlag: (flag: boolean) => {
-      dispatch(isTypeAnimFlagActionCreator(flag));
-    },
-    isSoundFlag: (flag: boolean) => {
-      dispatch(isSoundFlagActionCreator(flag));
-    },
-    isNameFlag: (flag: boolean) => {
-      dispatch(isNameFlagActionCreator(flag));
-    },
-    isLevelFlag: (flag: boolean) => {
-      dispatch(isLevelFlagActionCreator(flag));
     },
   };
 };

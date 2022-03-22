@@ -18,7 +18,7 @@ interface Name {
 
 const initialState: Name = {
   name: getLocalName,
-  newNameText: getLocalName,
+  newNameText: "",
   url: "/",
   isAuthName: getLocalAuthName,
 };
@@ -33,19 +33,20 @@ const nameReducer = (state = initialState, action: any) => {
           url: "/",
         };
       }
+      state.name = state.newNameText;
+      addLocalUser(state.name);
       return {
         ...state,
-        name: state.newNameText,
+        name: state.name,
         isAuthName: true,
       };
     case "UPDATE_NAME":
-      let user = action.newNameText;
-      addLocalUser(user);
+      state.newNameText = action.newNameText;
+
       isAuthName(true);
       return {
         ...state,
-        name: user,
-        newNameText: user,
+        newNameText: action.newNameText,
       };
     case "VALID_NAME":
       if (action.length > 0) {
