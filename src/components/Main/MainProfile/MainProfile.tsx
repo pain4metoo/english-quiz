@@ -38,6 +38,12 @@ const MainProfile = (props: any) => {
       }
     } else if (tag === "progress") {
       if (props.theme) {
+        return styles.profile_progress_line_inner_light;
+      } else {
+        return styles.profile_progress_line_inner_dark;
+      }
+    } else if (tag === "progress-bg") {
+      if (props.theme) {
         return styles.profile_progress_line_light;
       } else {
         return styles.profile_progress_line_dark;
@@ -54,13 +60,13 @@ const MainProfile = (props: any) => {
             <div className={`${styles.profile_name} ${theme("text")}`}>
               Добро пожаловать,
               <span className={`${styles.profile_name_text} ${theme("text")}`}>
-                {props.name.name}!
+                {props.changeName || props.name.name}!
               </span>
             </div>
             <div className={`${styles.profile_level} ${theme("text")}`}>
               Ваш уровень английского:
               <span className={styles.profile_level_text}>
-                {props.stage.stage}
+                {props.changeLevel || props.stage.stage}
               </span>
             </div>
             <div className={styles.profile_progress}>
@@ -76,11 +82,13 @@ const MainProfile = (props: any) => {
               </p>
               <div
                 className={`${styles.profile_progress_line} ${theme(
-                  "progress"
+                  "progress-bg"
                 )}`}
               >
                 <div
-                  className={styles.profile_progress_line_inner}
+                  className={`${styles.profile_progress_line_inner} ${theme(
+                    "progress"
+                  )}`}
                   style={{ width: (getScore() / 651) * 100 + "%" }}
                 ></div>
               </div>

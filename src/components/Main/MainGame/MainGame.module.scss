@@ -60,6 +60,7 @@
     outline: none;
     cursor: pointer;
     margin-bottom: 10rem;
+    background-color: transparent;
   }
   &_btn_img {
     object-fit: contain;
@@ -97,6 +98,37 @@
     position: absolute;
     right: 0;
     bottom: 4rem;
+    text-decoration: none;
+    height: 4.5rem;
+    width: 22rem;
+    background: transparent;
+    border: none;
+    outline: none;
+    cursor: pointer;
+    transition: ease 0.5s;
+    border-radius: 4rem;
+    &_light {
+      background: $color-bg-light;
+      color: $color-text-light;
+      border: 1px solid black;
+    }
+    &_dark {
+      background: transparent;
+      color: $color-text-dark;
+      border: 1px solid white;
+    }
+    &_light:hover {
+      @extend %btn-hover-light;
+    }
+    &_dark:hover {
+      @extend %btn-hover-dark;
+    }
+    &_light:active {
+      @extend %btn-hover-light;
+    }
+    &_dark:active {
+      @extend %btn-hover-dark;
+    }
   }
   &_showAnswer {
     position: absolute;

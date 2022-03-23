@@ -63,11 +63,21 @@ class MainGame extends React.Component {
     }
   };
 
+  theme = (tag) => {
+    if (tag === "send_btn") {
+      if (this.props.theme) {
+        return styles.game_answer_btn_light;
+      } else {
+        return styles.game_answer_btn_dark;
+      }
+    }
+  };
+
   render() {
     return (
       <section className={styles.game}>
         <div className={`${styles.game_inner} ${this.showWinAnimation()}`}>
-        {this.showEndRoundPopup()}
+          {this.showEndRoundPopup()}
           <div className={styles.game_navigation}>
             <Link to="/category" className={styles.game_previous}></Link>
             <Link to="/profile" className={styles.game_close}></Link>
@@ -93,7 +103,7 @@ class MainGame extends React.Component {
               value={this.props.newAnswerText}
             ></textarea>
             <button
-              className={styles.game_answer_btn}
+              className={`${styles.game_answer_btn} ${this.theme("send_btn")}`}
               type="button"
               onClick={this.addValueAnswer}
             >

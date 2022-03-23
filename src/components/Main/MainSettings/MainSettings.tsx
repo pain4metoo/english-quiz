@@ -4,7 +4,6 @@ import volumeOff from "../../../assets/svg/mute.svg";
 import volumeOn from "../../../assets/svg/on.svg";
 
 const MainSettings = (props: any) => {
-  console.log(props);
   if (!props.isAuthName && !props.isAuthLevel) {
     return <Navigate to="/" />;
   }
@@ -51,6 +50,18 @@ const MainSettings = (props: any) => {
         return styles.settings_name_change_dark;
       }
     }
+  };
+
+  const addName = (e: any) => {
+    let body = e.target.value;
+
+    props.changeName(body);
+  };
+
+  const addLevel = (e: any) => {
+    let body = e.target.value;
+
+    props.changeLevel(body);
   };
 
   return (
@@ -156,15 +167,19 @@ const MainSettings = (props: any) => {
                 )}`}
                 type="text"
                 placeholder="Введите новое имя..."
-                value={props.newNameText || props.newName}
+                value={props.name}
+                onChange={addName}
+                max="10"
               />
             </div>
-
             <div className={styles.settings_item}>
               <p className={`${styles.settings_level_text} ${theme("text")}`}>
                 Изменить уровень
               </p>
-              <select className={styles.settings_list}>
+              <select className={styles.settings_list} onChange={addLevel}>
+                <option className={styles.settings_list_item} defaultChecked>
+                  Выберите уровень
+                </option>
                 <option className={styles.settings_list_item} value="начальный">
                   Начальный
                 </option>

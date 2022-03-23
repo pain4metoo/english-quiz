@@ -76,13 +76,19 @@
       background: #5a5a5a;
     }
     &_dark {
-      background: #ffffff;
+      background: #5a5a5a;
     }
   }
   &_progress_line_inner {
     height: 0.5rem;
     transition: all 0.5s;
     border-radius: 0.5rem;
+    &_light {
+      background: green;
+    }
+    &_dark {
+      background: #ffffff;
+    }
   }
   &_btn_inner {
     display: flex;
