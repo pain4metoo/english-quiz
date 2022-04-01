@@ -2,7 +2,7 @@ export const store = require("store");
 
 export const getLocalData = store.get("data") || null;
 export const getLocalLevel = store.get("level") || null;
-export const getLocalName = store.get("user") || "";
+export const getLocalName = store.get("user") || null;
 export const getLocalAuthName: any = store.get("authName") || null;
 export const getLocalAuthLevel: any = store.get("authLevel") || null;
 export const getLocalAuthCategory: any = store.get("authCategory") || null;
@@ -26,7 +26,9 @@ export const addLocalUser = (user: string) => {
 };
 
 export const addLocalLevel = (level: string) => {
-  store.set("level", level);
+  if (level) {
+    store.set("level", level);
+  }
 };
 
 export const isAuthName = (authName: any) => {

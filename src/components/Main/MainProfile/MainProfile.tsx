@@ -55,16 +55,33 @@ const MainProfile = (props: any) => {
     <section className={styles.profile}>
       <div className={`${styles.profile_inner} ${theme("profile_inner")}`}>
         <div className={styles.profile_info_inner}>
-          <div className={styles.profile_avatar}></div>
+          <div className={styles.profile_avatar}>
+            <div className={styles.profile_avatar_download}>
+              <input
+                className={styles.profile_avatar_new}
+                type="file"
+                accept="image/*"
+                id="photo"
+              />
+              <label htmlFor="photo">
+                <div className={styles.profile_update_text}>
+                  Обновить фотографию
+                </div>
+              </label>
+              <div className={styles.profile_change_text}>
+                Изменить миниатюру
+              </div>
+            </div>
+          </div>
           <div className={styles.profile_info}>
             <div className={`${styles.profile_name} ${theme("text")}`}>
-              Добро пожаловать,
+              Имя:
               <span className={`${styles.profile_name_text} ${theme("text")}`}>
-                {props.changeName || props.name.name}!
+                {props.changeName || props.name.name}
               </span>
             </div>
             <div className={`${styles.profile_level} ${theme("text")}`}>
-              Ваш уровень английского:
+              Уровень английского:
               <span className={styles.profile_level_text}>
                 {props.changeLevel || props.stage.stage}
               </span>
@@ -78,7 +95,7 @@ const MainProfile = (props: any) => {
                   "text"
                 )}`}
               >
-                {getScore()} / 651 слов
+                {getScore()} / 651 слова
               </p>
               <div
                 className={`${styles.profile_progress_line} ${theme(

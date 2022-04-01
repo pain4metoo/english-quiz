@@ -1,6 +1,5 @@
 import React from "react";
 import styles from "./MainEnglishLevel.module.scss";
-// import { Routes, Route } from "react-router-dom";
 import levelImg1 from "../../../assets/svg/level-1.svg";
 import levelImg2 from "../../../assets/svg/level-2.svg";
 import levelImg3 from "../../../assets/svg/level-3.svg";
@@ -17,6 +16,22 @@ const MainEnglishLevel = (props: any) => {
     props.addLevel(level);
   };
 
+  const theme = (tag: string) => {
+    if (tag === "text") {
+      if (props.theme) {
+        return styles.english_card_light;
+      } else {
+        return styles.english_card_dark;
+      }
+    } else if (tag === "btn") {
+      if (props.theme) {
+        return styles.english_btn_light;
+      } else {
+        return styles.english_btn_dark;
+      }
+    }
+  };
+
   return (
     <section className={styles.english}>
       <div className={styles.english_inner}>
@@ -26,8 +41,10 @@ const MainEnglishLevel = (props: any) => {
         <div className={styles.english_cards}>
           <NavLink
             to="/profile"
-            className={`${styles.english_card} ${styles.english_card_1}`}
-            onClick={() => handlerClick("начальный")}
+            className={`${styles.english_card} ${styles.english_card_1} ${theme(
+              "text"
+            )}`}
+            onClick={() => handlerClick("Начальный")}
           >
             <img className={styles.english_img} src={levelImg1} alt="card" />
             <p className={`${styles.english_level} ${styles.english_level_1}`}>
@@ -39,7 +56,9 @@ const MainEnglishLevel = (props: any) => {
               выражения.
             </p>
             <button
-              className={`${styles.english_btn} ${styles.english_btn_1}`}
+              className={`${styles.english_btn} ${styles.english_btn_1} ${theme(
+                "btn"
+              )}`}
               type="button"
             >
               выбрать
@@ -48,8 +67,10 @@ const MainEnglishLevel = (props: any) => {
 
           <NavLink
             to="/profile"
-            className={`${styles.english_card} ${styles.english_card_2}`}
-            onClick={() => handlerClick("средний")}
+            className={`${styles.english_card} ${styles.english_card_2} ${theme(
+              "text"
+            )}`}
+            onClick={() => handlerClick("Средний")}
           >
             <img className={styles.english_img} src={levelImg2} alt="card" />
             <p className={`${styles.english_level} ${styles.english_level_2}`}>
@@ -61,7 +82,9 @@ const MainEnglishLevel = (props: any) => {
               вам темы.
             </p>
             <button
-              className={`${styles.english_btn} ${styles.english_btn_2}`}
+              className={`${styles.english_btn} ${styles.english_btn_2} ${theme(
+                "btn"
+              )}`}
               type="button"
             >
               выбрать
@@ -70,8 +93,10 @@ const MainEnglishLevel = (props: any) => {
 
           <NavLink
             to="/profile"
-            className={`${styles.english_card} ${styles.english_card_3}`}
-            onClick={() => handlerClick("продвинутый")}
+            className={`${styles.english_card} ${styles.english_card_3} ${theme(
+              "text"
+            )}`}
+            onClick={() => handlerClick("Продвинутый")}
           >
             <img className={styles.english_img} src={levelImg3} alt="card" />
             <p className={`${styles.english_level} ${styles.english_level_3}`}>
@@ -83,7 +108,9 @@ const MainEnglishLevel = (props: any) => {
               прочитанное.
             </p>
             <button
-              className={`${styles.english_btn} ${styles.english_btn_3}`}
+              className={`${styles.english_btn} ${styles.english_btn_3} ${theme(
+                "btn"
+              )}`}
               type="button"
             >
               выбрать

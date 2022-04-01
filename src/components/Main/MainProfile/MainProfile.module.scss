@@ -1,98 +1,158 @@
 @import "../../../styles/variables.scss";
 
 .profile {
-  margin: 1rem;
-  margin-top: 5rem;
+  margin-top: 15rem;
   &_inner {
     width: 100%;
     border: 1px solid black;
     border-radius: 4rem;
-    height: 55vh;
+    padding: 7rem 6rem;
     &_light {
       border: 1px solid black;
     }
     &_dark {
-      border: 1px solid white;
+      background: #272f3a8c;
+      border: none;
     }
   }
   &_info_inner {
-    padding: 2rem;
     display: flex;
   }
   &_info {
     display: flex;
     flex-direction: column;
     align-items: flex-start;
-    margin-left: 2rem;
+    margin-left: 6rem;
     width: 100%;
   }
   &_avatar {
-    background: url("../../../assets/image/avatar.jpg");
+    background: url("../../../assets/svg/avatar.svg");
     background-size: cover;
     background-position: center;
     background-repeat: no-repeat;
-    width: 27rem;
+    max-width: 22rem;
     height: 22rem;
-    border-radius: 50%;
+    border-radius: 2rem;
+    width: 100%;
+    position: relative;
   }
-  &_name {
-    @extend %font-title;
-    margin-bottom: 2rem;
+  &_avatar_new {
+    display: none;
+  }
+  &_avatar_download {
+    width: 100%;
+    text-align: center;
+    background: rgba(27, 27, 27, 0.5);
+    height: 8rem;
+    position: absolute;
+    bottom: 0;
+    border-bottom-left-radius: 2rem;
+    border-bottom-right-radius: 2rem;
+  }
+  &_update_text {
+    font-size: 1.4rem;
+    line-height: 2.1rem;
+    font-weight: 500;
+    margin-top: 1.6rem;
+    margin-bottom: 0.8rem;
+    cursor: pointer;
+    position: relative;
+    &::after {
+      content: "";
+      position: absolute;
+      left: 1rem;
+      background: url("../../../assets/svg/update_photo.svg");
+      background-size: cover;
+      width: 1.5rem;
+      height: 1.6rem;
+      top: 0.1rem;
+    }
+  }
+  &_change_text {
+    font-size: 1.4rem;
+    line-height: 2.1rem;
+    font-weight: 500;
+    cursor: pointer;
+    position: relative;
+    &::after {
+      content: "";
+      position: absolute;
+      left: 1rem;
+      background: url("../../../assets/svg/change_photo.svg");
+      background-size: cover;
+      width: 1.5rem;
+      height: 1.5rem;
+      top: 0.2rem;
+    }
+  }
+  & &_name {
+    font-size: 2.2rem;
+    line-height: 3.1rem;
+    margin-bottom: 1rem;
+    font-weight: 500;
   }
   &_name_text {
-    @extend %font-title;
-    margin: 0;
+    font-size: 2.2rem;
+    line-height: 3.1rem;
+    color: #9e9e9e;
     margin-left: 1rem;
+    font-weight: 500;
   }
   &_level {
-    font-size: 3rem;
-    line-height: 5rem;
-    font-weight: bold;
+    font-size: 2.2rem;
+    line-height: 3.1rem;
+    font-weight: 500;
   }
   &_level_text {
-    font-size: 3rem;
-    line-height: 5rem;
-    font-weight: bold;
+    font-size: 2.2rem;
+    line-height: 3.1rem;
+    color: #9e9e9e;
     margin-left: 1rem;
+    font-weight: 500;
   }
   &_progress {
-    margin-top: 8.5rem;
+    margin-top: 8rem;
   }
   &_progress_text {
     display: inline;
+    font-size: 2.4rem;
+    line-height: 3.3rem;
+    font-weight: 500;
   }
   &_progress_text_value {
     display: inline;
     margin-left: 1rem;
+    font-size: 2.4rem;
+    line-height: 3.3rem;
+    font-weight: 500;
   }
   &_progress_line {
-    width: 100%;
-    height: 0.5rem;
+    width: 40rem;
+    height: 1rem;
     cursor: pointer;
     transition: all 0.5s;
-    border-radius: 0.5rem;
     margin-top: 2rem;
     &_light {
-      background: #5a5a5a;
+      background: #242d38;
     }
     &_dark {
-      background: #5a5a5a;
+      background: #242d38;
     }
   }
   &_progress_line_inner {
-    height: 0.5rem;
+    height: 1rem;
     transition: all 0.5s;
     border-radius: 0.5rem;
     &_light {
-      background: green;
+      background: linear-gradient(89.99deg, #ffb83f 0%, #e68578 101.56%);
     }
     &_dark {
-      background: #ffffff;
+      background: linear-gradient(89.99deg, #ffb83f 0%, #e68578 101.56%);
     }
   }
   &_btn_inner {
     display: flex;
-    justify-content: center;
+    justify-content: right;
     margin-top: 3rem;
   }
   &_btn {
@@ -104,6 +164,7 @@
     height: 7.5rem;
     width: 32rem;
     border-radius: 4rem;
+    margin-top: 2rem;
     cursor: pointer;
     transition: ease 0.5s;
     &_light {
@@ -112,9 +173,8 @@
       border: 1px solid black;
     }
     &_dark {
-      background: transparent;
+      background: #7cc0bb;
       color: $color-text-dark;
-      border: 1px solid white;
     }
     &_light:hover {
       @extend %btn-hover-light;
@@ -128,12 +188,6 @@
     &_dark:active {
       @extend %btn-hover-dark;
     }
-  }
-  &_text_light {
-    color: $color-text-light;
-  }
-  &_text_dark {
-    color: $color-text-dark;
   }
 }
 

@@ -28,16 +28,16 @@
     color: $color-text-dark;
   }
   &_card_1 {
-    background: #e3ddfe;
+    background: #a27af3;
     animation-name: up;
     opacity: 1;
   }
   &_card_2 {
-    background: #ffeecd;
+    background: #e68578;
     animation-name: down;
   }
   &_card_3 {
-    background: #dceced;
+    background: #7cc0bb;
     animation-name: up;
   }
   &_img {
@@ -94,21 +94,31 @@
     padding: 0;
     margin: 1rem;
     height: 18.5rem;
+    font-weight: 400;
+    font-size: 2rem;
+    line-height: 2.6rem;
   }
   &_btn {
     @extend %font-btn;
-    background: transparent;
     text-decoration: none;
     padding: 2rem;
     text-align: center;
-    border: 1px solid #000000;
-    color: #000;
     height: 7.5rem;
     max-width: 32rem;
     width: 100%;
     border-radius: 4rem;
     cursor: pointer;
     transition: ease 0.5s;
+    &_dark {
+      border: 1px solid transparent;
+      background: #ffffff;
+      color: #000;
+    }
+    &_light {
+      border: 1px solid #000000;
+      background: #ffffff;
+      color: #000;
+    }
   }
 }
 

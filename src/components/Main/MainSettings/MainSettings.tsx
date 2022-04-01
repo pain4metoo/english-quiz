@@ -180,15 +180,15 @@ const MainSettings = (props: any) => {
                 <option className={styles.settings_list_item} defaultChecked>
                   Выберите уровень
                 </option>
-                <option className={styles.settings_list_item} value="начальный">
+                <option className={styles.settings_list_item} value="Начальный">
                   Начальный
                 </option>
-                <option className={styles.settings_list_item} value="средний">
+                <option className={styles.settings_list_item} value="Средний">
                   Средний
                 </option>
                 <option
                   className={styles.settings_list_item}
-                  value="продвинутый"
+                  value="Продвинутый"
                 >
                   Продвинутый
                 </option>
