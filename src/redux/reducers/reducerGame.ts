@@ -7,6 +7,7 @@ const ADD_ANSWER = "ADD_ANSWER";
 const UPDATE_ANSWER = "UPDATE_ANSWER";
 const FETCHING = "FETCHING";
 const ADD_TRACK = "ADD_TRACK";
+const CHANGE_ANIM = "CHANGE_ANIM";
 
 interface Game {
   data: any;
@@ -22,6 +23,7 @@ interface Game {
   showAnswer: boolean;
   previousAnswers: any;
   isRoundEnd: boolean;
+  isAnimPlay: boolean;
 }
 
 const initialState: Game = {
@@ -38,6 +40,7 @@ const initialState: Game = {
   showAnswer: false,
   previousAnswers: getLocalPreviusAnswer,
   isRoundEnd: false,
+  isAnimPlay: false,
 };
 
 const gameReducer = (state = initialState, action: any) => {
@@ -132,15 +135,25 @@ const gameReducer = (state = initialState, action: any) => {
       return {
         ...state,
         src: src,
-        isPlay: true,
         isAnswer: false,
         isRoundEnd: false,
+        isPlay: true,
+      };
+    case CHANGE_ANIM:
+      return {
+        ...state,
+        isAnimPlay: action.flag,
       };
 
     default:
       return state;
   }
 };
+
+export const animStateActionCreator = (flag: boolean) => ({
+  type: CHANGE_ANIM,
+  flag: flag,
+});
 
 export const addCategoryActionCreator = (category: string) => ({
   type: ADD_CATEGORY,

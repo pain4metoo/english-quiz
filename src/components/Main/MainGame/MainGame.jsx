@@ -3,8 +3,13 @@ import styles from "./MainGame.module.scss";
 import { Link } from "react-router-dom";
 import preloader from "../../../assets/svg/preloader.svg";
 import play from "../../../assets/svg/play.svg";
+import playAnim from "../../../assets/svg/play-anim.svg";
 
 class MainGame extends React.Component {
+  constructor(props) {
+    super(props);
+    this.audioValue = React.createRef();
+  }
   componentDidMount() {
     this.props.addCategory(this.props.category);
     this.props.getSoundDataThunk();
@@ -26,11 +31,44 @@ class MainGame extends React.Component {
   };
 
   addSong = () => {
-    let audio = new Audio(this.props.src);
     if (this.props.isPlay) {
-      audio.play();
+      this.createAudio();
+      this.audioValue.current.play();
+    }
+  };
+  // const audioEnd = this.audioValue.current.ended;
+  // this.props.animState(audioEnd);
+
+  createAuidoAnim = () => {
+    console.log(this.props.isAnimPlay);
+    if (this.props.isAnimPlay) {
+      return (
+        <img
+          className={styles.game_btn_img}
+          src={this.props.isFetching ? preloader : playAnim}
+          alt="play"
+        />
+      );
     } else {
-      audio.pause();
+      return (
+        <img
+          className={styles.game_btn_img}
+          src={this.props.isFetching ? preloader : play}
+          alt="play"
+        />
+      );
+    }
+  };
+
+  createAudio = () => {
+    if (this.props.isPlay) {
+      return (
+        <audio
+          src={this.props.src}
+          ref={this.audioValue}
+          preload="metadata"
+        ></audio>
+      );
     }
   };
 
@@ -88,11 +126,14 @@ class MainGame extends React.Component {
             type="button"
             onClick={this.addSong}
           >
-            <img
-              className={styles.game_btn_img}
-              src={this.props.isFetching ? preloader : play}
-              alt="play"
-            />
+            {this.createAuidoAnim()}
+            {this.createAudio()}
+          </button>
+          <button
+            className={styles.game_btn_skip}
+            onClick={this.props.getNewSoundDataThunk}
+          >
+            Пропустить слово
           </button>
           <div className={styles.game_showAnswer}>{this.showAnswer()}</div>
           <div className={styles.game_answer}>

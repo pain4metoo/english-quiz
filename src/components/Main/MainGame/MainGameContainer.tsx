@@ -8,6 +8,7 @@ import {
   fetchingActionCreator,
   getSoundDataThunkActionCreator,
   getNewSoundDataThunkActionCreator,
+  animStateActionCreator,
 } from "./../../../redux/reducers/reducerGame";
 
 let mapStateToProps = (state: any) => {
@@ -24,6 +25,7 @@ let mapStateToProps = (state: any) => {
     showAnswer: state.game.showAnswer,
     isRoundEnd: state.game.isRoundEnd,
     theme: state.settings.settings.isTheme,
+    isAnimPlay: state.game.isAnimPlay,
   };
 };
 
@@ -40,6 +42,9 @@ let mapDispatchToProps = (dispatch: any) => {
     },
     addAnswer: () => {
       dispatch(addAnswerActionCreator());
+    },
+    animState: (flag: boolean) => {
+      dispatch(animStateActionCreator(flag));
     },
     fetch: (flag: boolean) => {
       dispatch(fetchingActionCreator(flag));
