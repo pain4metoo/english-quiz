@@ -1,5 +1,6 @@
 import MainProfile from "./MainProfile";
 import { connect } from "react-redux";
+import { showAvatarsActionCreator } from "./../../../redux/reducers/reducerProfile";
 
 let mapStatetoProps = (state: any) => {
   return {
@@ -12,9 +13,21 @@ let mapStatetoProps = (state: any) => {
     theme: state.settings.settings.isTheme,
     changeName: state.settings.name,
     changeLevel: state.settings.level,
+    isShowAvatarMenu: state.profile.isShowAvatarMenu,
   };
 };
 
-const MainProfileContainer = connect(mapStatetoProps)(MainProfile);
+let mapDispatchToProps = (dispatch: any) => {
+  return {
+    showAvatars: (flag: boolean) => {
+      dispatch(showAvatarsActionCreator(flag));
+    },
+  };
+};
+
+const MainProfileContainer = connect(
+  mapStatetoProps,
+  mapDispatchToProps
+)(MainProfile);
 
 export default MainProfileContainer;

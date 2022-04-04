@@ -69,9 +69,18 @@ const gameReducer = (state = initialState, action: any) => {
         data: action.data,
       };
     case UPDATE_ANSWER:
+      const text = action.newAnswerText;
+      if (text.length >= 25) {
+        const changeText = text.split("").splice(0, 24).join("");
+        return {
+          ...state,
+          newAnswerText: changeText,
+          showAnswer: false,
+        };
+      }
       return {
         ...state,
-        newAnswerText: action.newAnswerText,
+        newAnswerText: action.newAnswerText.trim(),
         showAnswer: false,
       };
 
@@ -100,6 +109,7 @@ const gameReducer = (state = initialState, action: any) => {
         showAnswer: false,
       };
     case FETCHING:
+      console.log(action.flag);
       return {
         ...state,
         isFetching: action.flag,
@@ -125,6 +135,7 @@ const gameReducer = (state = initialState, action: any) => {
           ...state,
           isRoundEnd: true,
           category: state.category,
+          newAnswerText: "",
         };
       }
       let url = state.data[category][randomCount].track;
@@ -138,13 +149,13 @@ const gameReducer = (state = initialState, action: any) => {
         isAnswer: false,
         isRoundEnd: false,
         isPlay: true,
+        newAnswerText: "",
       };
     case CHANGE_ANIM:
       return {
         ...state,
         isAnimPlay: action.flag,
       };
-
     default:
       return state;
   }
@@ -184,6 +195,7 @@ export const addSoundActionCreator = () => ({
 });
 
 export const getSoundDataThunkActionCreator = (dispatch: any) => {
+  dispatch(fetchingActionCreator(true));
   getData().then((response: any) => {
     dispatch(fetchingActionCreator(false));
     dispatch(addDataAnswersActionCreator(response));
@@ -192,7 +204,9 @@ export const getSoundDataThunkActionCreator = (dispatch: any) => {
 };
 
 export const getNewSoundDataThunkActionCreator = (dispatch: any) => {
+  dispatch(fetchingActionCreator(true));
   getData().then(() => {
+    dispatch(fetchingActionCreator(false));
     dispatch(addSoundActionCreator());
   });
 };

@@ -1,7 +1,7 @@
 import React from "react";
 import styles from "./MainGame.module.scss";
 import { Link } from "react-router-dom";
-import preloader from "../../../assets/svg/preloader.svg";
+import preloader from "../../../assets/image/preloader.png";
 import play from "../../../assets/svg/play.svg";
 import playAnim from "../../../assets/svg/play-anim.svg";
 
@@ -33,14 +33,16 @@ class MainGame extends React.Component {
   addSong = () => {
     if (this.props.isPlay) {
       this.createAudio();
+      const audioDuration = this.audioValue.current.duration;
+      this.props.animState(true);
+      setTimeout(() => {
+        this.props.animState(false);
+      }, audioDuration + 1000);
       this.audioValue.current.play();
     }
   };
-  // const audioEnd = this.audioValue.current.ended;
-  // this.props.animState(audioEnd);
 
   createAuidoAnim = () => {
-    console.log(this.props.isAnimPlay);
     if (this.props.isAnimPlay) {
       return (
         <img
@@ -111,14 +113,47 @@ class MainGame extends React.Component {
     }
   };
 
+  enterAnswer = (e) => {
+    setTimeout(() => {
+      if (e.key === "Enter") {
+        this.addValueAnswer();
+      }
+    }, 0);
+  };
+
   render() {
     return (
       <section className={styles.game}>
         <div className={`${styles.game_inner} ${this.showWinAnimation()}`}>
           {this.showEndRoundPopup()}
           <div className={styles.game_navigation}>
-            <Link to="/category" className={styles.game_previous}></Link>
-            <Link to="/profile" className={styles.game_close}></Link>
+            <Link to="/category" className={styles.game_previous}>
+              <svg
+                className={styles.game_btn_previous}
+                xmlns="http://www.w3.org/2000/svg"
+                xmlnsXlink="http://www.w3.org/1999/xlink"
+                id="left-arrow-backward-sign"
+                version="1.1"
+                viewBox="0 0 15.699 8.707"
+                xmlSpace="preserve"
+              >
+                <polygon points="15.699,3.854 1.914,3.854 5.061,0.707 4.354,0 0,4.354 4.354,8.707 5.061,8 1.914,4.854 15.699,4.854 " />
+              </svg>
+            </Link>
+            <Link to="/profile" className={styles.game_close}>
+              <svg
+                className={styles.game_btn_close}
+                xmlns="http://www.w3.org/2000/svg"
+                viewBox="0 0 32 32"
+              >
+                <defs></defs>
+                <title />
+                <g id="cross">
+                  <line x1="7" x2="25" y1="7" y2="25" />
+                  <line x1="7" x2="25" y1="25" y2="7" />
+                </g>
+              </svg>
+            </Link>
           </div>
           <h1 className={styles.game_title}>{this.props.categoryTranslate}</h1>
           <button
@@ -142,13 +177,14 @@ class MainGame extends React.Component {
               placeholder="Введите, что услышали"
               onChange={this.updateAnswerText}
               value={this.props.newAnswerText}
+              onKeyDown={this.enterAnswer}
             ></textarea>
             <button
               className={`${styles.game_answer_btn} ${this.theme("send_btn")}`}
               type="button"
               onClick={this.addValueAnswer}
             >
-              Отправить
+              Далее
             </button>
             <span className={styles.game_line} id="line"></span>
           </div>

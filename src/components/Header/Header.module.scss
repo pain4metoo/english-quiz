@@ -4,14 +4,7 @@
   flex: 0 0 auto;
   height: 12vh;
   transition: all 0.5s;
-  &_light {
-    background: $color-bg-light;
-    color: $color-text-light;
-  }
-  &_dark {
-    background: $color-bg-dark;
-    color: $color-text-dark;
-  }
+  background: radial-gradient(ellipse at bottom, #1b2735 -253%, #090a0f 100%);
   &_inner {
     display: flex;
     align-items: center;

@@ -18,6 +18,7 @@ body {
   font-family: $font-main;
   @extend %font-default;
   height: 100%;
+  background: radial-gradient(ellipse at bottom, #1b2735 0%, #090a0f 100%);
 }
 
 .wrapper {

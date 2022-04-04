@@ -1,6 +1,7 @@
 import React from "react";
 import styles from "./MainProfile.module.scss";
 import { Navigate, NavLink } from "react-router-dom";
+import MainProfileAvatars from "./MainProfileAvatars/MainProfileAvatars";
 
 const MainProfile = (props: any) => {
   if (!props.isAuthLevel) {
@@ -51,23 +52,29 @@ const MainProfile = (props: any) => {
     }
   };
 
+  const showAvatar = (flag: boolean) => {
+    props.showAvatars(flag);
+  };
+
+  const showAvatarsMenu = () => {
+    if (props.isShowAvatarMenu) {
+      return <MainProfileAvatars />;
+    }
+  };
+
   return (
     <section className={styles.profile}>
+      {showAvatarsMenu()}
       <div className={`${styles.profile_inner} ${theme("profile_inner")}`}>
         <div className={styles.profile_info_inner}>
           <div className={styles.profile_avatar}>
             <div className={styles.profile_avatar_download}>
-              <input
-                className={styles.profile_avatar_new}
-                type="file"
-                accept="image/*"
-                id="photo"
-              />
-              <label htmlFor="photo">
-                <div className={styles.profile_update_text}>
-                  Обновить фотографию
-                </div>
-              </label>
+              <div
+                className={styles.profile_update_text}
+                onClick={() => showAvatar}
+              >
+                Изменить аватар
+              </div>
               <div className={styles.profile_change_text}>
                 Изменить миниатюру
               </div>

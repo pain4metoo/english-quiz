@@ -4,12 +4,6 @@
   flex: 0 0 auto;
   height: 7.5vh;
   transition: all 0.5s;
-  &_light {
-    background: $color-bg-light;
-  }
-  &_dark {
-    background: $color-bg-dark;
-  }
   &_inner {
     display: flex;
     justify-content: space-between;

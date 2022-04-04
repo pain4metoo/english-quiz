@@ -80,6 +80,7 @@
     height: 6rem;
     border-top-right-radius: 4rem;
     border-bottom-right-radius: 4rem;
+    transition: all .5s;
   }
   &_result_1 {
     background: #e3ddfe;
@@ -97,5 +98,6 @@
     position: absolute;
     bottom: 0;
     right: 0;
+    color: #FFFFFF;
   }
 }

@@ -28,20 +28,20 @@
     color: $color-text-dark;
   }
   &_card_1 {
-    background: #e3ddfe;
+    background: #a27af3;
     animation-name: up;
     opacity: 1;
   }
   &_card_2 {
-    background: #ffeecd;
+    background: #e68578;
     animation-name: down;
   }
   &_card_3 {
-    background: #dceced;
+    background: #7cc0bb;
     animation-name: up;
   }
   &_card_4 {
-    background: #ede3dc;
+    background: #cdb2a0;
     animation-name: down;
   }
   &_img {
@@ -58,6 +58,7 @@
     margin-top: 3rem;
     padding: 0;
     position: relative;
+    color: #ffffff;
     &::after {
       content: "";
       position: absolute;
@@ -91,7 +92,7 @@
   &_level_4::after {
     background: linear-gradient(
       89.99deg,
-      #b89c89 0%,
+      #b89c89 50%,
       rgba(196, 196, 196, 0) 101.56%
     );
   }
@@ -105,6 +106,10 @@
     padding: 0;
     margin: 1rem;
     height: 17rem;
+    font-weight: 400;
+    font-size: 2rem;
+    line-height: 2.6rem;
+    color: #ffffff;
   }
   &_btn {
     @extend %font-btn;
@@ -135,7 +140,7 @@
 }
 
 .category_card:hover .category_btn_4 {
-  background: #756f6b;
+  background: #a3816a;
 }
 
 @keyframes up {

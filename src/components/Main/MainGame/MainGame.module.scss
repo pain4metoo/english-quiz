@@ -34,6 +34,21 @@
     outline: none;
     z-index: 20;
   }
+  &_btn_previous {
+    fill: white;
+    width: 5rem;
+    height: 5rem;
+    object-fit: contain;
+  }
+  &_btn_close {
+    width: 5rem;
+    height: 5rem;
+    fill: none;
+    stroke: #ffffff;
+    stroke-linecap: round;
+    stroke-linejoin: round;
+    stroke-width: 2px;
+  }
   &_close {
     position: absolute;
     background-image: url("../../../assets/svg/close.svg");
@@ -83,12 +98,16 @@
     border: none;
     padding: 0;
     background: transparent;
+    color: #aaaaaa;
+    &::placeholder {
+      color: #aaaaaa;
+    }
   }
   &_line {
     position: absolute;
     width: 100%;
     height: 3px;
-    background: black;
+    background: #ffffff;
     bottom: 2rem;
     left: 0rem;
     border-radius: 1rem;
@@ -109,39 +128,30 @@
     border: 1px solid white;
   }
   &_answer_btn {
+    font-size: 2.8rem;
+    line-height: 3.3rem;
     position: absolute;
     right: 0;
     bottom: 4rem;
     text-decoration: none;
-    height: 4.5rem;
-    width: 22rem;
     background: transparent;
     border: none;
     outline: none;
     cursor: pointer;
     transition: ease 0.5s;
-    border-radius: 4rem;
     &_light {
       background: $color-bg-light;
       color: $color-text-light;
-      border: 1px solid black;
     }
     &_dark {
       background: transparent;
-      color: $color-text-dark;
-      border: 1px solid white;
-    }
-    &_light:hover {
-      @extend %btn-hover-light;
+      color: #a27af3;
     }
     &_dark:hover {
-      @extend %btn-hover-dark;
-    }
-    &_light:active {
-      @extend %btn-hover-light;
+      color: #6e6483;
     }
     &_dark:active {
-      @extend %btn-hover-dark;
+      color: #6e6483;
     }
   }
   &_showAnswer {

@@ -1,0 +1,67 @@
+@import "../../../../styles/variables.scss";
+
+.avatars {
+  position: absolute;
+  left: 50%;
+  top: 50%;
+  background: #0e121a;
+  opacity: 1;
+  max-width: 70rem;
+  min-height: 20rem;
+  z-index: 1000;
+  transform: translate(-50%, -50%);
+  &_inner {
+    width: 80rem;
+    height: 45rem;
+    background: #0e121a;
+    padding: 2rem;
+    display: flex;
+    flex-direction: column;
+  }
+  &_elem {
+    display: flex;
+  }
+  &_images {
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr;
+  }
+  &_img {
+    width: 10rem;
+    height: 10rem;
+    object-fit: cover;
+    margin: 1rem;
+    cursor: pointer;
+  }
+  &_title {
+    line-height: 4rem;
+    text-align: center;
+  }
+  &_change {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    width: 100%;
+  }
+  &_image_full {
+    width: 100%;
+    height: 100%;
+    margin-top: 1rem;
+  }
+  &_btn {
+    margin-top: 1rem;
+    background: transparent;
+    text-decoration: none;
+    text-align: center;
+    height: 7.5rem;
+    width: 32rem;
+    border-radius: 4rem;
+    border: none;
+    cursor: pointer;
+    transition: ease 0.5s;
+    background: #e68578;
+    color: white;
+  }
+  &_pages {
+    margin: 1rem;
+  }
+}
