@@ -63,5 +63,23 @@
   }
   &_pages {
     margin: 1rem;
+    margin-top: 2rem;
+    width: 25rem;
+  }
+  &_page {
+    display: inline-block;
+    cursor: pointer;
+    outline: none;
+    user-select: none;
+    width: 3rem;
+    text-align: center;
+  }
+  &_page_active {
+    color: #539bf5;
+  }
+  &_pagination {
+    cursor: pointer;
+    outline: none;
+    user-select: none;
   }
 }

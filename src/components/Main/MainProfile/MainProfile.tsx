@@ -1,7 +1,7 @@
 import React from "react";
 import styles from "./MainProfile.module.scss";
 import { Navigate, NavLink } from "react-router-dom";
-import MainProfileAvatars from "./MainProfileAvatars/MainProfileAvatars";
+import MainProfileAvatarsContainer from "./MainProfileAvatars/MainProfileAvatarsContainer";
 
 const MainProfile = (props: any) => {
   if (!props.isAuthLevel) {
@@ -58,7 +58,9 @@ const MainProfile = (props: any) => {
 
   const showAvatarsMenu = () => {
     if (props.isShowAvatarMenu) {
-      return <MainProfileAvatars />;
+      return <MainProfileAvatarsContainer />;
+    } else {
+      props.showAvatars(false);
     }
   };
 
@@ -71,7 +73,7 @@ const MainProfile = (props: any) => {
             <div className={styles.profile_avatar_download}>
               <div
                 className={styles.profile_update_text}
-                onClick={() => showAvatar}
+                onClick={() => showAvatar(true)}
               >
                 Изменить аватар
               </div>
