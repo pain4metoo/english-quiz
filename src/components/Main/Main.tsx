@@ -11,6 +11,7 @@ import MainCategoryContainer from "./MainCategory/MainCategoryContainer";
 import MainGameContainer from "./MainGame/MainGameContainer";
 import MainScoreContainer from "./MainScore/MainScoreContainer";
 import MainScoreAnswersContainer from "./MainScore/MainScoreAnswers/MainScoreAnswersContainer";
+import MainHideBlock from "./MainHideBlock/MainHideBlock";
 import { Routes, Route } from "react-router-dom";
 
 const Main = (props: any) => {
@@ -24,9 +25,17 @@ const Main = (props: any) => {
     }
   };
 
+  const hide = () => {
+    console.log(props);
+    if (props.isAvatarOpen || props.isCustomOpen) {
+      return <MainHideBlock />;
+    }
+  };
+
   return (
     <main className={`${styles.main} ${theme("main")}`}>
       <MainBackgroundContainer />
+      {hide()}
       <div className={styles.container}>
         <Routes>
           <Route path="/" element={<MainWelcomeContainer />} />

@@ -1,0 +1,112 @@
+@import "../../../../styles/variables.scss";
+
+:root {
+  --blur: 0px;
+  --invert: 0%;
+  --sepia: 0%;
+  --saturate: 100%;
+  --hue: 0deg;
+  --base: #313940;
+  --spacing: 80%;
+}
+
+.custom {
+  position: absolute;
+  left: 50%;
+  top: 50%;
+  background: #0e121a;
+  opacity: 1;
+  max-width: 82rem;
+  min-height: 20rem;
+  z-index: 1000;
+  transform: translate(-50%, -50%);
+  &_inner {
+    width: 80rem;
+    height: 60rem;
+    background: #0e121a;
+    padding: 2rem;
+    display: flex;
+  }
+  &_title_main {
+    text-align: center;
+    margin: 0;
+    margin-top: 2rem;
+  }
+  &_controls {
+    max-width: 40rem;
+    width: 100%;
+  }
+  &_title {
+    margin: 0;
+    margin-bottom: 2rem;
+  }
+  &_range_block {
+    display: flex;
+    justify-content: center;
+  }
+  &_control {
+    max-width: 30rem;
+  }
+  &_range {
+    display: block;
+    appearance: none;
+    height: 3px;
+    margin-top: 2.2rem;
+    outline: none;
+    border-radius: 0.25rem;
+    transition: 0.3s;
+    cursor: pointer;
+    background-color: #a2abb3;
+    width: 100%;
+    &::-webkit-slider-thumb {
+      appearance: none;
+      width: 25px;
+      height: 25px;
+      background-color: var(--base);
+      border: 3px solid #a2abb3;
+      border-radius: 50%;
+      cursor: pointer;
+      transition: 0.3s;
+      background-color: wheat;
+    }
+  }
+  &_image {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+  }
+  &_image_ava {
+    max-width: 30rem;
+    min-height: 25rem;
+    width: 100%;
+    object-fit: cover;
+    border-radius: 2rem;
+  }
+  &_btn {
+    margin-top: 6rem;
+    background: transparent;
+    text-decoration: none;
+    text-align: center;
+    height: 7.5rem;
+    width: 32rem;
+    border-radius: 4rem;
+    border: none;
+    cursor: pointer;
+    transition: ease 0.5s;
+    background: #e68578;
+    color: white;
+    &:hover {
+      border-color: black;
+      background: white;
+      color: black;
+    }
+  }
+  &_range_value {
+    border: 1px solid gold;
+    padding: 1rem;
+    margin-left: 2rem;
+    width: 5rem;
+    text-align: center;
+    height: 5rem;
+  }
+}

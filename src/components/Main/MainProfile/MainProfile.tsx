@@ -4,6 +4,7 @@ import { Navigate, NavLink } from "react-router-dom";
 import MainProfileAvatarsContainer from "./MainProfileAvatars/MainProfileAvatarsContainer";
 import avatar from "../../../assets/svg/avatar.svg";
 import { getLocalProfileAvatar } from "../../../services/auth.service";
+import MainProfileCustomContainer from "./MainProfileCustom/MainProfileCustomContainer";
 
 const MainProfile = (props: any) => {
   if (!props.isAuthLevel) {
@@ -58,6 +59,10 @@ const MainProfile = (props: any) => {
     props.showAvatars(flag);
   };
 
+  const showCustom = (flag: boolean) => {
+    props.showCustom(flag);
+  };
+
   const showAvatarsMenu = () => {
     if (props.isShowAvatarMenu) {
       return <MainProfileAvatarsContainer />;
@@ -66,9 +71,18 @@ const MainProfile = (props: any) => {
     }
   };
 
+  const showCustomMenu = () => {
+    if (props.isShowCustomMenu) {
+      return <MainProfileCustomContainer />;
+    } else {
+      props.showCustom(false);
+    }
+  };
+
   return (
     <section className={styles.profile}>
       {showAvatarsMenu()}
+      {showCustomMenu()}
       <div className={`${styles.profile_inner} ${theme("profile_inner")}`}>
         <div className={styles.profile_info_inner}>
           <div className={styles.profile_avatar}>
@@ -84,8 +98,11 @@ const MainProfile = (props: any) => {
               >
                 Изменить аватар
               </div>
-              <div className={styles.profile_change_text}>
-                Изменить миниатюру
+              <div
+                className={styles.profile_change_text}
+                onClick={() => showCustom(true)}
+              >
+                Кастомизировать
               </div>
             </div>
           </div>

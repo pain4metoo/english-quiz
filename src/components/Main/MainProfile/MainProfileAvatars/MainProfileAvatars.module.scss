@@ -6,8 +6,6 @@
   top: 50%;
   background: #0e121a;
   opacity: 1;
-  max-width: 70rem;
-  min-height: 20rem;
   z-index: 1000;
   transform: translate(-50%, -50%);
   &_inner {
@@ -17,6 +15,19 @@
     padding: 2rem;
     display: flex;
     flex-direction: column;
+  }
+  &_close {
+    cursor: pointer;
+    position: absolute;
+    right: 1rem;
+    top: 1rem;
+    width: 5rem;
+    height: 5rem;
+    fill: none;
+    stroke: #ffffff;
+    stroke-linecap: round;
+    stroke-linejoin: round;
+    stroke-width: 2px;
   }
   &_elem {
     display: flex;

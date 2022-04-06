@@ -5,9 +5,20 @@ const GET_PAGES = "GET_PAGES";
 const GET_AVATARS = "GET_AVATARS";
 const GET_FULL_AVATAR = "GET_FULL_AVATAR";
 const IS_PROFILE_AVA = "IS_PROFILE_AVA";
+const SHOW_CUSTOM = "SHOW_CUSTOM";
+const CUSTOM_AVATAR = "CUSTOM_AVATAR";
+
+interface customCounts {
+  blur: number;
+  invert: number;
+  sepia: number;
+  saturate: number;
+  shade: number;
+}
 
 interface Profile {
   isShowAvatarMenu: boolean;
+  isShowCustomMenu: boolean;
   pages: Array<number>;
   avatars: Array<number>;
   pageSize: number;
@@ -16,10 +27,12 @@ interface Profile {
   pageCount: number;
   fullAvaSrc: string;
   profileAvatar: string;
+  customValue: customCounts;
 }
 
 const initialState: Profile = {
   isShowAvatarMenu: false,
+  isShowCustomMenu: false,
   pages: [],
   avatars: [],
   pageSize: 9,
@@ -28,6 +41,13 @@ const initialState: Profile = {
   pageCount: 1,
   fullAvaSrc: "",
   profileAvatar: "",
+  customValue: {
+    blur: 0,
+    invert: 0,
+    sepia: 0,
+    saturate: 0,
+    shade: 0,
+  },
 };
 
 const profileReducer = (state = initialState, action: any) => {
@@ -119,10 +139,50 @@ const profileReducer = (state = initialState, action: any) => {
         profileAvatar: state.fullAvaSrc,
         isShowAvatarMenu: false,
       };
+
+    case SHOW_CUSTOM:
+      return {
+        ...state,
+        isShowCustomMenu: action.flag,
+      };
+    case CUSTOM_AVATAR:
+      let copyCustomValue = {
+        blur: 0,
+        invert: 0,
+        sepia: 0,
+        saturate: 0,
+        shade: 0,
+      };
+      if (action.target.name === "blur") {
+        copyCustomValue.blur = action.target.value;
+      } else if (action.target.name === "invert") {
+        copyCustomValue.invert = action.target.value;
+      } else if (action.target.name === "sepia") {
+        copyCustomValue.sepia = action.target.value;
+      } else if (action.target.name === "saturate") {
+        copyCustomValue.saturate = action.target.value;
+      } else if (action.target.name === "shade") {
+        copyCustomValue.shade = action.target.value;
+      }
+      state.customValue = copyCustomValue;
+      return {
+        ...state,
+        customValue: copyCustomValue,
+      };
     default:
       return state;
   }
 };
+
+export const customAvatarActionCreator = (target: string) => ({
+  type: CUSTOM_AVATAR,
+  target: target,
+});
+
+export const showCustomActionCreator = (flag: boolean) => ({
+  type: SHOW_CUSTOM,
+  flag: flag,
+});
 
 export const changeProfAvaActionCreator = () => ({
   type: IS_PROFILE_AVA,

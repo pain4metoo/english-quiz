@@ -45,10 +45,27 @@ class MainProfileAvatars extends React.Component {
     this.props.changeProfAva();
   }
 
+  closeAvatarMenu() {
+    this.props.showAvatars(false);
+  }
+
   render() {
     return (
       <section className={styles.avatars}>
         <h2 className={styles.avatars_title}>Выберите аватар</h2>
+        <svg
+          className={styles.avatars_close}
+          xmlns="http://www.w3.org/2000/svg"
+          viewBox="0 0 32 32"
+          onClick={() => this.closeAvatarMenu()}
+        >
+          <defs></defs>
+          <title />
+          <g id="cross">
+            <line x1="7" x2="25" y1="7" y2="25" />
+            <line x1="7" x2="25" y1="25" y2="7" />
+          </g>
+        </svg>
         <div className={styles.avatars_inner}>
           <div className={styles.avatars_elem}>
             <div className={styles.avatars_images}>

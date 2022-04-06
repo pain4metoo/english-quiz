@@ -4,6 +4,7 @@ import {
   getAvatarsActionCreator,
   getFullAvaActionCreator,
   changeProfAvaActionCreator,
+  showAvatarsActionCreator,
 } from "../../../../redux/reducers/reducerProfile";
 import MainProfileAvatars from "./MainProfileAvatars";
 
@@ -30,6 +31,9 @@ let mapDispatchToProps = (dispatch: any) => {
     },
     changeProfAva: () => {
       dispatch(changeProfAvaActionCreator());
+    },
+    showAvatars: (flag: boolean) => {
+      dispatch(showAvatarsActionCreator(flag));
     },
   };
 };
