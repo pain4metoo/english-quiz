@@ -1,16 +1,21 @@
+import { addLocalProfileAvatar } from "../../services/auth.service";
+
 const SHOW_AVATARS = "SHOW_AVATARS";
 const GET_PAGES = "GET_PAGES";
 const GET_AVATARS = "GET_AVATARS";
-const RENDER_AVA = "RENDER_AVA";
+const GET_FULL_AVATAR = "GET_FULL_AVATAR";
+const IS_PROFILE_AVA = "IS_PROFILE_AVA";
 
 interface Profile {
   isShowAvatarMenu: boolean;
   pages: Array<number>;
   avatars: Array<number>;
   pageSize: number;
+  totalPages: number;
   imagesCount: number;
   pageCount: number;
-  renderAvatar: boolean;
+  fullAvaSrc: string;
+  profileAvatar: string;
 }
 
 const initialState: Profile = {
@@ -18,9 +23,11 @@ const initialState: Profile = {
   pages: [],
   avatars: [],
   pageSize: 9,
-  imagesCount: 200,
+  totalPages: 56,
+  imagesCount: 504,
   pageCount: 1,
-  renderAvatar: true,
+  fullAvaSrc: "",
+  profileAvatar: "",
 };
 
 const profileReducer = (state = initialState, action: any) => {
@@ -32,7 +39,6 @@ const profileReducer = (state = initialState, action: any) => {
       };
 
     case GET_PAGES:
-      let pages: number = Math.ceil(state.imagesCount / state.pageSize);
       state.pages = [];
       let count = state.pageCount;
 
@@ -41,10 +47,10 @@ const profileReducer = (state = initialState, action: any) => {
           if (count > 1) {
             count--;
           } else {
-            count = 23;
+            count = state.totalPages;
           }
         } else if (action.side === "right") {
-          if (count < 23) {
+          if (count < state.totalPages) {
             count++;
           } else {
             count = 1;
@@ -58,10 +64,10 @@ const profileReducer = (state = initialState, action: any) => {
       let center = state.pageCount;
       let left = 2;
       let right = 2;
-      if (center === 23) {
+      if (center === state.totalPages) {
         right = 0;
         left = 4;
-      } else if (center === 22) {
+      } else if (center === state.totalPages - 1) {
         right = 1;
         left = 3;
       } else if (center === 2) {
@@ -81,35 +87,50 @@ const profileReducer = (state = initialState, action: any) => {
         pages: state.pages,
       };
     case GET_AVATARS:
-      let intervalStart = state.pageCount * 9;
-      let intervalEnd = state.pageCount * 9 + 9;
+      let intervalStart = state.pageCount * state.pageSize;
+      let intervalEnd = state.pageCount * state.pageSize + state.pageSize;
       state.avatars = [];
       if (state.pageCount === 1) {
         intervalStart = 1;
-        intervalEnd = state.pageCount * 9;
+        intervalEnd = 10;
       }
 
-      for (let i = intervalStart; i <= intervalEnd; i++) {
+      for (let i = intervalStart; i < intervalEnd; i++) {
         state.avatars.push(i);
       }
-      console.log(state.avatars);
+
       return {
         ...state,
         avatars: state.avatars,
       };
-    case RENDER_AVA:
+
+    case GET_FULL_AVATAR:
+      state.fullAvaSrc = action.src;
       return {
         ...state,
-        renderAvatar: action.flag,
+        fullAvaSrc: action.src,
+      };
+    case IS_PROFILE_AVA:
+      if (state.fullAvaSrc) {
+        addLocalProfileAvatar(state.fullAvaSrc);
+      }
+      return {
+        ...state,
+        profileAvatar: state.fullAvaSrc,
+        isShowAvatarMenu: false,
       };
     default:
       return state;
   }
 };
 
-export const renderAvaActionCreator = (flag: boolean) => ({
-  type: RENDER_AVA,
-  flag: flag,
+export const changeProfAvaActionCreator = () => ({
+  type: IS_PROFILE_AVA,
+});
+
+export const getFullAvaActionCreator = (src: string) => ({
+  type: GET_FULL_AVATAR,
+  src: src,
 });
 
 export const getPagesActionCreator = (

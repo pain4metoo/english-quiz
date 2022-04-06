@@ -14,6 +14,7 @@ let mapStatetoProps = (state: any) => {
     changeName: state.settings.name,
     changeLevel: state.settings.level,
     isShowAvatarMenu: state.profile.isShowAvatarMenu,
+    profileAvatar: state.profile.profileAvatar,
   };
 };
 

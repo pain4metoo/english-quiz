@@ -1,18 +1,11 @@
 import React from "react";
 import styles from "./MainProfileAvatars.module.scss";
-// import { Navigate, NavLink } from "react-router-dom";
+import no_photo from "../../../../assets/svg/avatar.svg";
 
 class MainProfileAvatars extends React.Component {
-  constructor(props) {
-    super(props);
+  componentDidMount() {
     this.props.getPages(null, 1);
-  }
-
-  componentDidUpdate() {
-    if (this.props.renderAvatar) {
-      this.props.getAvatars();
-      this.props.renderAva(false);
-    }
+    this.props.getAvatars();
   }
 
   pagesControls() {
@@ -22,7 +15,10 @@ class MainProfileAvatars extends React.Component {
         <span
           className={`${styles.avatars_page} ${styles.avatars_page_active}`}
           key={index}
-          onClick={(e) => this.props.getPages(null, +e.target.textContent)}
+          onClick={(e) => {
+            this.props.getPages(null, +e.target.textContent);
+            this.props.getAvatars();
+          }}
         >
           {item}
         </span>
@@ -30,12 +26,23 @@ class MainProfileAvatars extends React.Component {
         <span
           className={styles.avatars_page}
           key={index}
-          onClick={(e) => this.props.getPages(null, +e.target.textContent)}
+          onClick={(e) => {
+            this.props.getPages(null, +e.target.textContent);
+            this.props.getAvatars();
+          }}
         >
           {item}
         </span>
       );
     });
+  }
+
+  getFullAvatar(src) {
+    this.props.getFullAva(src);
+  }
+
+  changeProfileAvatar() {
+    this.props.changeProfAva();
   }
 
   render() {
@@ -52,6 +59,7 @@ class MainProfileAvatars extends React.Component {
                     src={`https://raw.githubusercontent.com/pain4metoo/words-data/master/avatars/${item}.jpg`}
                     key={index}
                     alt="profile-avatar"
+                    onClick={(e) => this.getFullAvatar(e.target.src)}
                   />
                 );
               })}
@@ -60,27 +68,57 @@ class MainProfileAvatars extends React.Component {
             <div className={styles.avatars_change}>
               <img
                 className={styles.avatars_image_full}
-                src="https://cdn.fishki.net/upload/post/2020/07/13/3368436/7cb4754eb4f04723354bbe654e720bec.jpg"
+                src={this.props.fullAvaSrc || no_photo}
                 alt=""
               />
-              <button className={styles.avatars_btn} type="button">
+              <button
+                className={styles.avatars_btn}
+                type="button"
+                onClick={() => this.changeProfileAvatar()}
+              >
                 Выбрать
               </button>
             </div>
           </div>
           <div className={styles.avatars_pages}>
             <span
-              className={`${styles.avatars_pagination} ${styles.avatars_pagination_left}`}
-              onClick={() => this.props.getPages("left", null)}
+              className={styles.avatars_pagination}
+              onClick={() => {
+                this.props.getPages("left", null);
+                this.props.getAvatars();
+              }}
             >
-              &lt;
+              <svg
+                className={`${styles.avatars_arrow} ${styles.avatars_pagination_left}`}
+                xmlns="http://www.w3.org/2000/svg"
+                data-name="Layer 1"
+                id="Layer_1"
+                viewBox="0 0 100 100"
+              >
+                <title />
+                <polygon points="47.5 20 47.5 35 62.5 50 47.5 65 47.5 80 77.5 50 47.5 20" />
+                <polygon points="22.5 20 22.5 35 37.5 50 22.5 65 22.5 80 52.5 50 22.5 20" />
+              </svg>
             </span>
             {this.pagesControls()}
             <span
               className={`${styles.avatars_pagination} ${styles.avatars_pagination_right}`}
-              onClick={() => this.props.getPages("right", null)}
+              onClick={() => {
+                this.props.getPages("right", null);
+                this.props.getAvatars();
+              }}
             >
-              &gt;
+              <svg
+                className={styles.avatars_arrow}
+                xmlns="http://www.w3.org/2000/svg"
+                data-name="Layer 1"
+                id="Layer_1"
+                viewBox="0 0 100 100"
+              >
+                <title />
+                <polygon points="47.5 20 47.5 35 62.5 50 47.5 65 47.5 80 77.5 50 47.5 20" />
+                <polygon points="22.5 20 22.5 35 37.5 50 22.5 65 22.5 80 52.5 50 22.5 20" />
+              </svg>
             </span>
           </div>
         </div>

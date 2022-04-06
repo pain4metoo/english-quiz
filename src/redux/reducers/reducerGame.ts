@@ -204,7 +204,6 @@ export const getSoundDataThunkActionCreator = (dispatch: any) => {
 };
 
 export const getNewSoundDataThunkActionCreator = (dispatch: any) => {
-  dispatch(fetchingActionCreator(true));
   getData().then(() => {
     dispatch(fetchingActionCreator(false));
     dispatch(addSoundActionCreator());

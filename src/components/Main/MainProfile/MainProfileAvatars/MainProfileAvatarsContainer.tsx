@@ -2,7 +2,8 @@ import { connect } from "react-redux";
 import {
   getPagesActionCreator,
   getAvatarsActionCreator,
-  renderAvaActionCreator,
+  getFullAvaActionCreator,
+  changeProfAvaActionCreator,
 } from "../../../../redux/reducers/reducerProfile";
 import MainProfileAvatars from "./MainProfileAvatars";
 
@@ -12,7 +13,7 @@ let mapStatetoProps = (state: any) => {
     pages: state.profile.pages,
     pageCount: state.profile.pageCount,
     avatars: state.profile.avatars,
-    renderAvatar: state.profile.renderAvatar,
+    fullAvaSrc: state.profile.fullAvaSrc,
   };
 };
 
@@ -24,8 +25,11 @@ let mapDispatchToProps = (dispatch: any) => {
     getAvatars: () => {
       dispatch(getAvatarsActionCreator());
     },
-    renderAva: (flag: boolean) => {
-      dispatch(renderAvaActionCreator(flag));
+    getFullAva: (src: string) => {
+      dispatch(getFullAvaActionCreator(src));
+    },
+    changeProfAva: () => {
+      dispatch(changeProfAvaActionCreator());
     },
   };
 };

@@ -2,6 +2,8 @@ import React from "react";
 import styles from "./MainProfile.module.scss";
 import { Navigate, NavLink } from "react-router-dom";
 import MainProfileAvatarsContainer from "./MainProfileAvatars/MainProfileAvatarsContainer";
+import avatar from "../../../assets/svg/avatar.svg";
+import { getLocalProfileAvatar } from "../../../services/auth.service";
 
 const MainProfile = (props: any) => {
   if (!props.isAuthLevel) {
@@ -70,6 +72,11 @@ const MainProfile = (props: any) => {
       <div className={`${styles.profile_inner} ${theme("profile_inner")}`}>
         <div className={styles.profile_info_inner}>
           <div className={styles.profile_avatar}>
+            <img
+              className={styles.profile_avatar_img}
+              src={props.profileAvatar || getLocalProfileAvatar || avatar}
+              alt="profile-avatar"
+            />
             <div className={styles.profile_avatar_download}>
               <div
                 className={styles.profile_update_text}
