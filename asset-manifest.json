@@ -1,7 +1,7 @@
 {
   "files": {
-    "main.css": "/english-quiz/static/css/main.e8108b76.css",
-    "main.js": "/english-quiz/static/js/main.cb3baae6.js",
+    "main.css": "/english-quiz/static/css/main.2183c9f3.css",
+    "main.js": "/english-quiz/static/js/main.af1d2a64.js",
     "static/media/TTNormsPro-Regular.eot": "/english-quiz/static/media/TTNormsPro-Regular.3463e845a90ada751882.eot",
     "static/media/TTNormsPro-Regular.ttf": "/english-quiz/static/media/TTNormsPro-Regular.286accc215acf65c8da8.ttf",
     "static/media/TTNormsPro-Bold.eot": "/english-quiz/static/media/TTNormsPro-Bold.57473609fa405827d418.eot",
@@ -25,7 +25,7 @@
     "static/media/level-1.svg": "/english-quiz/static/media/level-1.7b4191e3ca7c31791df03153cab57f0c.svg",
     "static/media/level-3.svg": "/english-quiz/static/media/level-3.2f515bc39857287b5dac288221806337.svg",
     "static/media/play.svg": "/english-quiz/static/media/play.f3784cc3870b6393ce37386d117a923f.svg",
-    "static/media/avatar.svg": "/english-quiz/static/media/avatar.00f67d130999cd73ea3c.svg",
+    "static/media/avatar.svg": "/english-quiz/static/media/avatar.00f67d130999cd73ea3c459b7effe8d3.svg",
     "static/media/on.svg": "/english-quiz/static/media/on.c34b27a71591ccf5fb3cac53a032cba3.svg",
     "static/media/mute.svg": "/english-quiz/static/media/mute.04e8945d2975b6de072a71f9d55282bf.svg",
     "index.html": "/english-quiz/index.html",
@@ -33,11 +33,11 @@
     "static/media/previous.svg": "/english-quiz/static/media/previous.d1b57575113f0971fe88.svg",
     "static/media/close.svg": "/english-quiz/static/media/close.2001e956d267bc9b1a23.svg",
     "static/media/change_photo.svg": "/english-quiz/static/media/change_photo.2349b07e5232e2dfdd01.svg",
-    "main.e8108b76.css.map": "/english-quiz/static/css/main.e8108b76.css.map",
-    "main.cb3baae6.js.map": "/english-quiz/static/js/main.cb3baae6.js.map"
+    "main.2183c9f3.css.map": "/english-quiz/static/css/main.2183c9f3.css.map",
+    "main.af1d2a64.js.map": "/english-quiz/static/js/main.af1d2a64.js.map"
   },
   "entrypoints": [
-    "static/css/main.e8108b76.css",
-    "static/js/main.cb3baae6.js"
+    "static/css/main.2183c9f3.css",
+    "static/js/main.af1d2a64.js"
   ]
 }
