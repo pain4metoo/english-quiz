@@ -26,7 +26,6 @@ const Main = (props: any) => {
   };
 
   const hide = () => {
-    console.log(props);
     if (props.isAvatarOpen || props.isCustomOpen) {
       return <MainHideBlock />;
     }

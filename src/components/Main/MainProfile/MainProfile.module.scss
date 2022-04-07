@@ -63,15 +63,20 @@
     margin-bottom: 0.8rem;
     cursor: pointer;
     position: relative;
+    transition: all 0.5s;
+    &:hover {
+      color: #539bf5;
+    }
     &::after {
       content: "";
       position: absolute;
-      left: 1rem;
+      left: 2rem;
       background: url("../../../assets/svg/update_photo.svg");
       background-size: cover;
       width: 1.5rem;
       height: 1.6rem;
       top: 0.1rem;
+      transition: ease-in-out 1s;
     }
   }
   &_change_text {
@@ -80,15 +85,20 @@
     font-weight: 500;
     cursor: pointer;
     position: relative;
+    transition: all 0.5s;
+    &:hover {
+      color: #539bf5;
+    }
     &::after {
       content: "";
       position: absolute;
-      left: 1rem;
+      left: 2rem;
       background: url("../../../assets/svg/change_photo.svg");
       background-size: cover;
       width: 1.5rem;
       height: 1.5rem;
       top: 0.2rem;
+      transition: ease-in-out 1s;
     }
   }
   & &_name {
@@ -195,6 +205,14 @@
       @extend %btn-hover-dark;
     }
   }
+}
+
+.profile_update_text:hover::after {
+  transform: rotate(180deg);
+}
+
+.profile_change_text:hover::after {
+  transform: rotate(360deg);
 }
 
 @media (max-width: 980px) {

@@ -1,4 +1,5 @@
 import React from "react";
+import { useRef } from "react";
 import styles from "./MainProfile.module.scss";
 import { Navigate, NavLink } from "react-router-dom";
 import MainProfileAvatarsContainer from "./MainProfileAvatars/MainProfileAvatarsContainer";
@@ -7,6 +8,20 @@ import { getLocalProfileAvatar } from "../../../services/auth.service";
 import MainProfileCustomContainer from "./MainProfileCustom/MainProfileCustomContainer";
 
 const MainProfile = (props: any) => {
+  const newCustomImage: any = useRef(null);
+  if (props.newCustomValues && newCustomImage.current) {
+    newCustomImage.current.style.filter = props.newCustomValues;
+  }
+  const imageOnload = () => {
+    if (props.newCustomValues && newCustomImage.current) {
+      newCustomImage.current.style.filter = props.newCustomValues;
+    } else {
+      if (newCustomImage.current && !props.newCustomValues) {
+        newCustomImage.current.style.filter = "none";
+      }
+    }
+  };
+
   if (!props.isAuthLevel) {
     return <Navigate to="/" />;
   }
@@ -90,6 +105,8 @@ const MainProfile = (props: any) => {
               className={styles.profile_avatar_img}
               src={props.profileAvatar || getLocalProfileAvatar || avatar}
               alt="profile-avatar"
+              ref={newCustomImage}
+              onLoad={imageOnload}
             />
             <div className={styles.profile_avatar_download}>
               <div

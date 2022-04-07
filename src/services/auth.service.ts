@@ -17,7 +17,16 @@ export const getLocalPreviusAnswer: any = store.get("answers") || {
   other: [],
 };
 export const getLocalProfileAvatar: any = store.get("avatar") || null;
+export const getLocalCustomValues: any = store.get("custom") || null;
 
+export const getLocalCustomValuesObj: any = store.get("filter") || null;
+export const addLocalCustomValuesObj = (filter: any) => {
+  store.set("filter", filter);
+};
+
+export const addLocalCustomValues = (custom: string) => {
+  store.set("custom", custom);
+};
 export const addLocalProfileAvatar = (avatar: string) => {
   store.set("avatar", avatar);
 };

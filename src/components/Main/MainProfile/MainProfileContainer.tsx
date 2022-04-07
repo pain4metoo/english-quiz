@@ -19,6 +19,7 @@ let mapStatetoProps = (state: any) => {
     isShowAvatarMenu: state.profile.isShowAvatarMenu,
     isShowCustomMenu: state.profile.isShowCustomMenu,
     profileAvatar: state.profile.profileAvatar,
+    newCustomValues: state.profile.newCustomValues,
   };
 };
 

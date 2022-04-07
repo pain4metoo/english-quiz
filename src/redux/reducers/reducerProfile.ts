@@ -1,4 +1,10 @@
-import { addLocalProfileAvatar } from "../../services/auth.service";
+import {
+  addLocalProfileAvatar,
+  addLocalCustomValues,
+  getLocalCustomValues,
+  addLocalCustomValuesObj,
+  getLocalCustomValuesObj,
+} from "../../services/auth.service";
 
 const SHOW_AVATARS = "SHOW_AVATARS";
 const GET_PAGES = "GET_PAGES";
@@ -7,6 +13,7 @@ const GET_FULL_AVATAR = "GET_FULL_AVATAR";
 const IS_PROFILE_AVA = "IS_PROFILE_AVA";
 const SHOW_CUSTOM = "SHOW_CUSTOM";
 const CUSTOM_AVATAR = "CUSTOM_AVATAR";
+const SAVE_CUSTOM = "SAVE_CUSTOM";
 
 interface customCounts {
   blur: number;
@@ -28,6 +35,7 @@ interface Profile {
   fullAvaSrc: string;
   profileAvatar: string;
   customValue: customCounts;
+  newCustomValues: string;
 }
 
 const initialState: Profile = {
@@ -41,13 +49,14 @@ const initialState: Profile = {
   pageCount: 1,
   fullAvaSrc: "",
   profileAvatar: "",
-  customValue: {
+  customValue: getLocalCustomValuesObj || {
     blur: 0,
     invert: 0,
     sepia: 0,
     saturate: 0,
     shade: 0,
   },
+  newCustomValues: getLocalCustomValues || "",
 };
 
 const profileReducer = (state = initialState, action: any) => {
@@ -106,6 +115,7 @@ const profileReducer = (state = initialState, action: any) => {
         ...state,
         pages: state.pages,
       };
+
     case GET_AVATARS:
       let intervalStart = state.pageCount * state.pageSize;
       let intervalEnd = state.pageCount * state.pageSize + state.pageSize;
@@ -130,28 +140,47 @@ const profileReducer = (state = initialState, action: any) => {
         ...state,
         fullAvaSrc: action.src,
       };
+
     case IS_PROFILE_AVA:
       if (state.fullAvaSrc) {
         addLocalProfileAvatar(state.fullAvaSrc);
       }
+      addLocalCustomValues("");
+      addLocalCustomValuesObj({
+        blur: 0,
+        invert: 0,
+        sepia: 0,
+        saturate: 0,
+        shade: 0,
+      });
       return {
         ...state,
         profileAvatar: state.fullAvaSrc,
         isShowAvatarMenu: false,
+        newCustomValues: "",
+        customValue: {
+          blur: 0,
+          invert: 0,
+          sepia: 0,
+          saturate: 0,
+          shade: 0,
+        },
       };
 
     case SHOW_CUSTOM:
       return {
         ...state,
         isShowCustomMenu: action.flag,
+        newCustomValues: state.newCustomValues,
       };
+
     case CUSTOM_AVATAR:
       let copyCustomValue = {
-        blur: 0,
-        invert: 0,
-        sepia: 0,
-        saturate: 0,
-        shade: 0,
+        blur: state.customValue.blur,
+        invert: state.customValue.invert,
+        sepia: state.customValue.sepia,
+        saturate: state.customValue.saturate,
+        shade: state.customValue.shade,
       };
       if (action.target.name === "blur") {
         copyCustomValue.blur = action.target.value;
@@ -164,15 +193,28 @@ const profileReducer = (state = initialState, action: any) => {
       } else if (action.target.name === "shade") {
         copyCustomValue.shade = action.target.value;
       }
-      state.customValue = copyCustomValue;
       return {
         ...state,
         customValue: copyCustomValue,
+      };
+
+    case SAVE_CUSTOM:
+      addLocalCustomValues(action.values);
+      addLocalCustomValuesObj(state.customValue);
+      return {
+        ...state,
+        newCustomValues: action.values,
+        isShowCustomMenu: false,
       };
     default:
       return state;
   }
 };
+
+export const saveAvatarValuesActionCreator = (values: string) => ({
+  type: SAVE_CUSTOM,
+  values: values,
+});
 
 export const customAvatarActionCreator = (target: string) => ({
   type: CUSTOM_AVATAR,
