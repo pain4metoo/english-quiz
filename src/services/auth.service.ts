@@ -20,16 +20,6 @@ export const getLocalProfileAvatar: any = store.get("avatar") || null;
 export const getLocalCustomValues: any = store.get("custom") || null;
 
 export const getLocalCustomValuesObj: any = store.get("filter") || null;
-export const addLocalCustomValuesObj = (filter: any) => {
-  store.set("filter", filter);
-};
-
-export const addLocalCustomValues = (custom: string) => {
-  store.set("custom", custom);
-};
-export const addLocalProfileAvatar = (avatar: string) => {
-  store.set("avatar", avatar);
-};
 
 export const addLocalData = (data: object) => {
   store.set("data", data);
@@ -63,4 +53,15 @@ export const answersCategoryTranslate = (answersCategoryTranslate: any) => {
 
 export const answersCategory = (answersCurrentCategory: any) => {
   store.set("answersCurrentCategory", answersCurrentCategory);
+};
+
+export const addLocalCustomValuesObj = (filter: any) => {
+  store.set("filter", filter);
+};
+
+export const addLocalCustomValues = (custom: string) => {
+  store.set("custom", custom);
+};
+export const addLocalProfileAvatar = (avatar: string) => {
+  store.set("avatar", avatar);
 };

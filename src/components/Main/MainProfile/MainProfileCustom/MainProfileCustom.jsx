@@ -11,7 +11,6 @@ class MainProfileCustom extends React.Component {
 
   componentDidMount() {
     if (this.props.newCustomValues) {
-
       this.customBlur.current.style.filter = this.props.newCustomValues;
     }
   }

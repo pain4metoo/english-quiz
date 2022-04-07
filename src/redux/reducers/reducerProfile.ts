@@ -7,7 +7,7 @@ import {
 } from "../../services/auth.service";
 
 const SHOW_AVATARS = "SHOW_AVATARS";
-const GET_PAGES = "GET_PAGES";
+const GET_PAGES_AVA = "GET_PAGES_AVA";
 const GET_AVATARS = "GET_AVATARS";
 const GET_FULL_AVATAR = "GET_FULL_AVATAR";
 const IS_PROFILE_AVA = "IS_PROFILE_AVA";
@@ -67,7 +67,7 @@ const profileReducer = (state = initialState, action: any) => {
         isShowAvatarMenu: action.flag,
       };
 
-    case GET_PAGES:
+    case GET_PAGES_AVA:
       state.pages = [];
       let count = state.pageCount;
 
@@ -239,7 +239,7 @@ export const getPagesActionCreator = (
   side: string | null,
   currentPage: number | null
 ) => ({
-  type: GET_PAGES,
+  type: GET_PAGES_AVA,
   side: side,
   currentPage: currentPage,
 });
