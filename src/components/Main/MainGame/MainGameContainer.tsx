@@ -26,6 +26,7 @@ let mapStateToProps = (state: any) => {
     isRoundEnd: state.game.isRoundEnd,
     theme: state.settings.settings.isTheme,
     isAnimPlay: state.game.isAnimPlay,
+    getAnswer: state.game.getAnswer,
   };
 };
 

@@ -19,10 +19,11 @@ interface Game {
   src: string;
   isPlay: boolean;
   previusNumber: number;
-  isAnswer: boolean;
+  isAnswer: boolean | null;
   showAnswer: boolean;
   previousAnswers: any;
   isRoundEnd: boolean;
+  getAnswer: boolean | null;
   isAnimPlay: boolean;
 }
 
@@ -36,11 +37,12 @@ const initialState: Game = {
   src: "",
   isPlay: false,
   previusNumber: 0,
-  isAnswer: false,
+  isAnswer: null,
   showAnswer: false,
   previousAnswers: getLocalPreviusAnswer,
   isRoundEnd: false,
   isAnimPlay: false,
+  getAnswer: null,
 };
 
 const gameReducer = (state = initialState, action: any) => {
@@ -76,19 +78,20 @@ const gameReducer = (state = initialState, action: any) => {
           ...state,
           newAnswerText: changeText,
           showAnswer: false,
+          getAnswer: null,
         };
       }
       return {
         ...state,
         newAnswerText: action.newAnswerText.trim(),
         showAnswer: false,
+        getAnswer: null,
       };
 
     case ADD_ANSWER:
       let trueAnswer = state.data[state.category][state.previusNumber].eng;
       let russianAnswer = state.data[state.category][state.previusNumber].rus;
       let currentAnswer = state.newAnswerText;
-
       if (trueAnswer === currentAnswer) {
         state.previousAnswers[state.category].push(state.previusNumber);
         store.set("answers", state.previousAnswers);
@@ -100,6 +103,7 @@ const gameReducer = (state = initialState, action: any) => {
           answer: answer,
           newAnswerText: "",
           showAnswer: true,
+          getAnswer: true,
         };
       }
       return {
@@ -107,9 +111,9 @@ const gameReducer = (state = initialState, action: any) => {
         answer: state.newAnswerText,
         isAnswer: false,
         showAnswer: false,
+        getAnswer: false,
       };
     case FETCHING:
-      console.log(action.flag);
       return {
         ...state,
         isFetching: action.flag,
@@ -150,6 +154,7 @@ const gameReducer = (state = initialState, action: any) => {
         isRoundEnd: false,
         isPlay: true,
         newAnswerText: "",
+        getAnswer: null,
       };
     case CHANGE_ANIM:
       return {

@@ -3,7 +3,7 @@ import styles from "./MainGame.module.scss";
 import { Link } from "react-router-dom";
 import preloader from "../../../assets/gif/preloader.gif";
 import play from "../../../assets/svg/play.svg";
-import playAnim from "../../../assets/svg/play-anim.svg";
+import playAnim from "../../../assets/image/play.png";
 
 class MainGame extends React.Component {
   constructor(props) {
@@ -121,6 +121,12 @@ class MainGame extends React.Component {
     }, 0);
   };
 
+  faultAnswer = () => {
+    if (this.props.getAnswer === false) {
+      return styles.game_line_fault;
+    }
+  };
+
   render() {
     return (
       <section className={styles.game}>
@@ -186,7 +192,10 @@ class MainGame extends React.Component {
             >
               Далее
             </button>
-            <span className={styles.game_line} id="line"></span>
+            <span
+              className={`${styles.game_line} ${this.faultAnswer()}`}
+              id="line"
+            ></span>
           </div>
         </div>
       </section>

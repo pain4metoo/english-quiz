@@ -112,6 +112,9 @@
     left: 0rem;
     border-radius: 1rem;
     transition: all 0.2s;
+    &_fault{
+      background: red;
+    }
   }
   &_btn_skip {
     text-decoration: none;
@@ -182,10 +185,6 @@
     align-items: center;
     justify-content: center;
   }
-}
-
-.game_field:focus + .game_line {
-  background: rgb(194, 194, 177);
 }
 
 @keyframes trueAnswer {
