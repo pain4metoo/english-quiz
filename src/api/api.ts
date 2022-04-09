@@ -9,7 +9,7 @@ export const getData = async () => {
 };
 
 export const getImages = async (page: number) => {
-  let avatars = [];
+  let avatars: Array<string> = [];
   let intervalStart = page * 9;
   let intervalEnd = page * 9 + 9;
 
@@ -20,8 +20,7 @@ export const getImages = async (page: number) => {
 
   for (let i = intervalStart; i < intervalEnd; i++) {
     let image = `https://raw.githubusercontent.com/pain4metoo/words-data/master/avatars/${i}.jpg`;
-    let fetchImage = await fetch(image);
-    avatars.push(fetchImage);
+    await fetch(image).then((response) => avatars.push(response.url));
   }
 
   return avatars;

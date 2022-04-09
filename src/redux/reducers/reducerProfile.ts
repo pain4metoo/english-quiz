@@ -114,7 +114,6 @@ const profileReducer = (state = initialState, action: any) => {
       for (let i = center - left; i <= center + right; i++) {
         state.pages.push(i);
       }
-
       return {
         ...state,
         pages: state.pages,
@@ -255,8 +254,9 @@ export const getPagesActionCreator = (
   currentPage: currentPage,
 });
 
-export const getAvatarsActionCreator = () => ({
+export const getAvatarsActionCreator = (response: any) => ({
   type: GET_AVATARS,
+  avatars: response,
 });
 export const showAvatarsActionCreator = (flag: boolean) => ({
   type: SHOW_AVATARS,
@@ -270,9 +270,9 @@ export const toggleIsFetchingActionCreator = (flag: boolean) => ({
 
 export const getImagesActionCreator = (dispatch: any, page: number) => {
   dispatch(toggleIsFetchingActionCreator(true));
-  getImages(page).then(() => {
+  getImages(page).then((response) => {
     dispatch(toggleIsFetchingActionCreator(false));
-    dispatch(getAvatarsActionCreator());
+    dispatch(getAvatarsActionCreator(response));
   });
 };
 
