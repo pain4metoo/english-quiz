@@ -1,7 +1,7 @@
 import React from "react";
 import styles from "./MainGame.module.scss";
 import { Link } from "react-router-dom";
-import preloader from "../../../assets/image/preloader.png";
+import preloader from "../../../assets/gif/preloader.gif";
 import play from "../../../assets/svg/play.svg";
 import playAnim from "../../../assets/svg/play-anim.svg";
 
@@ -166,7 +166,7 @@ class MainGame extends React.Component {
           </button>
           <button
             className={styles.game_btn_skip}
-            onClick={this.props.getNewSoundDataThunk}
+            onClick={() => this.props.getNewSoundDataThunk()}
           >
             Пропустить слово
           </button>

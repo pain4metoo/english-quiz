@@ -6,6 +6,8 @@ import {
   getLocalCustomValuesObj,
 } from "../../services/auth.service";
 
+import { getImages } from "../../api/api";
+
 const SHOW_AVATARS = "SHOW_AVATARS";
 const GET_PAGES_AVA = "GET_PAGES_AVA";
 const GET_AVATARS = "GET_AVATARS";
@@ -14,6 +16,7 @@ const IS_PROFILE_AVA = "IS_PROFILE_AVA";
 const SHOW_CUSTOM = "SHOW_CUSTOM";
 const CUSTOM_AVATAR = "CUSTOM_AVATAR";
 const SAVE_CUSTOM = "SAVE_CUSTOM";
+const TOGGLE_FETCHING = "TOGGLE_FETCHING";
 
 interface customCounts {
   blur: number;
@@ -36,6 +39,7 @@ interface Profile {
   profileAvatar: string;
   customValue: customCounts;
   newCustomValues: string;
+  isFetching: boolean;
 }
 
 const initialState: Profile = {
@@ -57,6 +61,7 @@ const initialState: Profile = {
     shade: 0,
   },
   newCustomValues: getLocalCustomValues || "",
+  isFetching: false,
 };
 
 const profileReducer = (state = initialState, action: any) => {
@@ -106,7 +111,6 @@ const profileReducer = (state = initialState, action: any) => {
         right = 4;
         left = 0;
       }
-
       for (let i = center - left; i <= center + right; i++) {
         state.pages.push(i);
       }
@@ -193,6 +197,7 @@ const profileReducer = (state = initialState, action: any) => {
       } else if (action.target.name === "shade") {
         copyCustomValue.shade = action.target.value;
       }
+
       return {
         ...state,
         customValue: copyCustomValue,
@@ -205,6 +210,12 @@ const profileReducer = (state = initialState, action: any) => {
         ...state,
         newCustomValues: action.values,
         isShowCustomMenu: false,
+      };
+
+    case TOGGLE_FETCHING:
+      return {
+        ...state,
+        isFetching: action.flag,
       };
     default:
       return state;
@@ -251,5 +262,18 @@ export const showAvatarsActionCreator = (flag: boolean) => ({
   type: SHOW_AVATARS,
   flag: flag,
 });
+
+export const toggleIsFetchingActionCreator = (flag: boolean) => ({
+  type: TOGGLE_FETCHING,
+  flag: flag,
+});
+
+export const getImagesActionCreator = (dispatch: any, page: number) => {
+  dispatch(toggleIsFetchingActionCreator(true));
+  getImages(page).then(() => {
+    dispatch(toggleIsFetchingActionCreator(false));
+    dispatch(getAvatarsActionCreator());
+  });
+};
 
 export default profileReducer;

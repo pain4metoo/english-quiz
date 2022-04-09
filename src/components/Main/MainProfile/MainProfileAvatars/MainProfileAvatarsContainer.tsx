@@ -1,10 +1,11 @@
 import { connect } from "react-redux";
 import {
   getPagesActionCreator,
-  getAvatarsActionCreator,
   getFullAvaActionCreator,
   changeProfAvaActionCreator,
   showAvatarsActionCreator,
+  toggleIsFetchingActionCreator,
+  getImagesActionCreator,
 } from "../../../../redux/reducers/reducerProfile";
 import MainProfileAvatars from "./MainProfileAvatars";
 
@@ -15,6 +16,7 @@ let mapStatetoProps = (state: any) => {
     pageCount: state.profile.pageCount,
     avatars: state.profile.avatars,
     fullAvaSrc: state.profile.fullAvaSrc,
+    isFetching: state.profile.isFetching,
   };
 };
 
@@ -22,9 +24,6 @@ let mapDispatchToProps = (dispatch: any) => {
   return {
     getPages: (side: string | null, currentPage: number | null) => {
       dispatch(getPagesActionCreator(side, currentPage));
-    },
-    getAvatars: () => {
-      dispatch(getAvatarsActionCreator());
     },
     getFullAva: (src: string) => {
       dispatch(getFullAvaActionCreator(src));
@@ -34,6 +33,12 @@ let mapDispatchToProps = (dispatch: any) => {
     },
     showAvatars: (flag: boolean) => {
       dispatch(showAvatarsActionCreator(flag));
+    },
+    toggleIsFetching: (flag: boolean) => {
+      dispatch(toggleIsFetchingActionCreator(flag));
+    },
+    getImages: (page: number) => {
+      getImagesActionCreator(dispatch, page);
     },
   };
 };

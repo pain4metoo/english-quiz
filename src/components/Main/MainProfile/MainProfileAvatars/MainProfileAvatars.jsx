@@ -1,11 +1,12 @@
 import React from "react";
 import styles from "./MainProfileAvatars.module.scss";
 import no_photo from "../../../../assets/svg/avatar.svg";
+import preloader from "../../../../assets/gif/preloader.gif";
 
 class MainProfileAvatars extends React.Component {
   componentDidMount() {
     this.props.getPages(null, 1);
-    this.props.getAvatars();
+    this.props.getImages(1);
   }
 
   pagesControls() {
@@ -17,7 +18,7 @@ class MainProfileAvatars extends React.Component {
           key={index}
           onClick={(e) => {
             this.props.getPages(null, +e.target.textContent);
-            this.props.getAvatars();
+            this.props.getImages(+e.target.textContent);
           }}
         >
           {item}
@@ -28,7 +29,7 @@ class MainProfileAvatars extends React.Component {
           key={index}
           onClick={(e) => {
             this.props.getPages(null, +e.target.textContent);
-            this.props.getAvatars();
+            this.props.getImages(+e.target.textContent);
           }}
         >
           {item}
@@ -68,25 +69,35 @@ class MainProfileAvatars extends React.Component {
         </svg>
         <div className={styles.avatars_inner}>
           <div className={styles.avatars_elem}>
-            <div className={styles.avatars_images}>
-              {this.props.avatars.map((item, index) => {
-                return (
-                  <img
-                    className={styles.avatars_img}
-                    src={`https://raw.githubusercontent.com/pain4metoo/words-data/master/avatars/${item}.jpg`}
-                    key={index}
-                    alt="profile-avatar"
-                    onClick={(e) => this.getFullAvatar(e.target.src)}
-                  />
-                );
-              })}
-            </div>
+            {this.props.isFetching ? (
+              <div className={styles.avatars_preloader_block}>
+                <img
+                  className={styles.avatars_preloader}
+                  src={preloader}
+                  alt="preloader"
+                ></img>
+              </div>
+            ) : (
+              <div className={styles.avatars_images}>
+                {this.props.avatars.map((item, index) => {
+                  return (
+                    <img
+                      className={styles.avatars_img}
+                      src={`https://raw.githubusercontent.com/pain4metoo/words-data/master/avatars/${item}.jpg`}
+                      key={index}
+                      alt="profile-avatar"
+                      onClick={(e) => this.getFullAvatar(e.target.src)}
+                    />
+                  );
+                })}
+              </div>
+            )}
 
             <div className={styles.avatars_change}>
               <img
                 className={styles.avatars_image_full}
                 src={this.props.fullAvaSrc || no_photo}
-                alt=""
+                alt="avatar-full"
               />
               <button
                 className={styles.avatars_btn}
@@ -102,7 +113,7 @@ class MainProfileAvatars extends React.Component {
               className={styles.avatars_pagination}
               onClick={() => {
                 this.props.getPages("left", null);
-                this.props.getAvatars();
+                this.props.getImages(this.props.pageCount);
               }}
             >
               <svg
@@ -122,7 +133,7 @@ class MainProfileAvatars extends React.Component {
               className={`${styles.avatars_pagination} ${styles.avatars_pagination_right}`}
               onClick={() => {
                 this.props.getPages("right", null);
-                this.props.getAvatars();
+                this.props.getImages(this.props.pageCount);
               }}
             >
               <svg

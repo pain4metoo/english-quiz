@@ -32,7 +32,7 @@ const initialState: Game = {
   categoryTranslate: "",
   newAnswerText: "",
   answer: "",
-  isFetching: true,
+  isFetching: false,
   src: "",
   isPlay: false,
   previusNumber: 0,
@@ -205,7 +205,6 @@ export const getSoundDataThunkActionCreator = (dispatch: any) => {
 
 export const getNewSoundDataThunkActionCreator = (dispatch: any) => {
   getData().then(() => {
-    dispatch(fetchingActionCreator(false));
     dispatch(addSoundActionCreator());
   });
 };
