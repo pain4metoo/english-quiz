@@ -26,30 +26,11 @@ const Header = (props: any) => {
     return styles.header_logo_fix;
   };
 
-  const theme = (tag: string) => {
-    if (tag === "header") {
-      if (props.theme) {
-        return styles.header_light;
-      } else {
-        return styles.header_dark;
-      }
-    } else if (tag === "logo") {
-      if (props.theme) {
-        return styles.header_logo_light;
-      } else {
-        return styles.header_logo_dark;
-      }
-    }
-  };
-
   return (
-    <header className={`${styles.header} ${theme("header")}`}>
+    <header className={styles.header}>
       <div className={welcomeLogo()}>
         <div className={`${styles.header_inner} ${changeLogo()}`}>
-          <NavLink
-            to="/profile"
-            className={`${styles.header_logo} ${theme("logo")}`}
-          >
+          <NavLink to="/profile" className={styles.header_logo}>
             EN.CL
           </NavLink>
           <nav className={styles.menu}>{showHeader()}</nav>

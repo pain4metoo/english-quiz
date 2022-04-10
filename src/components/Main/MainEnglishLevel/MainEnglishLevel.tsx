@@ -16,22 +16,6 @@ const MainEnglishLevel = (props: any) => {
     props.addLevel(level);
   };
 
-  const theme = (tag: string) => {
-    if (tag === "text") {
-      if (props.theme) {
-        return styles.english_card_light;
-      } else {
-        return styles.english_card_dark;
-      }
-    } else if (tag === "btn") {
-      if (props.theme) {
-        return styles.english_btn_light;
-      } else {
-        return styles.english_btn_dark;
-      }
-    }
-  };
-
   return (
     <section className={styles.english}>
       <div className={styles.english_inner}>
@@ -41,9 +25,7 @@ const MainEnglishLevel = (props: any) => {
         <div className={styles.english_cards}>
           <NavLink
             to="/profile"
-            className={`${styles.english_card} ${styles.english_card_1} ${theme(
-              "text"
-            )}`}
+            className={`${styles.english_card} ${styles.english_card_1}`}
             onClick={() => handlerClick("Начальный")}
           >
             <img className={styles.english_img} src={levelImg1} alt="card" />
@@ -56,9 +38,7 @@ const MainEnglishLevel = (props: any) => {
               выражения.
             </p>
             <button
-              className={`${styles.english_btn} ${styles.english_btn_1} ${theme(
-                "btn"
-              )}`}
+              className={`${styles.english_btn} ${styles.english_btn_1}`}
               type="button"
             >
               выбрать
@@ -67,9 +47,7 @@ const MainEnglishLevel = (props: any) => {
 
           <NavLink
             to="/profile"
-            className={`${styles.english_card} ${styles.english_card_2} ${theme(
-              "text"
-            )}`}
+            className={`${styles.english_card} ${styles.english_card_2}`}
             onClick={() => handlerClick("Средний")}
           >
             <img className={styles.english_img} src={levelImg2} alt="card" />
@@ -82,9 +60,7 @@ const MainEnglishLevel = (props: any) => {
               вам темы.
             </p>
             <button
-              className={`${styles.english_btn} ${styles.english_btn_2} ${theme(
-                "btn"
-              )}`}
+              className={`${styles.english_btn} ${styles.english_btn_2}`}
               type="button"
             >
               выбрать
@@ -93,9 +69,7 @@ const MainEnglishLevel = (props: any) => {
 
           <NavLink
             to="/profile"
-            className={`${styles.english_card} ${styles.english_card_3} ${theme(
-              "text"
-            )}`}
+            className={`${styles.english_card} ${styles.english_card_3}`}
             onClick={() => handlerClick("Продвинутый")}
           >
             <img className={styles.english_img} src={levelImg3} alt="card" />
@@ -108,9 +82,7 @@ const MainEnglishLevel = (props: any) => {
               прочитанное.
             </p>
             <button
-              className={`${styles.english_btn} ${styles.english_btn_3} ${theme(
-                "btn"
-              )}`}
+              className={`${styles.english_btn} ${styles.english_btn_3}`}
               type="button"
             >
               выбрать

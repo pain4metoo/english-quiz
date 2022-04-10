@@ -13,7 +13,6 @@ let mapStatetoProps = (state: any) => {
     isAuthName: state.name.isAuthName,
     score: state.game.previousAnswers,
     data: state.score.data,
-    theme: state.settings.settings.isTheme,
     changeName: state.settings.name,
     changeLevel: state.settings.level,
     isShowAvatarMenu: state.profile.isShowAvatarMenu,

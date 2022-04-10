@@ -7,13 +7,8 @@
     border: 1px solid black;
     border-radius: 4rem;
     padding: 7rem 6rem;
-    &_light {
-      border: 1px solid black;
-    }
-    &_dark {
-      background: #0e121a;
-      border: none;
-    }
+    background: #0e121a;
+    border: none;
   }
   &_info_inner {
     display: flex;
@@ -148,23 +143,13 @@
     cursor: pointer;
     transition: all 0.5s;
     margin-top: 2rem;
-    &_light {
-      background: #242d38;
-    }
-    &_dark {
-      background: #242d38;
-    }
+    background: #242d38;
   }
   &_progress_line_inner {
     height: 1rem;
     transition: all 0.5s;
     border-radius: 0.5rem;
-    &_light {
-      background: linear-gradient(89.99deg, #ffb83f 0%, #e68578 101.56%);
-    }
-    &_dark {
-      background: linear-gradient(89.99deg, #ffb83f 0%, #e68578 101.56%);
-    }
+    background: linear-gradient(89.99deg, #ffb83f 0%, #e68578 101.56%);
   }
   &_btn_inner {
     display: flex;
@@ -181,27 +166,14 @@
     width: 32rem;
     border-radius: 4rem;
     margin-top: 2rem;
+    background: #e68578;
+    color: $color-text-dark;
     cursor: pointer;
     transition: ease 0.5s;
-    &_light {
-      background: $color-bg-light;
-      color: $color-text-light;
-      border: 1px solid black;
-    }
-    &_dark {
-      background: #e68578;
-      color: $color-text-dark;
-    }
-    &_light:hover {
-      @extend %btn-hover-light;
-    }
-    &_dark:hover {
+    &:hover {
       @extend %btn-hover-dark;
     }
-    &_light:active {
-      @extend %btn-hover-light;
-    }
-    &_dark:active {
+    &:active {
       @extend %btn-hover-dark;
     }
   }

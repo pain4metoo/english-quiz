@@ -7,12 +7,7 @@
     border-radius: 4rem;
     min-height: 55vh;
     padding: 2rem;
-    &_light {
-      border: 1px solid black;
-    }
-    &_dark {
-      border: 1px solid white;
-    }
+    border: 1px solid white;
   }
   &_block {
     display: flex;
@@ -64,36 +59,15 @@
     border-radius: 4rem;
     cursor: pointer;
     transition: ease 0.5s;
-    &_light {
-      background: transparent;
-      border: 1px solid #000000;
-      color: black;
-    }
-    &_dark {
-      background: transparent;
-      border: 1px solid white;
-      color: white;
-    }
-    &_light:hover {
-      @extend %btn-hover-light;
-    }
-    &_dark:hover {
+    background: transparent;
+    border: 1px solid white;
+    color: white;
+    &:hover {
       @extend %btn-hover-dark;
     }
-    &_light:active {
-      @extend %btn-hover-light;
-    }
-    &_dark:active {
+    &:active {
       @extend %btn-hover-dark;
     }
-  }
-  &_text_light {
-    transition: all 0.5s;
-    color: $color-text-light;
-  }
-  &_text_dark {
-    transition: all 0.5s;
-    color: $color-text-dark;
   }
   &_name_change {
     max-width: 32rem;
@@ -104,12 +78,7 @@
     border-radius: 4rem;
     border: none;
     outline: none;
-    &_light {
-      background: #c6c6c6;
-    }
-    &_dark {
-      background: #c6c6c6;
-    }
+    background: #c6c6c6;
   }
   &_list {
     max-width: 32rem;
@@ -168,14 +137,10 @@ input[type="checkbox"]::before {
   cursor: pointer;
 }
 
-.circle_light[type="checkbox"]::before {
-  background: #000;
-}
-
-.circle_dark[type="checkbox"]::before {
+.input_circle[type="checkbox"]::before {
   background: #fff;
 }
 
-input:checked[type="checkbox"]::before {
+.input_circle:checked[type="checkbox"]::before {
   left: 5rem;
 }

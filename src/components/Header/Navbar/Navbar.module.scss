@@ -14,12 +14,7 @@
   opacity: 0.7;
   text-decoration: none;
   transition: all 0.5s;
-  &_light {
-    color: $color-text-light;
-  }
-  &_dark {
-    color: $color-text-dark;
-  }
+  color: $color-text-dark;
 }
 
 .item {

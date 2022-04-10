@@ -24,34 +24,6 @@ const MainSettings = (props: any) => {
     }
   };
 
-  const theme = (tag: string) => {
-    if (tag === "text") {
-      if (props.isTheme) {
-        return styles.settings_text_light;
-      } else {
-        return styles.settings_text_dark;
-      }
-    } else if (tag === "btn") {
-      if (props.isTheme) {
-        return styles.settings_btn_light;
-      } else {
-        return styles.settings_btn_dark;
-      }
-    } else if (tag === "input_circle") {
-      if (props.isTheme) {
-        return styles.circle_light;
-      } else {
-        return styles.circle_dark;
-      }
-    } else if (tag === "input_name") {
-      if (props.isTheme) {
-        return styles.settings_name_change_light;
-      } else {
-        return styles.settings_name_change_dark;
-      }
-    }
-  };
-
   const addName = (e: any) => {
     let body = e.target.value;
 
@@ -67,53 +39,41 @@ const MainSettings = (props: any) => {
   return (
     <section className={styles.settings}>
       <div className={styles.settings_inner}>
-        <h3 className={`${styles.settings_title} ${theme("text")}`}>
-          Настройки приложения
-        </h3>
+        <h3 className={styles.settings_title}>Настройки приложения</h3>
 
         <div className={styles.settings_block}>
           <div className={styles.settings_left}>
             <div className={styles.settings_item}>
-              <p className={`${styles.settings_theme_text} ${theme("text")}`}>
+              <p className={styles.settings_theme_text}>
                 Сменить тему приложения
               </p>
               <div className={styles.center}>
                 <input
-                  className={theme("input_circle")}
+                  className={styles.input_circle}
                   type="checkbox"
-                  onChange={() => applySettings("isTheme")}
+                  // onChange={() => applySettings("isTheme")}
                 />
-                <p
-                  className={`${styles.settings_text_description} ${theme(
-                    "text"
-                  )}`}
-                >
-                  чёрная/белая
-                </p>
+                <p className={styles.settings_text_description}>в разработке</p>
               </div>
             </div>
 
             <div className={styles.settings_item}>
-              <p className={`${styles.settings_anim_text} ${theme("text")}`}>
+              <p className={styles.settings_anim_text}>
                 Настройка анимации фона
               </p>
               <div className={styles.center}>
                 <input
-                  className={theme("input_circle")}
+                  className={styles.input_circle}
                   type="checkbox"
                   onChange={() => applySettings("isAnim")}
                 />
-                <p
-                  className={`${styles.settings_text_description} ${theme(
-                    "text"
-                  )}`}
-                >
+                <p className={styles.settings_text_description}>
                   включение/отключение анимации
                 </p>
               </div>
             </div>
 
-            <div className={styles.settings_item}>
+            {/* <div className={styles.settings_item}>
               <p className={`${styles.settings_bg_text} ${theme("text")}`}>
                 Сменить тип анимации фона
               </p>
@@ -127,14 +87,12 @@ const MainSettings = (props: any) => {
                   лучи/шум
                 </p>
               </div>
-            </div>
+            </div> */}
           </div>
 
           <div className={styles.settings_right}>
-            <div className={`${styles.settings_item} ${styles.settings_sound}`}>
-              <p className={`${styles.settings_volume_text} ${theme("text")}`}>
-                Настройка звука
-              </p>
+            <div className={styles.settings_item}>
+              <p className={styles.settings_volume_text}>Настройка звука</p>
               <div className={styles.settings_controls}>
                 <input
                   className={styles.settings_range}
@@ -158,13 +116,9 @@ const MainSettings = (props: any) => {
               </div>
             </div>
             <div className={styles.settings_item}>
-              <p className={`${styles.settings_name_text} ${theme("text")}`}>
-                Изменить имя
-              </p>
+              <p className={styles.settings_name_text}>Изменить имя</p>
               <input
-                className={`${styles.settings_name_change} ${theme(
-                  "input_name"
-                )}`}
+                className={styles.settings_name_change}
                 type="text"
                 placeholder="Введите новое имя..."
                 value={props.name}
@@ -173,9 +127,7 @@ const MainSettings = (props: any) => {
               />
             </div>
             <div className={styles.settings_item}>
-              <p className={`${styles.settings_level_text} ${theme("text")}`}>
-                Изменить уровень
-              </p>
+              <p className={styles.settings_level_text}>Изменить уровень</p>
               <select className={styles.settings_list} onChange={addLevel}>
                 <option className={styles.settings_list_item} defaultChecked>
                   Выберите уровень
@@ -198,17 +150,13 @@ const MainSettings = (props: any) => {
         </div>
         <div className={styles.settings_btns}>
           <button
-            className={`${styles.settings_btn} ${
-              styles.settings_btn_clear
-            } ${theme("btn")}`}
+            className={`${styles.settings_btn} ${styles.settings_btn_clear} `}
             type="button"
           >
             Сбросить
           </button>
           <button
-            className={`${styles.settings_btn} ${
-              styles.settings_btn_save
-            } ${theme("btn")}`}
+            className={`${styles.settings_btn} ${styles.settings_btn_save}`}
             type="button"
           >
             Сохранить

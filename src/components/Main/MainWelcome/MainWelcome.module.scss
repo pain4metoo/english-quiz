@@ -47,12 +47,7 @@
     text-align: center;
     background: transparent;
     border-radius: 4rem;
-    &_light {
-      color: $color-bg-light;
-    }
-    &_dark {
-      color: $color-bg-dark;
-    }
+    color: $color-bg-dark;
     &::placeholder {
       color: #9e9e9e;
       border: none;
@@ -91,35 +86,21 @@
     text-decoration: none;
     text-align: center;
     background: transparent;
-    border: 1px solid white;
     max-width: 34.5rem;
     width: 100%;
     opacity: 0.8;
     color: white;
+    border: 1px solid white;
     padding-top: 2rem;
     height: 7.5rem;
     cursor: pointer;
     margin-top: 4rem;
     border-radius: 4rem;
     transition: ease-out 0.5s;
-    &_light {
-      color: $color-bg-light;
-      border: 1px solid black;
-    }
-    &_dark {
-      color: $color-bg-dark;
-      border: 1px solid white;
-    }
-    &_light:hover {
-      @extend %btn-hover-light;
-    }
-    &_dark:hover {
+    &:hover {
       @extend %btn-hover-dark;
     }
-    &_light:active {
-      @extend %btn-hover-light;
-    }
-    &_dark:active {
+    &:active {
       @extend %btn-hover-dark;
     }
   }

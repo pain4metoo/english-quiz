@@ -103,16 +103,6 @@ class MainGame extends React.Component {
     }
   };
 
-  theme = (tag) => {
-    if (tag === "send_btn") {
-      if (this.props.theme) {
-        return styles.game_answer_btn_light;
-      } else {
-        return styles.game_answer_btn_dark;
-      }
-    }
-  };
-
   enterAnswer = (e) => {
     setTimeout(() => {
       if (e.key === "Enter") {
@@ -186,7 +176,7 @@ class MainGame extends React.Component {
               onKeyDown={this.enterAnswer}
             ></textarea>
             <button
-              className={`${styles.game_answer_btn} ${this.theme("send_btn")}`}
+              className={styles.game_answer_btn}
               type="button"
               onClick={this.addValueAnswer}
             >

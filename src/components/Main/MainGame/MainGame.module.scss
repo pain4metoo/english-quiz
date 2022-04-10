@@ -112,7 +112,7 @@
     left: 0rem;
     border-radius: 1rem;
     transition: all 0.2s;
-    &_fault{
+    &_fault {
       background: red;
     }
   }
@@ -141,19 +141,13 @@
     border: none;
     outline: none;
     cursor: pointer;
+    background: transparent;
+    color: #a27af3;
     transition: ease 0.5s;
-    &_light {
-      background: $color-bg-light;
-      color: $color-text-light;
-    }
-    &_dark {
-      background: transparent;
-      color: #a27af3;
-    }
-    &_dark:hover {
+    &:hover {
       color: #6e6483;
     }
-    &_dark:active {
+    &:active {
       color: #6e6483;
     }
   }

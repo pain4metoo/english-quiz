@@ -14,7 +14,6 @@ let mapStatetoProps = (state: any) => {
     isAuthLevel: state.stage.isAuthLevel,
     isAuthName: state.name.isAuthName,
     newNameText: state.name.newNameText,
-    theme: state.settings.settings.isTheme,
   };
 };
 

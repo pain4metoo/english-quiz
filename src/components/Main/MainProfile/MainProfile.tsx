@@ -36,40 +36,6 @@ const MainProfile = (props: any) => {
     }, 0);
   };
 
-  const theme = (tag: string) => {
-    if (tag === "text") {
-      if (props.theme) {
-        return styles.profile_text_light;
-      } else {
-        return styles.profile_text_dark;
-      }
-    } else if (tag === "btn") {
-      if (props.theme) {
-        return styles.profile_btn_light;
-      } else {
-        return styles.profile_btn_dark;
-      }
-    } else if (tag === "profile_inner") {
-      if (props.theme) {
-        return styles.profile_inner_light;
-      } else {
-        return styles.profile_inner_dark;
-      }
-    } else if (tag === "progress") {
-      if (props.theme) {
-        return styles.profile_progress_line_inner_light;
-      } else {
-        return styles.profile_progress_line_inner_dark;
-      }
-    } else if (tag === "progress-bg") {
-      if (props.theme) {
-        return styles.profile_progress_line_light;
-      } else {
-        return styles.profile_progress_line_dark;
-      }
-    }
-  };
-
   const showAvatar = (flag: boolean) => {
     props.showAvatars(flag);
   };
@@ -98,7 +64,7 @@ const MainProfile = (props: any) => {
     <section className={styles.profile}>
       {showAvatarsMenu()}
       {showCustomMenu()}
-      <div className={`${styles.profile_inner} ${theme("profile_inner")}`}>
+      <div className={styles.profile_inner}>
         <div className={styles.profile_info_inner}>
           <div className={styles.profile_avatar}>
             <img
@@ -124,38 +90,26 @@ const MainProfile = (props: any) => {
             </div>
           </div>
           <div className={styles.profile_info}>
-            <div className={`${styles.profile_name} ${theme("text")}`}>
+            <div className={styles.profile_name}>
               Имя:
-              <span className={`${styles.profile_name_text} ${theme("text")}`}>
+              <span className={styles.profile_name_text}>
                 {props.changeName || props.name.name}
               </span>
             </div>
-            <div className={`${styles.profile_level} ${theme("text")}`}>
+            <div className={styles.profile_level}>
               Уровень английского:
               <span className={styles.profile_level_text}>
                 {props.changeLevel || props.stage.stage}
               </span>
             </div>
             <div className={styles.profile_progress}>
-              <p className={`${styles.profile_progress_text} ${theme("text")}`}>
-                Ваш прогресс:
-              </p>
-              <p
-                className={`${styles.profile_progress_text_value} ${theme(
-                  "text"
-                )}`}
-              >
+              <p className={styles.profile_progress_text}>Ваш прогресс:</p>
+              <p className={styles.profile_progress_text_value}>
                 {getScore()} / 651 слова
               </p>
-              <div
-                className={`${styles.profile_progress_line} ${theme(
-                  "progress-bg"
-                )}`}
-              >
+              <div className={styles.profile_progress_line}>
                 <div
-                  className={`${styles.profile_progress_line_inner} ${theme(
-                    "progress"
-                  )}`}
+                  className={styles.profile_progress_line_inner}
                   style={{ width: (getScore() / 651) * 100 + "%" }}
                 ></div>
               </div>
@@ -164,10 +118,7 @@ const MainProfile = (props: any) => {
         </div>
       </div>
       <div className={styles.profile_btn_inner}>
-        <NavLink
-          to="/category"
-          className={`${styles.profile_btn} ${theme("btn")}`}
-        >
+        <NavLink to="/category" className={styles.profile_btn}>
           начать игру
         </NavLink>
       </div>

@@ -18,15 +18,10 @@
     transition: all 0.5s;
     margin-left: 1rem;
     margin-top: 3rem;
+    color: $color-text-dark;
     &:hover {
       color: $color-hover;
     }
-  }
-  &_logo_light {
-    color: $color-text-light;
-  }
-  &_logo_dark {
-    color: $color-text-dark;
   }
   &_logo_fix {
     margin-left: 15rem;
