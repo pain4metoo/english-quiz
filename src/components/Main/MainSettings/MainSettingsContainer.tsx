@@ -8,6 +8,8 @@ import {
   isNameFlagActionCreator,
   isLevelFlagActionCreator,
   saveSettingsActionCreator,
+  isVolumeFlagActionCreator,
+  changeVolumeActionCreator,
 } from "./../../../redux/reducers/reducerSettings";
 
 let mapStatetoProps = (state: any) => {
@@ -20,6 +22,7 @@ let mapStatetoProps = (state: any) => {
     isLevel: state.settings.isLevel,
     name: state.settings.name,
     newName: state.settings.newName,
+    volume: state.settings.volume,
   };
 };
 
@@ -37,11 +40,17 @@ let mapDispatchToProps = (dispatch: any) => {
     isLevelFlag: (flag: boolean) => {
       dispatch(isLevelFlagActionCreator(flag));
     },
+    isVolumeFlag: (flag: boolean) => {
+      dispatch(isVolumeFlagActionCreator(flag));
+    },
     changeName: (name: string) => {
       dispatch(changeNameActionCreator(name));
     },
     changeLevel: (level: string) => {
       dispatch(changeLevelActionCreator(level));
+    },
+    changeVolume: (volume: number) => {
+      dispatch(changeVolumeActionCreator(volume));
     },
     saveSettings: () => {
       dispatch(saveSettingsActionCreator());

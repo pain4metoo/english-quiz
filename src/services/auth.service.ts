@@ -18,8 +18,18 @@ export const getLocalPreviusAnswer: any = store.get("answers") || {
 };
 export const getLocalProfileAvatar: any = store.get("avatar") || null;
 export const getLocalCustomValues: any = store.get("custom") || null;
-
 export const getLocalCustomValuesObj: any = store.get("filter") || null;
+export const getLocalVolumeValue: any = store.get("volume") || 40;
+
+export const getLocalAnim: any = store.get("anim") || null;
+
+export const addLocalAnim = (anim: boolean) => {
+  store.set("anim", anim);
+};
+
+export const addLocalVolume = (volume: number) => {
+  store.set("volume", volume);
+};
 
 export const addLocalData = (data: object) => {
   store.set("data", data);
