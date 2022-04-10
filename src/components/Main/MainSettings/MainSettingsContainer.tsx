@@ -20,7 +20,7 @@ let mapStatetoProps = (state: any) => {
     isTheme: state.settings.isTheme,
     isName: state.settings.isName,
     isLevel: state.settings.isLevel,
-    name: state.settings.name,
+    name: state.name.name,
     newName: state.settings.newName,
     volume: state.settings.volume,
   };

@@ -27,6 +27,7 @@ let mapStateToProps = (state: any) => {
     isAnimPlay: state.game.isAnimPlay,
     getAnswer: state.game.getAnswer,
     volume: state.settings.volume,
+    isVolume: state.settings.isVolume,
   };
 };
 

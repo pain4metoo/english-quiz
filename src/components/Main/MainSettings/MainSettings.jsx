@@ -108,7 +108,7 @@ class MainSettings extends React.Component {
                     type="range"
                     min="1"
                     max="100"
-                    value={this.props.volume}
+                    value={this.props.volume || 30}
                     step="1"
                     onChange={(e) =>
                       this.applySettings("changeVolume", e.target)

@@ -19,7 +19,7 @@ export const getLocalPreviusAnswer: any = store.get("answers") || {
 export const getLocalProfileAvatar: any = store.get("avatar") || null;
 export const getLocalCustomValues: any = store.get("custom") || null;
 export const getLocalCustomValuesObj: any = store.get("filter") || null;
-export const getLocalVolumeValue: any = store.get("volume") || 40;
+export const getLocalVolumeValue: any = store.get("volume") || 30;
 
 export const getLocalAnim: any = store.get("anim") || null;
 

@@ -33,9 +33,13 @@ class MainGame extends React.Component {
   addSong = () => {
     if (this.props.isPlay) {
       this.createAudio();
+      if (!this.props.isVolume) {
+        this.audioValue.current.volume = this.props.volume / 100;
+      } else {
+        this.audioValue.current.volume = 0.3;
+      }
 
       const audioDuration = this.audioValue.current.duration;
-      this.audioValue.current.volume = this.props.volume / 100;
       this.props.animState(true);
       setTimeout(() => {
         this.props.animState(false);
