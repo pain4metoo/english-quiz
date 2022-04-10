@@ -23,16 +23,16 @@
     color: $color-text-dark;
   }
   &_card_1 {
-    background: #a27af3;
+    background: $color-noun;
     animation-name: up;
     opacity: 1;
   }
   &_card_2 {
-    background: #e68578;
+    background: $color-adjective;
     animation-name: down;
   }
   &_card_3 {
-    background: #7cc0bb;
+    background: $color-verb;
     animation-name: up;
   }
   &_img {
@@ -111,15 +111,15 @@
 }
 
 .english_card:hover .english_btn_1 {
-  background: #8d79fd;
+  background: $hover-noun;
 }
 
 .english_card:hover .english_btn_2 {
-  background: #feb941;
+  background: $hover-adjective;
 }
 
 .english_card:hover .english_btn_3 {
-  background: #8de0ba;
+  background: $hover-verb;
 }
 
 @keyframes up {

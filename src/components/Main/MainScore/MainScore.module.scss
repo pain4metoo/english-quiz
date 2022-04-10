@@ -5,7 +5,7 @@
   margin-top: 5rem;
   &_inner {
     width: 100%;
-    border: 1px solid black;
+    border: 1px solid white;
     border-radius: 4rem;
     min-height: 55vh;
     display: flex;
@@ -33,35 +33,35 @@
     border-radius: 4rem;
   }
   &_category_1 {
-    background: #e3ddfe;
+    background: $color-noun;
     transition: all 0.5s;
     &:hover {
       opacity: 0.5;
-      background: #8d79fd;
+      background: $hover-noun;
     }
   }
   &_category_2 {
-    background: #ffeecd;
+    background: $color-adjective;
     transition: all 0.5s;
     &:hover {
       opacity: 0.5;
-      background: #feb941;
+      background: $hover-adjective;
     }
   }
   &_category_3 {
-    background: #dceced;
+    background: $color-verb;
     transition: all 0.5s;
     &:hover {
       opacity: 0.5;
-      background: #8de0ba;
+      background: $hover-verb;
     }
   }
   &_category_4 {
-    background: #ede3dc;
+    background: $color-other;
     transition: all 0.5s;
     &:hover {
       opacity: 0.5;
-      background: #756f6b;
+      background: $hover-other;
     }
   }
   &_result {
@@ -80,24 +80,24 @@
     height: 6rem;
     border-top-right-radius: 4rem;
     border-bottom-right-radius: 4rem;
-    transition: all .5s;
+    transition: all 0.5s;
   }
   &_result_1 {
-    background: #e3ddfe;
+    background: $color-noun;
   }
   &_result_2 {
-    background: #ffeecd;
+    background: $color-adjective;
   }
   &_result_3 {
-    background: #dceced;
+    background: $color-verb;
   }
   &_result_4 {
-    background: #ede3dc;
+    background: $color-other;
   }
   &_value {
     position: absolute;
     bottom: 0;
     right: 0;
-    color: #FFFFFF;
+    color: #ffffff;
   }
 }

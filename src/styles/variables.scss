@@ -2,16 +2,22 @@ $font-main: "TT-Norms-Pro", sans-serif;
 
 $color-bg1: #539bf5;
 $color-hover: #539bf5;
-
 $color-bg-dark: radial-gradient(ellipse at bottom, #1b2735 0%, #090a0f 100%);
 $color-text-dark: white;
-
 $color-bg-light: white;
 $color-text-light: black;
-
 $primary: #4f2edc;
 $primary-light: #947ada;
 $gray: #9a9999;
+$color-noun: #a27af3;
+$color-adjective: #e68578;
+$color-verb: #7cc0bb;
+$color-other: #cdb2a0;
+
+$hover-noun: #805ace;
+$hover-adjective: #ce6456;
+$hover-verb: #1b978f;
+$hover-other: #a57250;
 
 %font-small {
   font-size: 1.8rem;
