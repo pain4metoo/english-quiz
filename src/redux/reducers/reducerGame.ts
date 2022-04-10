@@ -144,8 +144,6 @@ const gameReducer = (state = initialState, action: any) => {
       }
       let url = state.data[category][randomCount].track;
 
-      console.log(url);
-
       let src = `https://raw.githubusercontent.com/pain4metoo/words-data/master/${category}/${url}.mp3`;
       return {
         ...state,

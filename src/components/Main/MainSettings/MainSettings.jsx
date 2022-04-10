@@ -44,7 +44,7 @@ class MainSettings extends React.Component {
 
   onVolume() {
     this.props.isVolumeFlag(true);
-    this.props.changeVolume(40);
+    this.props.changeVolume(30);
   }
 
   render() {

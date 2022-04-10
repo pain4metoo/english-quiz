@@ -39,7 +39,7 @@ const initialState: Settings = {
   isName: false,
   isLevel: false,
   isVolume: false,
-  volume: getLocalVolumeValue || 40,
+  volume: getLocalVolumeValue || 30,
   name: getLocalName,
   newName: "",
   level: getLocalLevel,
