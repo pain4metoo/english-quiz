@@ -15,15 +15,6 @@ import MainHideBlock from "./MainHideBlock/MainHideBlock";
 import { Routes, Route } from "react-router-dom";
 
 const Main = (props: any) => {
-  const theme = (tag: string) => {
-    if (tag === "main") {
-      if (props.theme) {
-        return styles.main_light;
-      } else {
-        return styles.main_dark;
-      }
-    }
-  };
 
   const hide = () => {
     if (props.isAvatarOpen || props.isCustomOpen) {
@@ -32,7 +23,7 @@ const Main = (props: any) => {
   };
 
   return (
-    <main className={`${styles.main} ${theme("main")}`}>
+    <main className={styles.main}>
       <MainBackgroundContainer />
       {hide()}
       <div className={styles.container}>

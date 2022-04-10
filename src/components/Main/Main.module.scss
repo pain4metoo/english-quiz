@@ -3,17 +3,11 @@
 .main {
   flex: 1 0 auto;
   height: 71.5vh;
-  &_light {
-    background: $color-bg-light;
-  }
-  &_dark {
-    background: $color-bg-dark;
-  }
+  background: $color-bg-dark;
   &_hide {
     width: 100%;
     height: 100%;
     background-color: black;
-
   }
 }
 

@@ -7,13 +7,17 @@ import {
 
 let mapStatetoProps = (state: any) => {
   return {
-    name: state.name,
+    name: state.name.name,
     stage: state.stage,
     isAuthLevel: state.stage.isAuthLevel,
     isAuthName: state.name.isAuthName,
     score: state.game.previousAnswers,
     data: state.score.data,
-    changeName: state.settings.name,
+    newName: state.settings.newName,
+    level: state.settings.level,
+    newLevel: state.settings.newLevel,
+    isName: state.settings.isName,
+    isLevel: state.settings.isLevel,
     changeLevel: state.settings.level,
     isShowAvatarMenu: state.profile.isShowAvatarMenu,
     isShowCustomMenu: state.profile.isShowCustomMenu,

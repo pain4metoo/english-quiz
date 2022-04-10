@@ -24,12 +24,7 @@
   text-decoration: none;
   transition: all 0.5s;
   line-height: 2rem;
-  &_light {
-    color: $color-text-light;
-  }
-  &_dark {
-    color: $color-text-dark;
-  }
+  color: $color-text-dark;
   &:hover {
     color: $color-hover;
   }
@@ -41,12 +36,7 @@
   opacity: 0.7;
   margin: 1rem 0 0 3rem;
   transition: all 0.5s;
-  &_light {
-    color: $color-text-light;
-  }
-  &_dark {
-    color: $color-text-dark;
-  }
+  color: $color-text-dark;
 }
 
 @media (max-width: 420px) {

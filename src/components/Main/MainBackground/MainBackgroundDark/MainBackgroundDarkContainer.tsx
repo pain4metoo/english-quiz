@@ -3,7 +3,7 @@ import { connect } from "react-redux";
 
 let mapStateToProps = (state: any) => {
   return {
-    isAnim: state.settings.settings.isAnim,
+    isAnim: state.settings.isAnim,
   };
 };
 

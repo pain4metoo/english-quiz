@@ -53,6 +53,23 @@
     height: 2rem;
     object-fit: contain;
   }
+  &_volume_text {
+    margin: 0;
+    margin-bottom: 1.5rem;
+  }
+  &_theme_text {
+    margin: 0;
+    margin-bottom: 1.5rem;
+  }
+  &_name_text {
+    margin: 0;
+    margin-top: 1.5rem;
+    margin-bottom: 1.5rem;
+  }
+  &_level_text {
+    margin: 0;
+    margin-bottom: 1.5rem;
+  }
   &_btn {
     height: 7.5rem;
     width: 32rem;

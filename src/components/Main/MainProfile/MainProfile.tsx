@@ -93,13 +93,15 @@ const MainProfile = (props: any) => {
             <div className={styles.profile_name}>
               Имя:
               <span className={styles.profile_name_text}>
-                {props.changeName || props.name.name}
+                {!props.isName && props.newName ? props.newName : props.name}
               </span>
             </div>
             <div className={styles.profile_level}>
               Уровень английского:
               <span className={styles.profile_level_text}>
-                {props.changeLevel || props.stage.stage}
+                {!props.isLevel && props.newLevel
+                  ? props.newLevel
+                  : props.level || props.stage.stage}
               </span>
             </div>
             <div className={styles.profile_progress}>

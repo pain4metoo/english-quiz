@@ -8,7 +8,7 @@ const MainSettings = (props: any) => {
     return <Navigate to="/" />;
   }
 
-  const applySettings = (type: string) => {
+  const applySettings = (type: string, e: any) => {
     if (type === "isAnim") {
       if (props.isAnim) {
         props.isAnimFlag(false);
@@ -21,19 +21,15 @@ const MainSettings = (props: any) => {
       } else {
         props.isThemeFlag(true);
       }
+    } else if (type === "changeName") {
+      let body = e.target.value;
+
+      props.changeName(body);
+    } else if (type === "changeLevel") {
+      let body = e.target.value;
+
+      props.changeLevel(body);
     }
-  };
-
-  const addName = (e: any) => {
-    let body = e.target.value;
-
-    props.changeName(body);
-  };
-
-  const addLevel = (e: any) => {
-    let body = e.target.value;
-
-    props.changeLevel(body);
   };
 
   return (
@@ -48,11 +44,7 @@ const MainSettings = (props: any) => {
                 Сменить тему приложения
               </p>
               <div className={styles.center}>
-                <input
-                  className={styles.input_circle}
-                  type="checkbox"
-                  // onChange={() => applySettings("isTheme")}
-                />
+                <input className={styles.input_circle} type="checkbox" />
                 <p className={styles.settings_text_description}>в разработке</p>
               </div>
             </div>
@@ -65,7 +57,7 @@ const MainSettings = (props: any) => {
                 <input
                   className={styles.input_circle}
                   type="checkbox"
-                  onChange={() => applySettings("isAnim")}
+                  onChange={() => applySettings("isAnim", null)}
                 />
                 <p className={styles.settings_text_description}>
                   включение/отключение анимации
@@ -121,14 +113,17 @@ const MainSettings = (props: any) => {
                 className={styles.settings_name_change}
                 type="text"
                 placeholder="Введите новое имя..."
-                value={props.name}
-                onChange={addName}
+                value={props.newName || props.name}
+                onChange={(e) => applySettings("changeName", e)}
                 max="10"
               />
             </div>
             <div className={styles.settings_item}>
               <p className={styles.settings_level_text}>Изменить уровень</p>
-              <select className={styles.settings_list} onChange={addLevel}>
+              <select
+                className={styles.settings_list}
+                onChange={(e) => applySettings("changeLevel", e)}
+              >
                 <option className={styles.settings_list_item} defaultChecked>
                   Выберите уровень
                 </option>
@@ -158,6 +153,7 @@ const MainSettings = (props: any) => {
           <button
             className={`${styles.settings_btn} ${styles.settings_btn_save}`}
             type="button"
+            onClick={props.saveSettings}
           >
             Сохранить
           </button>

@@ -3,7 +3,7 @@ import { connect } from "react-redux";
 
 let mapStateToProps = (state: any) => {
   return {
-    theme: state.settings.settings.isTheme,
+    theme: state.settings.isTheme,
   };
 };
 

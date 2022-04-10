@@ -5,15 +5,21 @@ import {
   isThemeFlagActionCreator,
   changeNameActionCreator,
   changeLevelActionCreator,
+  isNameFlagActionCreator,
+  isLevelFlagActionCreator,
+  saveSettingsActionCreator,
 } from "./../../../redux/reducers/reducerSettings";
 
 let mapStatetoProps = (state: any) => {
   return {
     isAuthLevel: state.stage.isAuthLevel,
     isAuthName: state.name.isAuthName,
-    isAnim: state.settings.settings.isAnim,
-    isTheme: state.settings.settings.isTheme,
+    isAnim: state.settings.isAnim,
+    isTheme: state.settings.isTheme,
+    isName: state.settings.isName,
+    isLevel: state.settings.isLevel,
     name: state.settings.name,
+    newName: state.settings.newName,
   };
 };
 
@@ -25,11 +31,20 @@ let mapDispatchToProps = (dispatch: any) => {
     isThemeFlag: (flag: boolean) => {
       dispatch(isThemeFlagActionCreator(flag));
     },
+    isNameFlag: (flag: boolean) => {
+      dispatch(isNameFlagActionCreator(flag));
+    },
+    isLevelFlag: (flag: boolean) => {
+      dispatch(isLevelFlagActionCreator(flag));
+    },
     changeName: (name: string) => {
       dispatch(changeNameActionCreator(name));
     },
     changeLevel: (level: string) => {
       dispatch(changeLevelActionCreator(level));
+    },
+    saveSettings: () => {
+      dispatch(saveSettingsActionCreator());
     },
   };
 };
