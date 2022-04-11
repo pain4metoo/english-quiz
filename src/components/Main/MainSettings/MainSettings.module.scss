@@ -167,7 +167,17 @@
     padding: 0.5rem;
     padding-left: 1.5rem;
     border-radius: 4rem;
+    transition: all 0.5s;
     cursor: pointer;
+    &:nth-child(1):hover {
+      background-color: $color-noun;
+    }
+    &:nth-child(2):hover {
+      background-color: $color-adjective;
+    }
+    &:nth-child(3):hover {
+      background-color: $color-verb;
+    }
   }
   &_list_item {
     font-size: 1.5rem;

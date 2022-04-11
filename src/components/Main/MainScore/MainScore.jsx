@@ -91,7 +91,7 @@ class MainScore extends React.Component {
             </div>
             <div className={`${styles.score_result} ${styles.score_result_1}`}>
               <div
-                className={styles.score_progress}
+                className={`${styles.score_progress} ${styles.score_progress_1}`}
                 style={{ width: this.nounProgress() + "%" }}
               ></div>
             </div>
@@ -112,7 +112,7 @@ class MainScore extends React.Component {
             </div>
             <div className={`${styles.score_result} ${styles.score_result_2}`}>
               <div
-                className={styles.score_progress}
+                className={`${styles.score_progress} ${styles.score_progress_2}`}
                 style={{ width: this.adjectiveProgress() + "%" }}
               ></div>
             </div>
@@ -133,7 +133,7 @@ class MainScore extends React.Component {
             </div>
             <div className={`${styles.score_result} ${styles.score_result_3}`}>
               <div
-                className={styles.score_progress}
+                className={`${styles.score_progress} ${styles.score_progress_3}`}
                 style={{ width: this.verbProgress() + "%" }}
               ></div>
             </div>
@@ -154,7 +154,7 @@ class MainScore extends React.Component {
             </div>
             <div className={`${styles.score_result} ${styles.score_result_4}`}>
               <div
-                className={styles.score_progress}
+                className={`${styles.score_progress} ${styles.score_progress_4}`}
                 style={{ width: this.otherProgress() + "%" }}
               ></div>
             </div>

@@ -7,6 +7,7 @@ import scoreReducer from './../reducers/reducerScore';
 import answersReducer from './../reducers/reducerAnswers';
 import settingsReducer from "../reducers/reducerSettings";
 import profileReducer from "../reducers/reducerProfile";
+import instructionReducer from './../reducers/reducerInstruction';
 import thunkMiddleware from 'redux-thunk';
 
 
@@ -19,6 +20,7 @@ let reducers = combineReducers({
   answers: answersReducer,
   settings: settingsReducer,
   profile: profileReducer,
+  instruction: instructionReducer,
 });
 
 let store = createStore(reducers, applyMiddleware(thunkMiddleware));

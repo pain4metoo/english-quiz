@@ -35,7 +35,6 @@ class MainSettings extends React.Component {
       this.props.changeName(body);
     } else if (type === "changeLevel") {
       let body = e.target.innerHTML;
-      console.log(body);
       this.showLevelList(true);
       this.props.isLevelFlag(true);
       this.props.changeLevel(body);

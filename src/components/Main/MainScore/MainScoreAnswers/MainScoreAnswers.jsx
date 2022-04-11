@@ -9,6 +9,7 @@ class MainScoreAnswers extends React.Component {
 
   componentDidUpdate() {
     let audio = new Audio(this.props.audioSrc);
+    audio.volume = this.props.volume / 100;
     if (this.props.audioPlay) {
       audio.play();
     } else {

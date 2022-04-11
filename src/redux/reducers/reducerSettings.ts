@@ -103,6 +103,13 @@ export const settingsReducer = (state = initialState, action: any) => {
         volume: action.volume,
       };
     case RESET_PROGRESS:
+      if (state.showWarning && !action.flag) {
+        return {
+          ...state,
+          resetProgress: action.flag,
+          showWarning: false,
+        };
+      }
       return {
         ...state,
         resetProgress: action.flag,

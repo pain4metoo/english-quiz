@@ -37,13 +37,13 @@
     width: 100%;
   }
   &_items_lists_1 {
-    background: #e3ddfe;
+    background: $hover-noun;
   }
   &_items_lists_2 {
-    background: #ffeecd;
+    background: $hover-adjective;
   }
   &_items_lists_3 {
-    background: #dceced;
+    background: $hover-verb;
   }
   &_item_list {
     margin-bottom: 2rem;

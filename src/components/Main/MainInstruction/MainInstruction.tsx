@@ -6,60 +6,52 @@ const MainInstruction = (props: any) => {
     return <Navigate to="/" />;
   }
 
+  const newTheme = (theme: string) => {
+    props.changeTheme(theme);
+  };
+
   return (
-    <section className={styles.instruction}>
-      <div className={styles.instruction_inner}>
-        <div className={styles.instruction_block}>
-          <p className={styles.instruction_question}>
-            Могу ли я изменить имя пользователя или уровень английского(уровень
-            сложности)?
-          </p>
-          <p className={styles.instruction_answer}>
-            Да, вы можете сделать это в настройках приложения.
-          </p>
+    <section className={styles.instr}>
+      <div className={styles.instr_inner}>
+        <div className={styles.instr_themes}>
+          <ul className={styles.instr_items}>
+            <li className={styles.instr_item} onClick={() => newTheme("game")}>
+              Об игре
+            </li>
+            <li
+              className={styles.instr_item}
+              onClick={() => newTheme("levels")}
+            >
+              Уровни сложности
+            </li>
+            <li
+              className={styles.instr_item}
+              onClick={() => newTheme("category")}
+            >
+              Категории
+            </li>
+          </ul>
         </div>
-
-        <div className={styles.instruction_block}>
-          <p className={styles.instruction_question}>
-            Сохраняется ли прогресс игры?
-          </p>
-          <p className={styles.instruction_answer}>
-            Да, прогресс сохраняется. Ваши результаты будут отображаться в
-            разделе "очки". За исключением, если вы удалите файлы cookie или
-            данные сайта, которые хранятся на стороне пользователя. В такой
-            ситуации прогресс обнуляется и игра начинается заново.
-          </p>
-        </div>
-
-        <div className={styles.instruction_block}>
-          <p className={styles.instruction_question}>
-            В чём польза приложения EN.CL?
-          </p>
-          <p className={styles.instruction_answer}>
-            Проект направлена на подтягивание знаний по английскому в
-            направлении аудирование (слов). Вы сможете улучшить своё понимание
-            английских слов на слух.
-          </p>
-        </div>
-
-        <div className={styles.instruction_block}>
-          <p className={styles.instruction_question}>
-            Сказывается ли уровень английского языка на уровне сложности игры?
-          </p>
-          <p className={styles.instruction_answer}>
-            Да, безусловно. Например при выборе уровня "продвинутый", у вас
-            появится ограничение по времени на каждый ответ.
-          </p>
-        </div>
-
-        <div className={styles.instruction_block}>
-          <p className={styles.instruction_question}>
-            Если я зайду с другого устройства, то мой прогресс сохранится?
-          </p>
-          <p className={styles.instruction_answer}>
-            Нет, так как даннные хранятся на стороне клиента, то ваш прогресс
-            будет хранится только в том браузере, где вы начали игру.
-          </p>
+        <div className={styles.instr_answers}>
+          {props.typeTheme === "game"
+            ? props.answersFAQ.game.map((item: string, index: number) => {
+                return (
+                  <div className={styles.instr_block} key={index}>
+                    <p className={styles.instr_ques}>{item}</p>
+                    <div className={styles.instr_ans}>
+                      {props.answersFAQ.gameAnswer[index]}
+                    </div>
+                  </div>
+                );
+              })
+            : props.quest.map((item: string, index: number) => {
+                return (
+                  <div className={styles.instr_block} key={index}>
+                    <p className={styles.instr_ques}>{item}</p>
+                    <div className={styles.instr_ans}>{props.ans[index]}</div>
+                  </div>
+                );
+              })}
         </div>
       </div>
     </section>

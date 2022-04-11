@@ -21,6 +21,7 @@ let mapStatetoProps = (state: any) => {
     audioSrc: state.answers.audioSrc,
     audioPlay: state.answers.audioPlay,
     currentPage: state.answers.currentPage,
+    volume: state.settings.volume,
   };
 };
 

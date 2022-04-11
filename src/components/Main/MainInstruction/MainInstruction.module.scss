@@ -1,24 +1,88 @@
 @import "../../../styles/variables.scss";
 
-.instruction {
+.instr {
+  margin: 1rem;
   margin-top: 5rem;
   &_inner {
     display: flex;
+    width: 100%;
+    border: 1px solid white;
+    border-radius: 4rem;
+    min-height: 55vh;
+    padding: 2rem;
+    position: relative;
+    transition: all 0.5s;
+  }
+  &_themes {
+    position: relative;
+    max-width: 25rem;
+    width: 100%;
+    &::after {
+      content: "";
+      position: absolute;
+      height: 100%;
+      width: 0.2rem;
+      right: 0;
+      top: 0;
+      bottom: 0;
+      background: white;
+      opacity: 0.5;
+    }
+  }
+  &_items {
+    list-style: none;
+    padding: 0;
+    text-align: left;
+  }
+  &_item {
+    margin-bottom: 2rem;
+    transition: ease 0.5s;
+    cursor: pointer;
+    user-select: none;
+    &:hover {
+      color: rgb(83, 155, 245);
+    }
+  }
+  &_answers {
+    display: flex;
     flex-direction: column;
-    justify-content: flex-end;
+    justify-content: flex-start;
+    padding: 2rem;
+    margin-left: 4rem;
+    width: 100%;
   }
   &_block {
-    margin-bottom: 3rem;
+    position: relative;
+    margin-bottom: 2rem;
   }
-  &_answer {
-    @extend %font-default;
+  &_ques {
     margin: 0;
+    margin-bottom: 2rem;
+    cursor: pointer;
+    transition: all 0.5s;
+    position: relative;
+    &:hover {
+      color: rgb(83, 155, 245);
+    }
+    &::after {
+      content: "";
+      position: absolute;
+      background-image: url("../../../assets/svg/plus.svg");
+      background-position: center;
+      background-size: cover;
+      background-repeat: no-repeat;
+      left: -5rem;
+      width: 4rem;
+      height: 4rem;
+      bottom: -1rem;
+    }
   }
-  &_question {
-    font-size: 2.6rem;
-    line-height: 4rem;
-    margin: 0;
-    font-weight: bold;
-    margin-bottom: 1rem;
+  &_ans {
+    opacity: 0;
+    position: absolute;
+    bottom: 0;
+    transform: translateX(100rem);
+    overflow: hidden;
+    transition: ease-in 0.5s;
   }
 }
