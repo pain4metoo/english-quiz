@@ -6,6 +6,7 @@ import MainProfileAvatarsContainer from "./MainProfileAvatars/MainProfileAvatars
 import avatar from "../../../assets/svg/avatar.svg";
 import { getLocalProfileAvatar } from "../../../services/auth.service";
 import MainProfileCustomContainer from "./MainProfileCustom/MainProfileCustomContainer";
+import { getLocalLevel } from "./../../../services/auth.service";
 
 const MainProfile = (props: any) => {
   const newCustomImage: any = useRef(null);
@@ -101,7 +102,7 @@ const MainProfile = (props: any) => {
               <span className={styles.profile_level_text}>
                 {!props.isLevel && props.newLevel
                   ? props.newLevel
-                  : props.level || props.stage.stage}
+                  : props.stage}
               </span>
             </div>
             <div className={styles.profile_progress}>

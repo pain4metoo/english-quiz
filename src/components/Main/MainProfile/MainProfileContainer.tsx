@@ -8,7 +8,7 @@ import {
 let mapStatetoProps = (state: any) => {
   return {
     name: state.name.name,
-    stage: state.stage,
+    stage: state.stage.stage,
     isAuthLevel: state.stage.isAuthLevel,
     isAuthName: state.name.isAuthName,
     score: state.game.previousAnswers,

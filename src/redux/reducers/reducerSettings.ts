@@ -12,12 +12,14 @@ import {
 const ANIM_FLAG = "ANIM_FLAG";
 const THEME_FLAG = "THEME_FLAG";
 const CHANGE_NAME = "CHANGE_NAME";
-const CHANGE_LEVEL = "CHANGE_LEVEL";
+const CHANGE_LEVEL_SET = "CHANGE_LEVEL_SET";
 const LEVEL_FLAG = "LEVEL_FLAG";
 const NAME_FLAG = "NAME_FLAG";
 const SAVE_SETTINGS = "SAVE_SETTINGS";
 const VOLUME_FLAG = "VOLUME_FLAG";
 const CHANGE_VOLUME = "CHANGE_VOLUME";
+const SHOW_LEVELS = "SHOW_LEVELS";
+const CLEAR_SETTINGS = "CLEAR_SETTINGS";
 
 interface Settings {
   isAnim: boolean;
@@ -31,6 +33,8 @@ interface Settings {
   newLevel: string;
   newName: string;
   saveSet: boolean;
+  showLevels: boolean;
+  clearSet: boolean;
 }
 
 const initialState: Settings = {
@@ -45,6 +49,8 @@ const initialState: Settings = {
   level: getLocalLevel,
   newLevel: "",
   saveSet: false,
+  showLevels: false,
+  clearSet: false,
 };
 
 export const settingsReducer = (state = initialState, action: any) => {
@@ -79,7 +85,7 @@ export const settingsReducer = (state = initialState, action: any) => {
         ...state,
         newName: action.name,
       };
-    case CHANGE_LEVEL:
+    case CHANGE_LEVEL_SET:
       return {
         ...state,
         newLevel: action.level,
@@ -90,36 +96,73 @@ export const settingsReducer = (state = initialState, action: any) => {
         volume: action.volume,
       };
     case SAVE_SETTINGS:
-      if (state.isName) {
-        addLocalUser(state.newName);
-      }
-      if (state.isLevel) {
-        addLocalLevel(state.newLevel);
-      }
-      if (state.isVolume) {
-        addLocalVolume(state.volume);
+      if (action.flag) {
+        addLocalVolume(30);
+        return {
+          ...state,
+          newName: state.newName,
+          newLevel: state.newLevel,
+          isAnim: false,
+          isTheme: false,
+          volume: 30,
+          isVolume: false,
+          isName: false,
+          isLevel: false,
+          clearSet: false,
+        };
+      } else {
+        if (state.isName) {
+          addLocalUser(state.newName);
+        }
+        if (state.isLevel) {
+          addLocalLevel(state.newLevel);
+        }
+        if (state.isVolume) {
+          addLocalVolume(state.volume);
+        }
+
+        addLocalAnim(state.isAnim);
+
+        return {
+          ...state,
+          newName: state.newName,
+          newLevel: state.newLevel,
+          isAnim: state.isAnim,
+          level: state.newLevel,
+          isTheme: false,
+          isVolume: false,
+          isName: false,
+          isLevel: false,
+          saveSet: true,
+        };
       }
 
-      addLocalAnim(state.isAnim);
-
+    case SHOW_LEVELS:
       return {
         ...state,
-        newName: state.newName,
-        newLevel: state.newLevel,
-        isAnim: state.isAnim,
-        isTheme: false,
-        isVolume: false,
-        isName: false,
-        isLevel: false,
-        saveSet: true,
+        showLevels: action.flag,
+      };
+    case CLEAR_SETTINGS:
+      return {
+        ...state,
+        clearSet: true,
       };
     default:
       return state;
   }
 };
 
-export const saveSettingsActionCreator = () => ({
+export const clearSettingsActionCreator = () => ({
+  type: CLEAR_SETTINGS,
+});
+export const showLevelMenuActionCreator = (flag: boolean) => ({
+  type: SHOW_LEVELS,
+  flag: flag,
+});
+
+export const saveSettingsActionCreator = (flag: boolean) => ({
   type: SAVE_SETTINGS,
+  flag: flag,
 });
 
 export const isLevelFlagActionCreator = (flag: boolean) => ({
@@ -158,7 +201,7 @@ export const changeNameActionCreator = (name: string) => ({
 });
 
 export const changeLevelActionCreator = (level: string) => ({
-  type: CHANGE_LEVEL,
+  type: CHANGE_LEVEL_SET,
   level: level,
 });
 

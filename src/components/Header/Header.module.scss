@@ -23,7 +23,10 @@
       color: $color-hover;
     }
   }
-  &_logo_fix {
+  &_logo_position {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
     margin-left: 15rem;
   }
 }

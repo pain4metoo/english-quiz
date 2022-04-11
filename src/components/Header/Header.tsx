@@ -10,26 +10,20 @@ const Header = (props: any) => {
     }
   };
 
-  const welcomeLogo = () => {
-    if (props.isAuthName && props.isAuthLevel) {
-      return styles.container;
-    }
-
-    return "";
-  };
-
-  const changeLogo = () => {
-    if (props.isAuthName && props.isAuthLevel) {
-      return "";
-    }
-
-    return styles.header_logo_fix;
-  };
-
   return (
     <header className={styles.header}>
-      <div className={welcomeLogo()}>
-        <div className={`${styles.header_inner} ${changeLogo()}`}>
+      <div
+        className={
+          props.isAuthName && props.isAuthLevel ? styles.container : ""
+        }
+      >
+        <div
+          className={`${
+            props.isAuthName && props.isAuthLevel
+              ? styles.header_inner
+              : styles.header_logo_position
+          }`}
+        >
           <NavLink to="/profile" className={styles.header_logo}>
             EN.CL
           </NavLink>

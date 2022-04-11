@@ -19,7 +19,7 @@ const initialState: Level = {
 
 const levelReducer = (state = initialState, action: any) => {
   switch (action.type) {
-    case "CHANGE_LEVEL":
+    case CHANGE_LEVEL:
       addLocalLevel(action.stage);
       isAuthLevel(true);
       return {

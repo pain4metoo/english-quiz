@@ -10,6 +10,8 @@ import {
   saveSettingsActionCreator,
   isVolumeFlagActionCreator,
   changeVolumeActionCreator,
+  showLevelMenuActionCreator,
+  clearSettingsActionCreator,
 } from "./../../../redux/reducers/reducerSettings";
 
 let mapStatetoProps = (state: any) => {
@@ -23,6 +25,10 @@ let mapStatetoProps = (state: any) => {
     name: state.name.name,
     newName: state.settings.newName,
     volume: state.settings.volume,
+    stage: state.stage.stage,
+    level: state.settings.level,
+    newLevel: state.settings.newLevel,
+    showLevels: state.settings.showLevels,
   };
 };
 
@@ -52,8 +58,14 @@ let mapDispatchToProps = (dispatch: any) => {
     changeVolume: (volume: number) => {
       dispatch(changeVolumeActionCreator(volume));
     },
-    saveSettings: () => {
-      dispatch(saveSettingsActionCreator());
+    saveSettings: (flag: boolean) => {
+      dispatch(saveSettingsActionCreator(flag));
+    },
+    showLevelMenu: (flag: boolean) => {
+      dispatch(showLevelMenuActionCreator(flag));
+    },
+    clearSettings: () => {
+      dispatch(clearSettingsActionCreator());
     },
   };
 };

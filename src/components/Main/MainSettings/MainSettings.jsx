@@ -1,6 +1,6 @@
 import React from "react";
 import styles from "./MainSettings.module.scss";
-import { Navigate } from "react-router-dom";
+import { Navigate, Link } from "react-router-dom";
 
 class MainSettings extends React.Component {
   componentDidMount() {
@@ -27,13 +27,20 @@ class MainSettings extends React.Component {
       this.props.isNameFlag(true);
       this.props.changeName(body);
     } else if (type === "changeLevel") {
-      let body = e.target.value;
+      let body = e.target.innerHTML;
+      console.log(body);
+      this.showLevelList(true);
       this.props.isLevelFlag(true);
       this.props.changeLevel(body);
+      if (this.props.showLevels) {
+        this.showLevelList(false);
+      }
     } else if (type === "changeVolume") {
       let body = e.value;
       this.props.isVolumeFlag(true);
       this.props.changeVolume(body);
+    } else if (type === "defaultSettings") {
+      this.props.saveSettings(true);
     }
   }
 
@@ -45,6 +52,10 @@ class MainSettings extends React.Component {
   onVolume() {
     this.props.isVolumeFlag(true);
     this.props.changeVolume(30);
+  }
+
+  showLevelList(flag) {
+    this.props.showLevelMenu(flag);
   }
 
   render() {
@@ -175,46 +186,73 @@ class MainSettings extends React.Component {
               </div>
               <div className={styles.settings_item}>
                 <p className={styles.settings_text_right}>Изменить уровень</p>
-                <select
-                  className={styles.settings_list}
-                  onChange={(e) => this.applySettings("changeLevel", e)}
-                >
-                  <option className={styles.settings_list_item} defaultChecked>
-                    Выберите уровень
-                  </option>
-                  <option
-                    className={styles.settings_list_item}
-                    value="Начальный"
+                <div className={styles.settings_level_block}>
+                  <input
+                    className={`${styles.settings_list} ${
+                      this.props.showLevels
+                        ? styles.settings_list_hide
+                        : styles.settings_list_show
+                    }`}
+                    type="button"
+                    value={
+                      this.props.newLevel ||
+                      this.props.stage ||
+                      this.props.level
+                    }
+                    onClick={() => this.showLevelList(true)}
+                  />
+                  <ul
+                    className={`${styles.settings_items} ${
+                      this.props.showLevels
+                        ? styles.settings_items_show
+                        : styles.settings_items_hide
+                    }`}
                   >
-                    Начальный
-                  </option>
-                  <option className={styles.settings_list_item} value="Средний">
-                    Средний
-                  </option>
-                  <option
-                    className={styles.settings_list_item}
-                    value="Продвинутый"
-                  >
-                    Продвинутый
-                  </option>
-                </select>
+                    <li
+                      className={styles.settings_item_level}
+                      onClick={(e) => this.applySettings("changeLevel", e)}
+                    >
+                      Начальный
+                    </li>
+                    <li
+                      className={styles.settings_item_level}
+                      onClick={(e) => this.applySettings("changeLevel", e)}
+                    >
+                      Средний
+                    </li>
+                    <li
+                      className={styles.settings_item_level}
+                      onClick={(e) => this.applySettings("changeLevel", e)}
+                    >
+                      Продвинутый
+                    </li>
+                  </ul>
+                </div>
               </div>
             </div>
           </div>
-          <div className={styles.settings_btns}>
+          <div
+            className={`${styles.settings_btns} ${
+              this.props.showLevels
+                ? styles.settings_btns_show
+                : styles.settings_btns_hide
+            }`}
+          >
             <button
-              className={`${styles.settings_btn} ${styles.settings_btn_clear} `}
+              className={styles.settings_btn}
               type="button"
+              onClick={() => this.applySettings("defaultSettings", null)}
             >
               Сбросить
             </button>
-            <button
-              className={`${styles.settings_btn} ${styles.settings_btn_save}`}
+            <Link
+              to="/profile"
+              className={styles.settings_btn}
               type="button"
-              onClick={this.props.saveSettings}
+              onClick={() => this.props.saveSettings(false)}
             >
               Сохранить
-            </button>
+            </Link>
           </div>
         </div>
       </section>
