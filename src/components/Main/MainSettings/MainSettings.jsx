@@ -1,6 +1,7 @@
 import React from "react";
 import styles from "./MainSettings.module.scss";
 import { Navigate, Link } from "react-router-dom";
+import MainHideBlock from "../MainHideBlock/MainHideBlock";
 
 class MainSettings extends React.Component {
   componentDidMount() {
@@ -22,6 +23,12 @@ class MainSettings extends React.Component {
       } else {
         this.props.isThemeFlag(true);
       }
+    } else if (type === "resetProgress") {
+      if (this.props.resetProgress) {
+        this.props.isResetFlag(false);
+      } else {
+        this.props.isResetFlag(true);
+      }
     } else if (type === "changeName") {
       let body = e.target.value;
       this.props.isNameFlag(true);
@@ -41,6 +48,13 @@ class MainSettings extends React.Component {
       this.props.changeVolume(body);
     } else if (type === "defaultSettings") {
       this.props.saveSettings(true);
+    } else if (type === "isAcceptWarning") {
+      if (e) {
+        this.props.acceptResetStore();
+        this.props.saveSettings(false);
+      } else {
+        this.props.isResetFlag(false);
+      }
     }
   }
 
@@ -58,13 +72,52 @@ class MainSettings extends React.Component {
     this.props.showLevelMenu(flag);
   }
 
+  showWarning() {
+    if (this.props.showWarning && this.props.resetProgress) {
+      return (
+        <div className={styles.settings_warning}>
+          <div className={styles.settings_warning_inner}>
+            <p className={styles.settings_warning_text}>
+              Сбросить весь игровой процесс?
+            </p>
+
+            <div className={styles.settings_warning_btns}>
+              <Link
+                to={"/settings"}
+                className={styles.settings_warning_btn}
+                type="button"
+                onClick={() => this.applySettings("isAcceptWarning", false)}
+              >
+                Нет
+              </Link>
+              <Link
+                to={"/profile"}
+                className={styles.settings_warning_btn}
+                type="button"
+                onClick={() => this.applySettings("isAcceptWarning", true)}
+              >
+                Да
+              </Link>
+            </div>
+          </div>
+        </div>
+      );
+    }
+  }
+
   render() {
     return (
       <section className={styles.settings}>
         <div className={styles.settings_inner}>
+          {this.props.showWarning && this.props.resetProgress ? (
+            <MainHideBlock />
+          ) : (
+            ""
+          )}
           <h3 className={styles.settings_title}>Настройки приложения</h3>
 
           <div className={styles.settings_block}>
+            {this.showWarning()}
             <div className={styles.settings_left}>
               <div className={styles.settings_item}>
                 <p className={styles.settings_text_left}>
@@ -95,19 +148,22 @@ class MainSettings extends React.Component {
                 </div>
               </div>
 
-              {/* <div className={styles.settings_item}>
-                <p className={`${styles.settings_text_right} ${theme("text")}`}>
-                  Сменить тип анимации фона
+              <div className={styles.settings_item}>
+                <p className={`${styles.settings_text_left}`}>
+                  Сбросить прогресс игры
                 </p>
                 <div className={styles.center}>
-                  <input className={styles.input_circle} type="checkbox" />
-                  <p
-                    className={styles.settings_text_description}
-                  >
-                    лучи/шум
+                  <input
+                    className={styles.input_circle}
+                    type="checkbox"
+                    checked={this.props.resetProgress}
+                    onChange={() => this.applySettings("resetProgress", null)}
+                  />
+                  <p className={styles.settings_text_description}>
+                    игровой прогресс будет сброшен
                   </p>
                 </div>
-              </div> */}
+              </div>
             </div>
 
             <div className={styles.settings_right}>
@@ -246,7 +302,7 @@ class MainSettings extends React.Component {
               Сбросить
             </button>
             <Link
-              to="/profile"
+              to={this.props.resetProgress ? "/settings" : "/profile"}
               className={styles.settings_btn}
               type="button"
               onClick={() => this.props.saveSettings(false)}

@@ -12,6 +12,8 @@ import {
   changeVolumeActionCreator,
   showLevelMenuActionCreator,
   clearSettingsActionCreator,
+  isResetFlagActionCreator,
+  acceptResetStoreActionCreator,
 } from "./../../../redux/reducers/reducerSettings";
 
 let mapStatetoProps = (state: any) => {
@@ -29,6 +31,8 @@ let mapStatetoProps = (state: any) => {
     level: state.settings.level,
     newLevel: state.settings.newLevel,
     showLevels: state.settings.showLevels,
+    resetProgress: state.settings.resetProgress,
+    showWarning: state.settings.showWarning,
   };
 };
 
@@ -49,6 +53,9 @@ let mapDispatchToProps = (dispatch: any) => {
     isVolumeFlag: (flag: boolean) => {
       dispatch(isVolumeFlagActionCreator(flag));
     },
+    isResetFlag: (flag: boolean) => {
+      dispatch(isResetFlagActionCreator(flag));
+    },
     changeName: (name: string) => {
       dispatch(changeNameActionCreator(name));
     },
@@ -66,6 +73,9 @@ let mapDispatchToProps = (dispatch: any) => {
     },
     clearSettings: () => {
       dispatch(clearSettingsActionCreator());
+    },
+    acceptResetStore: () => {
+      dispatch(acceptResetStoreActionCreator());
     },
   };
 };

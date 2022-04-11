@@ -20,7 +20,6 @@ export const getLocalProfileAvatar: any = store.get("avatar") || null;
 export const getLocalCustomValues: any = store.get("custom") || null;
 export const getLocalCustomValuesObj: any = store.get("filter") || null;
 export const getLocalVolumeValue: any = store.get("volume") || 30;
-
 export const getLocalAnim: any = store.get("anim") || null;
 
 export const addLocalAnim = (anim: boolean) => {
@@ -74,4 +73,11 @@ export const addLocalCustomValues = (custom: string) => {
 };
 export const addLocalProfileAvatar = (avatar: string) => {
   store.set("avatar", avatar);
+};
+
+export const removeProgress = () => {
+  store.remove("answersCurrentCategory");
+  store.remove("answersCategoryTranslate");
+  store.remove("answers");
+  store.remove("data");
 };

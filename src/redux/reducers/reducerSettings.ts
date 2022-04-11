@@ -1,4 +1,5 @@
 import {
+  removeProgress,
   addLocalUser,
   getLocalName,
   addLocalLevel,
@@ -20,6 +21,8 @@ const VOLUME_FLAG = "VOLUME_FLAG";
 const CHANGE_VOLUME = "CHANGE_VOLUME";
 const SHOW_LEVELS = "SHOW_LEVELS";
 const CLEAR_SETTINGS = "CLEAR_SETTINGS";
+const RESET_PROGRESS = "RESET_PROGRESS";
+const ACCEPT_RESET = "ACCEPT_RESET";
 
 interface Settings {
   isAnim: boolean;
@@ -32,9 +35,11 @@ interface Settings {
   level: string;
   newLevel: string;
   newName: string;
-  saveSet: boolean;
   showLevels: boolean;
   clearSet: boolean;
+  resetProgress: boolean;
+  acceptReset: boolean;
+  showWarning: boolean;
 }
 
 const initialState: Settings = {
@@ -48,9 +53,11 @@ const initialState: Settings = {
   newName: "",
   level: getLocalLevel,
   newLevel: "",
-  saveSet: false,
   showLevels: false,
   clearSet: false,
+  resetProgress: false,
+  acceptReset: false,
+  showWarning: false,
 };
 
 export const settingsReducer = (state = initialState, action: any) => {
@@ -95,7 +102,18 @@ export const settingsReducer = (state = initialState, action: any) => {
         ...state,
         volume: action.volume,
       };
+    case RESET_PROGRESS:
+      return {
+        ...state,
+        resetProgress: action.flag,
+      };
     case SAVE_SETTINGS:
+      if (state.resetProgress && state.acceptReset && !state.showWarning) {
+        removeProgress();
+        setTimeout(() => {
+          window.location.reload();
+        }, 800);
+      }
       if (action.flag) {
         addLocalVolume(30);
         return {
@@ -109,6 +127,9 @@ export const settingsReducer = (state = initialState, action: any) => {
           isName: false,
           isLevel: false,
           clearSet: false,
+          showWarning: false,
+          resetProgress: false,
+          acceptReset: false,
         };
       } else {
         if (state.isName) {
@@ -119,6 +140,12 @@ export const settingsReducer = (state = initialState, action: any) => {
         }
         if (state.isVolume) {
           addLocalVolume(state.volume);
+        }
+        if (state.resetProgress && !state.acceptReset) {
+          return {
+            ...state,
+            showWarning: true,
+          };
         }
 
         addLocalAnim(state.isAnim);
@@ -133,7 +160,8 @@ export const settingsReducer = (state = initialState, action: any) => {
           isVolume: false,
           isName: false,
           isLevel: false,
-          saveSet: true,
+          acceptReset: false,
+          showWarning: false,
         };
       }
 
@@ -147,10 +175,26 @@ export const settingsReducer = (state = initialState, action: any) => {
         ...state,
         clearSet: true,
       };
+    case ACCEPT_RESET:
+      return {
+        ...state,
+        acceptReset: true,
+        showWarning: false,
+        resetProgress: true,
+      };
     default:
       return state;
   }
 };
+
+export const acceptResetStoreActionCreator = () => ({
+  type: ACCEPT_RESET,
+});
+
+export const isResetFlagActionCreator = (flag: boolean) => ({
+  type: RESET_PROGRESS,
+  flag: flag,
+});
 
 export const clearSettingsActionCreator = () => ({
   type: CLEAR_SETTINGS,
