@@ -1,7 +1,7 @@
 {
   "files": {
-    "main.css": "/english-quiz/static/css/main.9f2714a4.css",
-    "main.js": "/english-quiz/static/js/main.3a83db3c.js",
+    "main.css": "/english-quiz/static/css/main.d521f8df.css",
+    "main.js": "/english-quiz/static/js/main.498da67c.js",
     "static/media/TTNormsPro-Regular.eot": "/english-quiz/static/media/TTNormsPro-Regular.3463e845a90ada751882.eot",
     "static/media/TTNormsPro-Regular.ttf": "/english-quiz/static/media/TTNormsPro-Regular.286accc215acf65c8da8.ttf",
     "static/media/TTNormsPro-Bold.eot": "/english-quiz/static/media/TTNormsPro-Bold.57473609fa405827d418.eot",
@@ -23,6 +23,7 @@
     "static/media/level-2.svg": "/english-quiz/static/media/level-2.baef5c5f502d864a4363d5c6d2ae9ea5.svg",
     "static/media/level-1.svg": "/english-quiz/static/media/level-1.7b4191e3ca7c31791df03153cab57f0c.svg",
     "static/media/level-3.svg": "/english-quiz/static/media/level-3.2f515bc39857287b5dac288221806337.svg",
+    "static/media/plus.svg": "/english-quiz/static/media/plus.9c8ae674b8fe9901b0f3.svg",
     "static/media/play.svg": "/english-quiz/static/media/play.f3784cc3870b6393ce37386d117a923f.svg",
     "static/media/avatar.svg": "/english-quiz/static/media/avatar.00f67d130999cd73ea3c459b7effe8d3.svg",
     "index.html": "/english-quiz/index.html",
@@ -30,11 +31,11 @@
     "static/media/previous.svg": "/english-quiz/static/media/previous.d1b57575113f0971fe88.svg",
     "static/media/close.svg": "/english-quiz/static/media/close.2001e956d267bc9b1a23.svg",
     "static/media/change_photo.svg": "/english-quiz/static/media/change_photo.2349b07e5232e2dfdd01.svg",
-    "main.9f2714a4.css.map": "/english-quiz/static/css/main.9f2714a4.css.map",
-    "main.3a83db3c.js.map": "/english-quiz/static/js/main.3a83db3c.js.map"
+    "main.d521f8df.css.map": "/english-quiz/static/css/main.d521f8df.css.map",
+    "main.498da67c.js.map": "/english-quiz/static/js/main.498da67c.js.map"
   },
   "entrypoints": [
-    "static/css/main.9f2714a4.css",
-    "static/js/main.3a83db3c.js"
+    "static/css/main.d521f8df.css",
+    "static/js/main.498da67c.js"
   ]
 }
