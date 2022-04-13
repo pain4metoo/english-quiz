@@ -10,6 +10,10 @@ const MainInstruction = (props: any) => {
     props.changeTheme(theme);
   };
 
+  const showAnswerN = (e: any) => {
+    props.showAnswer(+e.dataset.id);
+  };
+
   return (
     <section className={styles.instr}>
       <div className={styles.instr_inner}>
@@ -37,8 +41,18 @@ const MainInstruction = (props: any) => {
             ? props.answersFAQ.game.map((item: string, index: number) => {
                 return (
                   <div className={styles.instr_block} key={index}>
-                    <p className={styles.instr_ques}>{item}</p>
-                    <div className={styles.instr_ans}>
+                    <p
+                      className={styles.instr_ques}
+                      onClick={(e) => showAnswerN(e.target)}
+                      data-id={index}
+                    >
+                      {item}
+                    </p>
+                    <div
+                      className={`${styles.instr_ans} ${
+                        props.number === index ? styles.instr_ans_show : ""
+                      }`}
+                    >
                       {props.answersFAQ.gameAnswer[index]}
                     </div>
                   </div>
@@ -47,8 +61,20 @@ const MainInstruction = (props: any) => {
             : props.quest.map((item: string, index: number) => {
                 return (
                   <div className={styles.instr_block} key={index}>
-                    <p className={styles.instr_ques}>{item}</p>
-                    <div className={styles.instr_ans}>{props.ans[index]}</div>
+                    <p
+                      className={styles.instr_ques}
+                      data-id={index}
+                      onClick={(e) => showAnswerN(e.target)}
+                    >
+                      {item}
+                    </p>
+                    <div
+                      className={`${styles.instr_ans} ${
+                        props.number === index ? styles.instr_ans_show : ""
+                      }`}
+                    >
+                      {props.ans[index]}
+                    </div>
                   </div>
                 );
               })}

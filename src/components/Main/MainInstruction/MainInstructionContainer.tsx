@@ -1,6 +1,9 @@
 import MainInstruction from "./MainInstruction";
 import { connect } from "react-redux";
-import { changeThemeActionCreator } from "../../../redux/reducers/reducerInstruction";
+import {
+  changeThemeActionCreator,
+  showAnswerActionCreator,
+} from "../../../redux/reducers/reducerInstruction";
 
 let mapStatetoProps = (state: any) => {
   return {
@@ -10,6 +13,7 @@ let mapStatetoProps = (state: any) => {
     quest: state.instruction.quest,
     ans: state.instruction.ans,
     answersFAQ: state.instruction.answersFAQ,
+    number: state.instruction.number,
   };
 };
 
@@ -17,6 +21,9 @@ let mapDispatchToProps = (dispatch: any) => {
   return {
     changeTheme: (theme: string) => {
       dispatch(changeThemeActionCreator(theme));
+    },
+    showAnswer: (number: number) => {
+      dispatch(showAnswerActionCreator(number));
     },
   };
 };
