@@ -31,6 +31,7 @@ interface Settings {
   isLevel: boolean;
   isVolume: boolean;
   volume: number;
+  prevVolume: number;
   name: string;
   level: string;
   newLevel: string;
@@ -40,6 +41,7 @@ interface Settings {
   resetProgress: boolean;
   acceptReset: boolean;
   showWarning: boolean;
+  showPopup: boolean;
 }
 
 const initialState: Settings = {
@@ -49,6 +51,7 @@ const initialState: Settings = {
   isLevel: false,
   isVolume: false,
   volume: getLocalVolumeValue || 30,
+  prevVolume: getLocalVolumeValue,
   name: getLocalName,
   newName: "",
   level: getLocalLevel,
@@ -58,6 +61,7 @@ const initialState: Settings = {
   resetProgress: false,
   acceptReset: false,
   showWarning: false,
+  showPopup: false,
 };
 
 export const settingsReducer = (state = initialState, action: any) => {
@@ -101,6 +105,14 @@ export const settingsReducer = (state = initialState, action: any) => {
       return {
         ...state,
         volume: action.volume,
+        prevVolume: state.volume,
+      };
+
+    case "CLOSE_POPUP":
+      return {
+        ...state,
+        showPopup: action.flag,
+        clearSet: false,
       };
     case RESET_PROGRESS:
       if (state.showWarning && !action.flag) {
@@ -133,7 +145,7 @@ export const settingsReducer = (state = initialState, action: any) => {
           isVolume: false,
           isName: false,
           isLevel: false,
-          clearSet: false,
+          clearSet: true,
           showWarning: false,
           resetProgress: false,
           acceptReset: false,
@@ -169,6 +181,7 @@ export const settingsReducer = (state = initialState, action: any) => {
           isLevel: false,
           acceptReset: false,
           showWarning: false,
+          showPopup: true,
         };
       }
 
@@ -181,6 +194,7 @@ export const settingsReducer = (state = initialState, action: any) => {
       return {
         ...state,
         clearSet: true,
+        showPopup: true,
       };
     case ACCEPT_RESET:
       return {
@@ -193,6 +207,11 @@ export const settingsReducer = (state = initialState, action: any) => {
       return state;
   }
 };
+
+export const closeSavePopupActionCreator = (flag: boolean) => ({
+  type: "CLOSE_POPUP",
+  flag: flag,
+});
 
 export const acceptResetStoreActionCreator = () => ({
   type: ACCEPT_RESET,

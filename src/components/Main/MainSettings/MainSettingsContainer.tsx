@@ -14,6 +14,7 @@ import {
   clearSettingsActionCreator,
   isResetFlagActionCreator,
   acceptResetStoreActionCreator,
+  closeSavePopupActionCreator,
 } from "./../../../redux/reducers/reducerSettings";
 
 let mapStatetoProps = (state: any) => {
@@ -33,6 +34,9 @@ let mapStatetoProps = (state: any) => {
     showLevels: state.settings.showLevels,
     resetProgress: state.settings.resetProgress,
     showWarning: state.settings.showWarning,
+    prevVolume: state.settings.prevVolume,
+    showPopup: state.settings.showPopup,
+    clearSet: state.settings.clearSet,
   };
 };
 
@@ -76,6 +80,9 @@ let mapDispatchToProps = (dispatch: any) => {
     },
     acceptResetStore: () => {
       dispatch(acceptResetStoreActionCreator());
+    },
+    closeSavePopup: (flag: boolean) => {
+      dispatch(closeSavePopupActionCreator(flag));
     },
   };
 };
