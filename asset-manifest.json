@@ -1,6 +1,6 @@
 {
   "files": {
-    "main.css": "/english-quiz/static/css/main.5a7613a8.css",
+    "main.css": "/english-quiz/static/css/main.a2e01903.css",
     "main.js": "/english-quiz/static/js/main.44952825.js",
     "static/media/TTNormsPro-Regular.eot": "/english-quiz/static/media/TTNormsPro-Regular.3463e845a90ada751882.eot",
     "static/media/TTNormsPro-Regular.ttf": "/english-quiz/static/media/TTNormsPro-Regular.286accc215acf65c8da8.ttf",
@@ -31,11 +31,11 @@
     "static/media/previous.svg": "/english-quiz/static/media/previous.d1b57575113f0971fe88.svg",
     "static/media/close.svg": "/english-quiz/static/media/close.2001e956d267bc9b1a23.svg",
     "static/media/change_photo.svg": "/english-quiz/static/media/change_photo.2349b07e5232e2dfdd01.svg",
-    "main.5a7613a8.css.map": "/english-quiz/static/css/main.5a7613a8.css.map",
+    "main.a2e01903.css.map": "/english-quiz/static/css/main.a2e01903.css.map",
     "main.44952825.js.map": "/english-quiz/static/js/main.44952825.js.map"
   },
   "entrypoints": [
-    "static/css/main.5a7613a8.css",
+    "static/css/main.a2e01903.css",
     "static/js/main.44952825.js"
   ]
 }
