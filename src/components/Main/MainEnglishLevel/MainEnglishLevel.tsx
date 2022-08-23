@@ -1,4 +1,3 @@
-import React from "react";
 import styles from "./MainEnglishLevel.module.scss";
 import levelImg1 from "../../../assets/svg/level-1.svg";
 import levelImg2 from "../../../assets/svg/level-2.svg";
