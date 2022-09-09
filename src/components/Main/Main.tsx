@@ -15,13 +15,12 @@ import MainHideBlock from "./MainHideBlock/MainHideBlock";
 import { Routes, Route } from "react-router-dom";
 
 const Main = (props: any) => {
-
   const hide = () => {
     if (props.isAvatarOpen || props.isCustomOpen) {
       return <MainHideBlock />;
     }
   };
-
+  
   return (
     <main className={styles.main}>
       <MainBackgroundContainer />

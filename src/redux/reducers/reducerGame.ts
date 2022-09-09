@@ -96,7 +96,7 @@ const gameReducer = (state = initialState, action: any) => {
         state.previousAnswers[state.category].push(state.previusNumber);
         store.set("answers", state.previousAnswers);
         let answer = `${currentAnswer} - ${russianAnswer}`;
-
+        console.log(answer);
         return {
           ...state,
           isAnswer: true,
