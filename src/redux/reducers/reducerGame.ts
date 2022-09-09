@@ -92,11 +92,11 @@ const gameReducer = (state = initialState, action: any) => {
       let trueAnswer = state.data[state.category][state.previusNumber].eng;
       let russianAnswer = state.data[state.category][state.previusNumber].rus;
       let currentAnswer = state.newAnswerText;
+
       if (trueAnswer === currentAnswer) {
         state.previousAnswers[state.category].push(state.previusNumber);
         store.set("answers", state.previousAnswers);
         let answer = `${currentAnswer} - ${russianAnswer}`;
-        console.log(answer);
         return {
           ...state,
           isAnswer: true,
@@ -143,7 +143,7 @@ const gameReducer = (state = initialState, action: any) => {
         };
       }
       let url = state.data[category][randomCount].track;
-
+      console.log(url);
       let src = `https://raw.githubusercontent.com/pain4metoo/words-data/master/${category}/${url}.mp3`;
       return {
         ...state,
